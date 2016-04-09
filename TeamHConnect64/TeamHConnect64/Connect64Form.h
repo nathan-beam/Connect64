@@ -13,14 +13,14 @@ namespace Connect64 {
 	/// <summary>
 	/// Summary for MyForm
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class Connect64Form : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void);
+		Connect64Form(void);
 		
 
 	protected:
-		~MyForm();
+		~Connect64Form();
 
 	private: ResourceManager^ resourceManager;
 

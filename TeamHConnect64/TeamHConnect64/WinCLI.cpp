@@ -1,4 +1,4 @@
-#include "MyForm.h"
+#include "Connect64Form.h"
 
 using namespace Connect64;
 
@@ -8,6 +8,6 @@ int main(array<System::String ^> ^args)
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 
-	Application::Run(gcnew MyForm());
+	Application::Run(gcnew Connect64Form());
 	return 0;
 }

@@ -1,8 +1,8 @@
-#include "MyForm.h"
+#include "Connect64Form.h"
 
 namespace Connect64 {
 
-	MyForm::MyForm(void)
+	Connect64Form::Connect64Form(void)
 	{
 		InitializeComponent();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
@@ -12,7 +12,7 @@ namespace Connect64 {
 	/// <summary>
 	/// Clean up any resources being used.
 	/// </summary>
-	MyForm::~MyForm()
+	Connect64Form::~Connect64Form()
 	{
 		if (components)
 		{
