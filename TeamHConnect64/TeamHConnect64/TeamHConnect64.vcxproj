@@ -74,7 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Connect64Form.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -85,11 +85,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="Connect64Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Connect64Form.resx">
+      <DependentUpon>Connect64Form.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayStrings.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

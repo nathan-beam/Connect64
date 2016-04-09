@@ -7,6 +7,7 @@ namespace Connect64 {
 		InitializeComponent();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
+		this->Numberlbl->Text = this->resourceManager->GetString("NumberChoiceLabelText");
 	}
 
 	/// <summary>
