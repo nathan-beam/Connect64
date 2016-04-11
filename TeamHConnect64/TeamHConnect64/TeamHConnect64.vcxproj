@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="Connect64Form.cpp" />
     <ClCompile Include="Connect64FormView.cpp" />
+    <ClCompile Include="Controller\ConnectFileIO.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +90,7 @@
     <ClInclude Include="Connect64Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ConnectFileIO.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Connect64Form.resx">
