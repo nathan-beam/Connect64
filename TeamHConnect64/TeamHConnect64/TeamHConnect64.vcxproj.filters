@@ -30,9 +30,15 @@
     <ClCompile Include="Connect64Form.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="Connect64FormView.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DisplayStrings.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Connect64Form.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
