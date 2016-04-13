@@ -110,6 +110,7 @@ namespace Connect64 {
 
 		 Label^ editLabel;
 		 List<Label^>^ startingBoard;
+	private: System::Windows::Forms::Label^  puzzleNumberLabel;
 
 
 		private:

@@ -31,7 +31,7 @@ namespace Connect64 {
 	}
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
-		this->gameBoard = gcnew Board();
+		this->gameBoard = gcnew Board(1);
 		this->gameBoard->setTile(0, 0, 1);
 		this->gameBoard->setTile(7, 0, 8);
 		this->gameBoard->setTile(7, 7, 15);
@@ -63,6 +63,8 @@ namespace Connect64 {
 				label->ForeColor = Color::Gray;
 			}
 		}
+		this->puzzleNumberLabel->Text = this->resourceManager->GetString("PuzzleNumberLabelText") + this->gameBoard->getPuzzleNumber();
+
 	}
 
 	void Connect64Form::tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e){
@@ -77,6 +79,8 @@ namespace Connect64 {
 				this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
 				this->editLabel = label;
 				this->numericUpDown->Visible = true;
+				this->confirmInputButton->Enabled = true;
+
 			}
 		}
 	}
@@ -90,6 +94,8 @@ namespace Connect64 {
 			this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
 			this->editLabel = label;
 			this->numericUpDown->Visible = true;
+			this->confirmInputButton->Enabled = true;
+
 		}
 	}
 
@@ -103,6 +109,7 @@ namespace Connect64 {
 		int value = safe_cast<int>(this -> numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
 		this->checkForDuplicates();
+		this->confirmInputButton->Enabled = false;
 	}
 
 	void Connect64Form::checkForDuplicates(){
@@ -117,7 +124,9 @@ namespace Connect64 {
 			}
 			else
 			{
-				label->ForeColor = Color::Black;
+				if (!this->startingBoard->Contains(label)){
+					label->ForeColor = Color::Black;
+				}
 			}
 
 		}

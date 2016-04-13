@@ -1,10 +1,11 @@
 #include "..\Board.h"
 
 namespace model{
-	Board::Board()
+	Board::Board(int puzzleNumber)
 		//TODO: Board size to constants
 	{
 		this->board = gcnew array<int, 2>(8, 8);
+		this->puzzleNumber = puzzleNumber;
 	}
 
 	int Board::getTile(int x, int y){
@@ -46,5 +47,9 @@ namespace model{
 			}
 		}
 		return valueCount > 1;
+	}
+
+	int Board::getPuzzleNumber(){
+		return this->puzzleNumber;
 	}
 }
