@@ -15,7 +15,7 @@ namespace Connect64 {
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
-
+		this->cancelInputBtn->Text = this->resourceManager->GetString("CancelInputButtonText");
 		this->gameBoard = gcnew Board();
 		this->setBoard();
 	}
@@ -101,5 +101,12 @@ namespace Connect64 {
 		this->tableLayoutPanel->Controls->Add(this->editLabel);
 		int value = safe_cast<int>(this -> numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
+	}
+
+	void Connect64Form::cancelInputBtn_Click(System::Object^  sender, System::EventArgs^  e){
+		if (this->numericUpDown->Visible){
+			this->numericUpDown->Visible = false;
+			this->tableLayoutPanel->Controls->Remove(this->numericUpDown);
+		}
 	}
 }
