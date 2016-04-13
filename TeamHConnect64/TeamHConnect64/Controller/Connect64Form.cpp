@@ -110,6 +110,9 @@ namespace Connect64 {
 		this->gameBoard->setTile(x, y, value);
 		this->checkForDuplicates();
 		this->confirmInputButton->Enabled = false;
+		if (this->gameBoard->isSolved()){
+			MessageBox::Show("Yay!", "You did it!");
+		}
 	}
 
 	void Connect64Form::checkForDuplicates(){

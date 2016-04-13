@@ -52,4 +52,64 @@ namespace model{
 	int Board::getPuzzleNumber(){
 		return this->puzzleNumber;
 	}
+
+	bool Board::isSolved(){
+		return this->touchingNextTile(0, 0);
+	}
+
+	bool Board::touchingNextTile(int x, int y){
+		if (this->getTile(x, y) == 64){ //TODO: Size^2
+			return true;
+		}
+		if (this->touchingOnTop(x, y)){
+			return (this->touchingNextTile(x, y - 1));//SIZE
+		}
+		if (this->touchingOnLeft(x, y)){
+			return (this->touchingNextTile(x-1, y));//SIZE
+		}
+		if (this->touchingOnRight(x, y)){
+			return (this->touchingNextTile(x+1, y));//SIZE
+		}
+		if (this->touchingOnBottom(x, y)){
+			return (this->touchingNextTile(x, y + 1));//SIZE
+		}
+
+		return false;
+	}
+
+	bool Board::touchingOnTop(int x, int y){
+		if (y == 0){
+			return false;
+		}
+		int currVal = this->getTile(x, y);
+		int topVal = this->getTile(x, y - 1);
+		return topVal == currVal + 1;
+	}
+
+	bool Board::touchingOnLeft(int x, int y){
+		if (x == 0){
+			return false;
+		}
+		int currVal = this->getTile(x, y);
+		int leftVal = this->getTile(x - 1, y);
+		return leftVal == currVal + 1;
+	}
+
+	bool Board::touchingOnRight(int x, int y){
+		if (x == 7){ //SIZE
+			return false;
+		}
+		int currVal = this->getTile(x, y);
+		int rightVal = this->getTile(x+1,y);
+		return rightVal == currVal + 1;
+	}
+
+	bool Board::touchingOnBottom(int x, int y){
+		if (y == 7){
+			return false;
+		}
+		int currVal = this->getTile(x, y);
+		int bottomVal = this->getTile(x, y +1);
+		return bottomVal == currVal + 1;
+	}
 }

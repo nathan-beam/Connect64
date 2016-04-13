@@ -11,9 +11,16 @@ namespace model{
 		bool contains(int value);
 		bool isDuplicate(int value);
 		int getPuzzleNumber();
+		bool isSolved();
 
 	private:
 		array<int, 2>^ board;
 		int puzzleNumber;
+		bool touchingNextTile(int x, int y);
+		bool touchingOnTop(int x, int y);
+		bool touchingOnLeft(int x, int y);
+		bool touchingOnRight(int x, int y);
+		bool touchingOnBottom(int x, int y);
+
 	};
 }
