@@ -131,6 +131,7 @@ private: System::Void tableLayoutPanel_MouseDown(System::Object^  sender, System
 
 private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
+		 void checkForDuplicates();
 };
 }
 

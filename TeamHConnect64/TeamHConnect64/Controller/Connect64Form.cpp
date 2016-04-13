@@ -101,5 +101,24 @@ namespace Connect64 {
 		this->tableLayoutPanel->Controls->Add(this->editLabel);
 		int value = safe_cast<int>(this -> numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
+		this->checkForDuplicates();
+	}
+
+	void Connect64Form::checkForDuplicates(){
+		for each (Object^ control in this->tableLayoutPanel->Controls)
+		{
+			Label^ label = safe_cast<Label^>(control);
+			int x = this->tableLayoutPanel->GetColumn(label);
+			int y = this->tableLayoutPanel->GetRow(label);
+			int value = this->gameBoard->getTile(x, y);
+			if (this->gameBoard->isDuplicate(value)){
+				label->ForeColor = Color::Red;
+			}
+			else
+			{
+				label->ForeColor = Color::Black;
+			}
+
+		}
 	}
 }

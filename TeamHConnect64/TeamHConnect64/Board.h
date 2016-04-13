@@ -8,6 +8,8 @@ namespace model{
 		Board();
 		int getTile(int x, int y);
 		void setTile(int x, int y, int num);
+		bool contains(int value);
+		bool isDuplicate(int value);
 
 	private:
 		array<int, 2>^ board;
