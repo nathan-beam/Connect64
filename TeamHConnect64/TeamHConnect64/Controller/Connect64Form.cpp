@@ -128,11 +128,11 @@ namespace Connect64 {
 					label->ForeColor = Color::Black;
 				}
 			}
-
 		}
 	}
 
 	void Connect64Form::resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
+		this->confirmInputButton_Click(sender, e);
 		this->setBoard();
 	}
 }
