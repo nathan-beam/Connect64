@@ -85,6 +85,7 @@ namespace Connect64 {
 		this->label1 = (gcnew System::Windows::Forms::Label());
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
+		this->puzzleNumberLabel = (gcnew System::Windows::Forms::Label());
 		this->menuStrip1->SuspendLayout();
 		this->tableLayoutPanel->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
@@ -1031,6 +1032,7 @@ namespace Connect64 {
 		// 
 		// confirmInputButton
 		// 
+		this->confirmInputButton->Enabled = false;
 		this->confirmInputButton->Location = System::Drawing::Point(188, 471);
 		this->confirmInputButton->Name = L"confirmInputButton";
 		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
@@ -1038,11 +1040,22 @@ namespace Connect64 {
 		this->confirmInputButton->UseVisualStyleBackColor = true;
 		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
 		// 
+		// puzzleNumberLabel
+		// 
+		this->puzzleNumberLabel->AutoSize = true;
+		this->puzzleNumberLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
+			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+		this->puzzleNumberLabel->Location = System::Drawing::Point(11, 471);
+		this->puzzleNumberLabel->Name = L"puzzleNumberLabel";
+		this->puzzleNumberLabel->Size = System::Drawing::Size(0, 18);
+		this->puzzleNumberLabel->TabIndex = 6;
+		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(451, 506);
+		this->Controls->Add(this->puzzleNumberLabel);
 		this->Controls->Add(this->confirmInputButton);
 		this->Controls->Add(this->numericUpDown);
 		this->Controls->Add(this->tableLayoutPanel);
