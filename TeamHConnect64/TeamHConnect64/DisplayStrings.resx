@@ -117,10 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ChoosePuzzleMenuItemText" xml:space="preserve">
+    <value>&amp;Choose Puzzle</value>
+  </data>
+  <data name="FileMenuItemText" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
   <data name="FormTitleText" xml:space="preserve">
     <value>Connect 64 by Nathan Beam and Matt Maginniss</value>
   </data>
+  <data name="GameMenuItemText" xml:space="preserve">
+    <value>&amp;Game</value>
+  </data>
+  <data name="LoadMenuItemText" xml:space="preserve">
+    <value>&amp;Load</value>
+  </data>
   <data name="NumberChoiceLabelText" xml:space="preserve">
     <value>Select the number to add from the drop down:</value>
+  </data>
+  <data name="ResetMenuItemText" xml:space="preserve">
+    <value>&amp;Reset</value>
+  </data>
+  <data name="SaveMenuItemText" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="SettingsMenuItemText" xml:space="preserve">
+    <value>&amp;Settings</value>
   </data>
 </root>

@@ -74,8 +74,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Connect64Form.cpp" />
     <ClCompile Include="Connect64FormView.cpp" />
+    <ClCompile Include="Controller\Connect64Form.cpp" />
+    <ClCompile Include="Model\Board.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.h" />
     <ClInclude Include="Connect64Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>

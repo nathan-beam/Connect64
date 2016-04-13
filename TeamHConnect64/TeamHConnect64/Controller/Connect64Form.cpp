@@ -7,7 +7,14 @@ namespace Connect64 {
 		InitializeComponent();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
-		this->Numberlbl->Text = this->resourceManager->GetString("NumberChoiceLabelText");
+		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
+		this->gameToolStripMenuItem->Text = this->resourceManager->GetString("GameMenuItemText");
+		this->settingsToolStripMenuItem->Text = this->resourceManager->GetString("SettingsMenuItemText");
+		this->saveToolStripMenuItem->Text = this->resourceManager->GetString("SaveMenuItemText");
+		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
+		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
+		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
+
 	}
 
 	/// <summary>
