@@ -138,4 +138,12 @@ namespace Connect64 {
 		this->confirmInputButton_Click(sender, e);
 		this->setBoard();
 	}
+
+	void Connect64Form::numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e)
+	{
+		if (e->KeyCode == Keys::Enter)
+		{
+			this->confirmInputButton->PerformClick();
+		}
+	}
 }

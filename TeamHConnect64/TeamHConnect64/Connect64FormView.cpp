@@ -134,13 +134,13 @@ namespace Connect64 {
 		// resetToolStripMenuItem
 		// 
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
 		// 
 		// choosePuzzleToolStripMenuItem
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
-		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		// 
 		// settingsToolStripMenuItem
 		// 
@@ -1029,6 +1029,7 @@ namespace Connect64 {
 		this->numericUpDown->TabIndex = 4;
 		this->numericUpDown->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		this->numericUpDown->Visible = false;
+		this->numericUpDown->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Connect64Form::numericUpDown_KeyDown);
 		// 
 		// confirmInputButton
 		// 
@@ -1036,7 +1037,7 @@ namespace Connect64 {
 		this->confirmInputButton->Location = System::Drawing::Point(188, 471);
 		this->confirmInputButton->Name = L"confirmInputButton";
 		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
-		this->confirmInputButton->TabIndex = 5;
+		this->confirmInputButton->TabIndex = 1;
 		this->confirmInputButton->UseVisualStyleBackColor = true;
 		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
 		// 

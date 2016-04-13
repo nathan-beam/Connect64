@@ -1,6 +1,9 @@
 #pragma once
 #include "Board.h"
 using namespace model;
+#include "ConnectFileIO.h"
+using namespace Controller;
+
 
 namespace Connect64 {
 
@@ -34,6 +37,7 @@ namespace Connect64 {
 	private: System::Windows::Forms::ToolStripMenuItem^  settingsToolStripMenuItem;
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel;
 			 Board^ gameBoard;
+			 ConnectFileIO^ fileIO;
 
 	private: System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
@@ -135,6 +139,7 @@ private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e
 private: System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
 		 void checkForDuplicates();
 private: System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
 };
 }
 
