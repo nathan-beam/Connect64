@@ -85,7 +85,6 @@ namespace Connect64 {
 		this->label1 = (gcnew System::Windows::Forms::Label());
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
-		this->cancelInputBtn = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1->SuspendLayout();
 		this->tableLayoutPanel->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
@@ -1031,28 +1030,18 @@ namespace Connect64 {
 		// 
 		// confirmInputButton
 		// 
-		this->confirmInputButton->Location = System::Drawing::Point(121, 471);
+		this->confirmInputButton->Location = System::Drawing::Point(188, 471);
 		this->confirmInputButton->Name = L"confirmInputButton";
 		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
 		this->confirmInputButton->TabIndex = 5;
 		this->confirmInputButton->UseVisualStyleBackColor = true;
 		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
 		// 
-		// cancelInputBtn
-		// 
-		this->cancelInputBtn->Location = System::Drawing::Point(255, 471);
-		this->cancelInputBtn->Name = L"cancelInputBtn";
-		this->cancelInputBtn->Size = System::Drawing::Size(75, 23);
-		this->cancelInputBtn->TabIndex = 6;
-		this->cancelInputBtn->UseVisualStyleBackColor = true;
-		this->cancelInputBtn->Click += gcnew System::EventHandler(this, &Connect64Form::cancelInputBtn_Click);
-		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(451, 506);
-		this->Controls->Add(this->cancelInputBtn);
 		this->Controls->Add(this->confirmInputButton);
 		this->Controls->Add(this->numericUpDown);
 		this->Controls->Add(this->tableLayoutPanel);

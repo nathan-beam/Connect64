@@ -110,7 +110,7 @@ namespace Connect64 {
 
 		 Label^ editLabel;
 		 List<Label^>^ startingBoard;
-	private: System::Windows::Forms::Button^  cancelInputBtn;
+
 
 		private:
 		/// <summary>
@@ -132,7 +132,6 @@ private: System::Void tableLayoutPanel_MouseDown(System::Object^  sender, System
 
 private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void cancelInputBtn_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 
