@@ -14,6 +14,8 @@ namespace Connect64 {
 		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
+		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
+
 		this->gameBoard = gcnew Board();
 		this->setBoard();
 	}
@@ -46,36 +48,58 @@ namespace Connect64 {
 	}
 
 	void Connect64Form::showBoard(){
+		this->startingBoard = gcnew List<Label^>();
 		for each (Object^ control in this->tableLayoutPanel->Controls){
 			Label^ label = safe_cast<Label^>(control);
 			int x = this->tableLayoutPanel->GetColumn(label);
 			int y = this->tableLayoutPanel->GetRow(label);
 			int num = this->gameBoard->getTile(x, y);
-			if (num != 0){
+			if (num == 0){
+				label->Text = " ";
+			}
+			else{
 				label->Text = num + "";
+				this->startingBoard->Add(label);
+				label->ForeColor = Color::Gray;
 			}
 		}
 	}
 	void Connect64Form::tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e){
-		TextBox^ tempEntryBox = gcnew TextBox();
-		Point^ coords = gcnew Point(e->X, e->Y);
-		Object^ control = this->tableLayoutPanel->GetChildAtPoint(*coords);
-		Label^ label = safe_cast<Label^>(control);
-		label->Text = "C";
-		int x = this->tableLayoutPanel->GetColumn(label);
-		int y = this->tableLayoutPanel->GetRow(label);
-		this->tableLayoutPanel->SetColumn(tempEntryBox, x);
-		this->tableLayoutPanel->SetRow(tempEntryBox, y);
-
+		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));		
+		Object^ control = this->tableLayoutPanel->GetControlFromPosition(selectedCell->X, selectedCell->Y);
+		if (control->GetType() == Label::typeid){
+			Label^ label = safe_cast<Label^>(control);
+			if ((!this->numericUpDown->Visible && !this->startingBoard->Contains(label))){
+				int x = this->tableLayoutPanel->GetColumn(label);
+				int y = this->tableLayoutPanel->GetRow(label);
+				this->tableLayoutPanel->Controls->Remove(label);
+				this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
+				this->editLabel = label;
+				this->numericUpDown->Visible = true;
+			}
+		}
 	}
 
 	void Connect64Form::label_Click(System::Object^  sender, System::EventArgs^  e){
-		TextBox^ tempEntryBox = gcnew TextBox();
 		Label^ label = safe_cast<Label^>(sender);
-		label->Text = "C";
-		int x = this->tableLayoutPanel->GetColumn(label);
-		int y = this->tableLayoutPanel->GetRow(label);
-		this->tableLayoutPanel->SetColumn(tempEntryBox, x);
-		this->tableLayoutPanel->SetRow(tempEntryBox, y);
+		if (!this->numericUpDown->Visible && !this->startingBoard->Contains(label)){
+			int x = this->tableLayoutPanel->GetColumn(label);
+			int y = this->tableLayoutPanel->GetRow(label);
+			this->tableLayoutPanel->Controls->Remove(label);
+			this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
+			this->editLabel = label;
+			this->numericUpDown->Visible = true;
+		}
+	}
+
+	void Connect64Form::confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e){
+		int x = this->tableLayoutPanel->GetColumn(this->numericUpDown);
+		int y = this->tableLayoutPanel->GetRow(this->numericUpDown);
+		this->numericUpDown->Visible = false;
+		this->editLabel->Text = this->numericUpDown->Value +"";
+		this->tableLayoutPanel->Controls->Remove(this->numericUpDown);
+		this->tableLayoutPanel->Controls->Add(this->editLabel);
+		int value = safe_cast<int>(this -> numericUpDown->Value);
+		this->gameBoard->setTile(x, y, value);
 	}
 }

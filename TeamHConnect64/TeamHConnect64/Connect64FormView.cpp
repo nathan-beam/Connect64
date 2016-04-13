@@ -83,8 +83,11 @@ namespace Connect64 {
 		this->label3 = (gcnew System::Windows::Forms::Label());
 		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->label1 = (gcnew System::Windows::Forms::Label());
+		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
+		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1->SuspendLayout();
 		this->tableLayoutPanel->SuspendLayout();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
 		// 
 		// menuStrip1
@@ -130,12 +133,12 @@ namespace Connect64 {
 		// resetToolStripMenuItem
 		// 
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 		// 
 		// choosePuzzleToolStripMenuItem
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
-		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 		// 
 		// settingsToolStripMenuItem
 		// 
@@ -226,6 +229,72 @@ namespace Connect64 {
 		this->tableLayoutPanel->Controls->Add(this->label3, 2, 0);
 		this->tableLayoutPanel->Controls->Add(this->label2, 1, 0);
 		this->tableLayoutPanel->Controls->Add(this->label1, 0, 0);
+		this->label1->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label2->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label3->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label4->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label5->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label6->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label7->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label8->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label9->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label10->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label11->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label12->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label13->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label14->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label15->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label16->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label17->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label18->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label19->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label20->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label21->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label22->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label23->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label24->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label25->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label26->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label27->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label28->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label29->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label30->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label31->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label32->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label33->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label34->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label35->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label36->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label37->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label38->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label39->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label40->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label41->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label42->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label43->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label44->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label45->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label46->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label47->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label48->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label49->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label50->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label51->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label52->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label53->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label54->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label55->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label56->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label57->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label58->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label59->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label60->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label61->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label62->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label63->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		this->label64->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+
+
 		this->tableLayoutPanel->Location = System::Drawing::Point(11, 34);
 		this->tableLayoutPanel->Margin = System::Windows::Forms::Padding(25);
 		this->tableLayoutPanel->Name = L"tableLayoutPanel";
@@ -946,13 +1015,37 @@ namespace Connect64 {
 		this->label1->Name = L"label1";
 		this->label1->Size = System::Drawing::Size(0, 31);
 		this->label1->TabIndex = 0;
-		this->label1->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
+		// 
+		// numericUpDown
+		// 
+		this->numericUpDown->Anchor = System::Windows::Forms::AnchorStyles::None;
+		this->numericUpDown->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		this->numericUpDown->Location = System::Drawing::Point(400, 18);
+		this->numericUpDown->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 64, 0, 0, 0 });
+		this->numericUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+		this->numericUpDown->Name = L"numericUpDown";
+		this->numericUpDown->Size = System::Drawing::Size(51, 35);
+		this->numericUpDown->TabIndex = 4;
+		this->numericUpDown->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+		this->numericUpDown->Visible = false;
+		// 
+		// confirmInputButton
+		// 
+		this->confirmInputButton->Location = System::Drawing::Point(44, 471);
+		this->confirmInputButton->Name = L"confirmInputButton";
+		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
+		this->confirmInputButton->TabIndex = 5;
+		this->confirmInputButton->UseVisualStyleBackColor = true;
+		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
 		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		this->ClientSize = System::Drawing::Size(451, 470);
+		this->ClientSize = System::Drawing::Size(451, 506);
+		this->Controls->Add(this->confirmInputButton);
+		this->Controls->Add(this->numericUpDown);
 		this->Controls->Add(this->tableLayoutPanel);
 		this->Controls->Add(this->menuStrip1);
 		this->MainMenuStrip = this->menuStrip1;
@@ -962,6 +1055,7 @@ namespace Connect64 {
 		this->menuStrip1->PerformLayout();
 		this->tableLayoutPanel->ResumeLayout(false);
 		this->tableLayoutPanel->PerformLayout();
+		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->EndInit();
 		this->ResumeLayout(false);
 		this->PerformLayout();
 

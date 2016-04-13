@@ -120,6 +120,9 @@
   <data name="ChoosePuzzleMenuItemText" xml:space="preserve">
     <value>&amp;Choose Puzzle</value>
   </data>
+  <data name="ConfirmInputButtonText" xml:space="preserve">
+    <value>Confirm Input</value>
+  </data>
   <data name="FileMenuItemText" xml:space="preserve">
     <value>&amp;File</value>
   </data>

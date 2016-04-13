@@ -10,7 +10,8 @@ namespace Connect64 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Resources;
+	using namespace System::Resources; 
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -34,134 +35,10 @@ namespace Connect64 {
 	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel;
 			 Board^ gameBoard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  resetToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  choosePuzzleToolStripMenuItem;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	private: System::Windows::Forms::Label^  label1;
@@ -228,9 +105,11 @@ private: System::Windows::Forms::Label^  label28;
 private: System::Windows::Forms::Label^  label27;
 private: System::Windows::Forms::Label^  label26;
 private: System::Windows::Forms::Label^  label25;
+private: System::Windows::Forms::NumericUpDown^  numericUpDown;
+private: System::Windows::Forms::Button^  confirmInputButton;
 
-
-
+		 Label^ editLabel;
+		 List<Label^>^ startingBoard;
 
 		private:
 		/// <summary>
@@ -251,6 +130,7 @@ private: System::Windows::Forms::Label^  label25;
 private: System::Void tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
 
 private: System::Void label_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 
