@@ -16,7 +16,6 @@ namespace Connect64 {
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
 		
-		this->gameBoard = gcnew Board();
 		this->setBoard();
 	}
 
@@ -32,6 +31,7 @@ namespace Connect64 {
 	}
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
+		this->gameBoard = gcnew Board();
 		this->gameBoard->setTile(0, 0, 1);
 		this->gameBoard->setTile(7, 0, 8);
 		this->gameBoard->setTile(7, 7, 15);
@@ -64,6 +64,7 @@ namespace Connect64 {
 			}
 		}
 	}
+
 	void Connect64Form::tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e){
 		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));		
 		Object^ control = this->tableLayoutPanel->GetControlFromPosition(selectedCell->X, selectedCell->Y);
@@ -120,5 +121,9 @@ namespace Connect64 {
 			}
 
 		}
+	}
+
+	void Connect64Form::resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
+		this->setBoard();
 	}
 }

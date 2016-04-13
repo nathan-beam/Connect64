@@ -133,12 +133,13 @@ namespace Connect64 {
 		// resetToolStripMenuItem
 		// 
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
 		// 
 		// choosePuzzleToolStripMenuItem
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
-		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 		// 
 		// settingsToolStripMenuItem
 		// 
