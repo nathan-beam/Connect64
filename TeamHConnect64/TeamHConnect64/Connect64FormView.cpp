@@ -133,12 +133,12 @@ namespace Connect64 {
 		// resetToolStripMenuItem
 		// 
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		// 
 		// choosePuzzleToolStripMenuItem
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
-		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		// 
 		// settingsToolStripMenuItem
 		// 
@@ -229,72 +229,6 @@ namespace Connect64 {
 		this->tableLayoutPanel->Controls->Add(this->label3, 2, 0);
 		this->tableLayoutPanel->Controls->Add(this->label2, 1, 0);
 		this->tableLayoutPanel->Controls->Add(this->label1, 0, 0);
-		this->label1->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label2->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label3->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label4->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label5->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label6->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label7->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label8->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label9->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label10->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label11->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label12->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label13->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label14->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label15->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label16->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label17->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label18->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label19->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label20->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label21->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label22->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label23->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label24->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label25->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label26->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label27->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label28->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label29->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label30->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label31->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label32->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label33->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label34->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label35->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label36->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label37->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label38->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label39->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label40->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label41->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label42->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label43->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label44->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label45->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label46->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label47->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label48->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label49->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label50->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label51->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label52->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label53->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label54->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label55->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label56->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label57->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label58->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label59->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label60->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label61->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label62->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label63->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-		this->label64->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
-
-
 		this->tableLayoutPanel->Location = System::Drawing::Point(11, 34);
 		this->tableLayoutPanel->Margin = System::Windows::Forms::Padding(25);
 		this->tableLayoutPanel->Name = L"tableLayoutPanel";
@@ -322,6 +256,7 @@ namespace Connect64 {
 		this->label64->Name = L"label64";
 		this->label64->Size = System::Drawing::Size(0, 31);
 		this->label64->TabIndex = 63;
+		this->label64->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label63
 		// 
@@ -333,6 +268,7 @@ namespace Connect64 {
 		this->label63->Name = L"label63";
 		this->label63->Size = System::Drawing::Size(0, 31);
 		this->label63->TabIndex = 62;
+		this->label63->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label62
 		// 
@@ -344,6 +280,7 @@ namespace Connect64 {
 		this->label62->Name = L"label62";
 		this->label62->Size = System::Drawing::Size(0, 31);
 		this->label62->TabIndex = 61;
+		this->label62->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label61
 		// 
@@ -355,6 +292,7 @@ namespace Connect64 {
 		this->label61->Name = L"label61";
 		this->label61->Size = System::Drawing::Size(0, 31);
 		this->label61->TabIndex = 60;
+		this->label61->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label60
 		// 
@@ -366,6 +304,7 @@ namespace Connect64 {
 		this->label60->Name = L"label60";
 		this->label60->Size = System::Drawing::Size(0, 31);
 		this->label60->TabIndex = 59;
+		this->label60->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label59
 		// 
@@ -377,6 +316,7 @@ namespace Connect64 {
 		this->label59->Name = L"label59";
 		this->label59->Size = System::Drawing::Size(0, 31);
 		this->label59->TabIndex = 58;
+		this->label59->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label58
 		// 
@@ -388,6 +328,7 @@ namespace Connect64 {
 		this->label58->Name = L"label58";
 		this->label58->Size = System::Drawing::Size(0, 31);
 		this->label58->TabIndex = 57;
+		this->label58->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label57
 		// 
@@ -399,6 +340,7 @@ namespace Connect64 {
 		this->label57->Name = L"label57";
 		this->label57->Size = System::Drawing::Size(0, 31);
 		this->label57->TabIndex = 56;
+		this->label57->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label56
 		// 
@@ -410,6 +352,7 @@ namespace Connect64 {
 		this->label56->Name = L"label56";
 		this->label56->Size = System::Drawing::Size(0, 31);
 		this->label56->TabIndex = 55;
+		this->label56->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label55
 		// 
@@ -421,6 +364,7 @@ namespace Connect64 {
 		this->label55->Name = L"label55";
 		this->label55->Size = System::Drawing::Size(0, 31);
 		this->label55->TabIndex = 54;
+		this->label55->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label54
 		// 
@@ -432,6 +376,7 @@ namespace Connect64 {
 		this->label54->Name = L"label54";
 		this->label54->Size = System::Drawing::Size(0, 31);
 		this->label54->TabIndex = 53;
+		this->label54->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label53
 		// 
@@ -443,6 +388,7 @@ namespace Connect64 {
 		this->label53->Name = L"label53";
 		this->label53->Size = System::Drawing::Size(0, 31);
 		this->label53->TabIndex = 52;
+		this->label53->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label52
 		// 
@@ -454,6 +400,7 @@ namespace Connect64 {
 		this->label52->Name = L"label52";
 		this->label52->Size = System::Drawing::Size(0, 31);
 		this->label52->TabIndex = 51;
+		this->label52->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label51
 		// 
@@ -465,6 +412,7 @@ namespace Connect64 {
 		this->label51->Name = L"label51";
 		this->label51->Size = System::Drawing::Size(0, 31);
 		this->label51->TabIndex = 50;
+		this->label51->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label50
 		// 
@@ -476,6 +424,7 @@ namespace Connect64 {
 		this->label50->Name = L"label50";
 		this->label50->Size = System::Drawing::Size(0, 31);
 		this->label50->TabIndex = 49;
+		this->label50->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label49
 		// 
@@ -487,6 +436,7 @@ namespace Connect64 {
 		this->label49->Name = L"label49";
 		this->label49->Size = System::Drawing::Size(0, 31);
 		this->label49->TabIndex = 48;
+		this->label49->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label48
 		// 
@@ -498,6 +448,7 @@ namespace Connect64 {
 		this->label48->Name = L"label48";
 		this->label48->Size = System::Drawing::Size(0, 31);
 		this->label48->TabIndex = 47;
+		this->label48->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label47
 		// 
@@ -509,6 +460,7 @@ namespace Connect64 {
 		this->label47->Name = L"label47";
 		this->label47->Size = System::Drawing::Size(0, 31);
 		this->label47->TabIndex = 46;
+		this->label47->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label46
 		// 
@@ -520,6 +472,7 @@ namespace Connect64 {
 		this->label46->Name = L"label46";
 		this->label46->Size = System::Drawing::Size(0, 31);
 		this->label46->TabIndex = 45;
+		this->label46->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label45
 		// 
@@ -531,6 +484,7 @@ namespace Connect64 {
 		this->label45->Name = L"label45";
 		this->label45->Size = System::Drawing::Size(0, 31);
 		this->label45->TabIndex = 44;
+		this->label45->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label44
 		// 
@@ -542,6 +496,7 @@ namespace Connect64 {
 		this->label44->Name = L"label44";
 		this->label44->Size = System::Drawing::Size(0, 31);
 		this->label44->TabIndex = 43;
+		this->label44->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label43
 		// 
@@ -553,6 +508,7 @@ namespace Connect64 {
 		this->label43->Name = L"label43";
 		this->label43->Size = System::Drawing::Size(0, 31);
 		this->label43->TabIndex = 42;
+		this->label43->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label42
 		// 
@@ -564,6 +520,7 @@ namespace Connect64 {
 		this->label42->Name = L"label42";
 		this->label42->Size = System::Drawing::Size(0, 31);
 		this->label42->TabIndex = 41;
+		this->label42->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label41
 		// 
@@ -575,6 +532,7 @@ namespace Connect64 {
 		this->label41->Name = L"label41";
 		this->label41->Size = System::Drawing::Size(0, 31);
 		this->label41->TabIndex = 40;
+		this->label41->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label40
 		// 
@@ -586,6 +544,7 @@ namespace Connect64 {
 		this->label40->Name = L"label40";
 		this->label40->Size = System::Drawing::Size(0, 31);
 		this->label40->TabIndex = 39;
+		this->label40->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label39
 		// 
@@ -597,6 +556,7 @@ namespace Connect64 {
 		this->label39->Name = L"label39";
 		this->label39->Size = System::Drawing::Size(0, 31);
 		this->label39->TabIndex = 38;
+		this->label39->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label38
 		// 
@@ -608,6 +568,7 @@ namespace Connect64 {
 		this->label38->Name = L"label38";
 		this->label38->Size = System::Drawing::Size(0, 31);
 		this->label38->TabIndex = 37;
+		this->label38->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label37
 		// 
@@ -619,6 +580,7 @@ namespace Connect64 {
 		this->label37->Name = L"label37";
 		this->label37->Size = System::Drawing::Size(0, 31);
 		this->label37->TabIndex = 36;
+		this->label37->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label36
 		// 
@@ -630,6 +592,7 @@ namespace Connect64 {
 		this->label36->Name = L"label36";
 		this->label36->Size = System::Drawing::Size(0, 31);
 		this->label36->TabIndex = 35;
+		this->label36->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label35
 		// 
@@ -641,6 +604,7 @@ namespace Connect64 {
 		this->label35->Name = L"label35";
 		this->label35->Size = System::Drawing::Size(0, 31);
 		this->label35->TabIndex = 34;
+		this->label35->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label34
 		// 
@@ -652,6 +616,7 @@ namespace Connect64 {
 		this->label34->Name = L"label34";
 		this->label34->Size = System::Drawing::Size(0, 31);
 		this->label34->TabIndex = 33;
+		this->label34->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label33
 		// 
@@ -663,6 +628,7 @@ namespace Connect64 {
 		this->label33->Name = L"label33";
 		this->label33->Size = System::Drawing::Size(0, 31);
 		this->label33->TabIndex = 32;
+		this->label33->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label32
 		// 
@@ -674,6 +640,7 @@ namespace Connect64 {
 		this->label32->Name = L"label32";
 		this->label32->Size = System::Drawing::Size(0, 31);
 		this->label32->TabIndex = 31;
+		this->label32->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label31
 		// 
@@ -685,6 +652,7 @@ namespace Connect64 {
 		this->label31->Name = L"label31";
 		this->label31->Size = System::Drawing::Size(0, 31);
 		this->label31->TabIndex = 30;
+		this->label31->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label30
 		// 
@@ -696,6 +664,7 @@ namespace Connect64 {
 		this->label30->Name = L"label30";
 		this->label30->Size = System::Drawing::Size(0, 31);
 		this->label30->TabIndex = 29;
+		this->label30->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label29
 		// 
@@ -707,6 +676,7 @@ namespace Connect64 {
 		this->label29->Name = L"label29";
 		this->label29->Size = System::Drawing::Size(0, 31);
 		this->label29->TabIndex = 28;
+		this->label29->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label28
 		// 
@@ -718,6 +688,7 @@ namespace Connect64 {
 		this->label28->Name = L"label28";
 		this->label28->Size = System::Drawing::Size(0, 31);
 		this->label28->TabIndex = 27;
+		this->label28->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label27
 		// 
@@ -729,6 +700,7 @@ namespace Connect64 {
 		this->label27->Name = L"label27";
 		this->label27->Size = System::Drawing::Size(0, 31);
 		this->label27->TabIndex = 26;
+		this->label27->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label26
 		// 
@@ -740,6 +712,7 @@ namespace Connect64 {
 		this->label26->Name = L"label26";
 		this->label26->Size = System::Drawing::Size(0, 31);
 		this->label26->TabIndex = 25;
+		this->label26->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label25
 		// 
@@ -751,6 +724,7 @@ namespace Connect64 {
 		this->label25->Name = L"label25";
 		this->label25->Size = System::Drawing::Size(0, 31);
 		this->label25->TabIndex = 24;
+		this->label25->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label24
 		// 
@@ -762,6 +736,7 @@ namespace Connect64 {
 		this->label24->Name = L"label24";
 		this->label24->Size = System::Drawing::Size(0, 31);
 		this->label24->TabIndex = 23;
+		this->label24->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label23
 		// 
@@ -773,6 +748,7 @@ namespace Connect64 {
 		this->label23->Name = L"label23";
 		this->label23->Size = System::Drawing::Size(0, 31);
 		this->label23->TabIndex = 22;
+		this->label23->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label22
 		// 
@@ -784,6 +760,7 @@ namespace Connect64 {
 		this->label22->Name = L"label22";
 		this->label22->Size = System::Drawing::Size(0, 31);
 		this->label22->TabIndex = 21;
+		this->label22->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label21
 		// 
@@ -795,6 +772,7 @@ namespace Connect64 {
 		this->label21->Name = L"label21";
 		this->label21->Size = System::Drawing::Size(0, 31);
 		this->label21->TabIndex = 20;
+		this->label21->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label20
 		// 
@@ -806,6 +784,7 @@ namespace Connect64 {
 		this->label20->Name = L"label20";
 		this->label20->Size = System::Drawing::Size(0, 31);
 		this->label20->TabIndex = 19;
+		this->label20->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label19
 		// 
@@ -817,6 +796,7 @@ namespace Connect64 {
 		this->label19->Name = L"label19";
 		this->label19->Size = System::Drawing::Size(0, 31);
 		this->label19->TabIndex = 18;
+		this->label19->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label18
 		// 
@@ -828,6 +808,7 @@ namespace Connect64 {
 		this->label18->Name = L"label18";
 		this->label18->Size = System::Drawing::Size(0, 31);
 		this->label18->TabIndex = 17;
+		this->label18->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label17
 		// 
@@ -839,6 +820,7 @@ namespace Connect64 {
 		this->label17->Name = L"label17";
 		this->label17->Size = System::Drawing::Size(0, 31);
 		this->label17->TabIndex = 16;
+		this->label17->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label16
 		// 
@@ -850,6 +832,7 @@ namespace Connect64 {
 		this->label16->Name = L"label16";
 		this->label16->Size = System::Drawing::Size(0, 31);
 		this->label16->TabIndex = 15;
+		this->label16->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label15
 		// 
@@ -861,6 +844,7 @@ namespace Connect64 {
 		this->label15->Name = L"label15";
 		this->label15->Size = System::Drawing::Size(0, 31);
 		this->label15->TabIndex = 14;
+		this->label15->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label14
 		// 
@@ -872,6 +856,7 @@ namespace Connect64 {
 		this->label14->Name = L"label14";
 		this->label14->Size = System::Drawing::Size(0, 31);
 		this->label14->TabIndex = 13;
+		this->label14->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label13
 		// 
@@ -883,6 +868,7 @@ namespace Connect64 {
 		this->label13->Name = L"label13";
 		this->label13->Size = System::Drawing::Size(0, 31);
 		this->label13->TabIndex = 12;
+		this->label13->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label12
 		// 
@@ -894,6 +880,7 @@ namespace Connect64 {
 		this->label12->Name = L"label12";
 		this->label12->Size = System::Drawing::Size(0, 31);
 		this->label12->TabIndex = 11;
+		this->label12->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label11
 		// 
@@ -905,6 +892,7 @@ namespace Connect64 {
 		this->label11->Name = L"label11";
 		this->label11->Size = System::Drawing::Size(0, 31);
 		this->label11->TabIndex = 10;
+		this->label11->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label10
 		// 
@@ -916,6 +904,7 @@ namespace Connect64 {
 		this->label10->Name = L"label10";
 		this->label10->Size = System::Drawing::Size(0, 31);
 		this->label10->TabIndex = 9;
+		this->label10->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label9
 		// 
@@ -927,6 +916,7 @@ namespace Connect64 {
 		this->label9->Name = L"label9";
 		this->label9->Size = System::Drawing::Size(0, 31);
 		this->label9->TabIndex = 8;
+		this->label9->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label8
 		// 
@@ -938,6 +928,7 @@ namespace Connect64 {
 		this->label8->Name = L"label8";
 		this->label8->Size = System::Drawing::Size(0, 31);
 		this->label8->TabIndex = 7;
+		this->label8->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label7
 		// 
@@ -949,6 +940,7 @@ namespace Connect64 {
 		this->label7->Name = L"label7";
 		this->label7->Size = System::Drawing::Size(0, 31);
 		this->label7->TabIndex = 6;
+		this->label7->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label6
 		// 
@@ -960,6 +952,7 @@ namespace Connect64 {
 		this->label6->Name = L"label6";
 		this->label6->Size = System::Drawing::Size(0, 31);
 		this->label6->TabIndex = 5;
+		this->label6->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label5
 		// 
@@ -971,6 +964,7 @@ namespace Connect64 {
 		this->label5->Name = L"label5";
 		this->label5->Size = System::Drawing::Size(0, 31);
 		this->label5->TabIndex = 4;
+		this->label5->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label4
 		// 
@@ -982,6 +976,7 @@ namespace Connect64 {
 		this->label4->Name = L"label4";
 		this->label4->Size = System::Drawing::Size(0, 31);
 		this->label4->TabIndex = 3;
+		this->label4->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label3
 		// 
@@ -993,6 +988,7 @@ namespace Connect64 {
 		this->label3->Name = L"label3";
 		this->label3->Size = System::Drawing::Size(0, 31);
 		this->label3->TabIndex = 2;
+		this->label3->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label2
 		// 
@@ -1004,6 +1000,7 @@ namespace Connect64 {
 		this->label2->Name = L"label2";
 		this->label2->Size = System::Drawing::Size(0, 31);
 		this->label2->TabIndex = 1;
+		this->label2->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// label1
 		// 
@@ -1015,13 +1012,14 @@ namespace Connect64 {
 		this->label1->Name = L"label1";
 		this->label1->Size = System::Drawing::Size(0, 31);
 		this->label1->TabIndex = 0;
+		this->label1->Click += gcnew System::EventHandler(this, &Connect64Form::label_Click);
 		// 
 		// numericUpDown
 		// 
 		this->numericUpDown->Anchor = System::Windows::Forms::AnchorStyles::None;
 		this->numericUpDown->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->numericUpDown->Location = System::Drawing::Point(400, 18);
+		this->numericUpDown->Location = System::Drawing::Point(388, 462);
 		this->numericUpDown->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 64, 0, 0, 0 });
 		this->numericUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		this->numericUpDown->Name = L"numericUpDown";
@@ -1032,7 +1030,7 @@ namespace Connect64 {
 		// 
 		// confirmInputButton
 		// 
-		this->confirmInputButton->Location = System::Drawing::Point(44, 471);
+		this->confirmInputButton->Location = System::Drawing::Point(188, 471);
 		this->confirmInputButton->Name = L"confirmInputButton";
 		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
 		this->confirmInputButton->TabIndex = 5;

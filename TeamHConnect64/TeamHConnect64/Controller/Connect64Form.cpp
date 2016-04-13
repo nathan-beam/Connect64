@@ -15,7 +15,7 @@ namespace Connect64 {
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
-
+		
 		this->gameBoard = gcnew Board();
 		this->setBoard();
 	}
