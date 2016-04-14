@@ -141,6 +141,7 @@ namespace Connect64 {
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
 		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->choosePuzzleToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::choosePuzzleToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
 		// 

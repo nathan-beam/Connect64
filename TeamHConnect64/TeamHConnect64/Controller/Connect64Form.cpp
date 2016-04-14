@@ -15,7 +15,8 @@ namespace Connect64 {
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
-		
+		this->fileIO = gcnew ConnectFileIO();
+		this->fileIO->ReadFile("");
 		this->setBoard();
 	}
 
@@ -145,5 +146,11 @@ namespace Connect64 {
 		{
 			this->confirmInputButton->PerformClick();
 		}
+	}
+
+	void Connect64Form::choosePuzzleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		OpenFileDialog^ openFile = gcnew OpenFileDialog;
+		openFile->ShowDialog();
 	}
 }

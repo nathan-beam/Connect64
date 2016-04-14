@@ -140,6 +140,7 @@ private: System::Void confirmInputButton_Click(System::Object^  sender, System::
 		 void checkForDuplicates();
 private: System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+private: System::Void Connect64Form::choosePuzzleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 

@@ -52,7 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>.\;.\Model;.\Controller;.\View;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\GameBoards;.\;.\Model;.\Controller;.\View;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="Connect64FormView.cpp" />
     <ClCompile Include="Controller\Connect64Form.cpp" />
+    <ClCompile Include="Controller\ConnectFileIO.cpp" />
     <ClCompile Include="Model\Board.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
@@ -91,6 +92,7 @@
     <ClInclude Include="Connect64Form.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ConnectFileIO.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Connect64Form.resx">
