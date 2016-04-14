@@ -105,7 +105,7 @@ namespace model{
 	}
 
 	bool Board::touchingOnBottom(int x, int y){
-		if (y == 7){
+		if (y == 7){//SIZE
 			return false;
 		}
 		int currVal = this->getTile(x, y);

@@ -110,7 +110,7 @@ namespace Connect64 {
 		int value = safe_cast<int>(this -> numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
 		this->checkForDuplicates();
-		this->numericUpDown->Value++;
+		this->increaseUpDown();
 		this->confirmInputButton->Enabled = false;
 		if (this->gameBoard->isSolved()){
 			MessageBox::Show("Yay!", "You did it!");
@@ -156,5 +156,15 @@ namespace Connect64 {
 	{
 		OpenFileDialog^ openFile = gcnew OpenFileDialog;
 		openFile->ShowDialog();
+	}
+
+	void Connect64Form::increaseUpDown(){
+		int upDownValue = Convert::ToInt32(this->numericUpDown->Value);
+		if (upDownValue != 64){
+			do{
+				this->numericUpDown->Value++;
+				upDownValue = Convert::ToInt32(this->numericUpDown->Value);
+			} while (this->gameBoard->contains(upDownValue));
+		}
 	}
 }
