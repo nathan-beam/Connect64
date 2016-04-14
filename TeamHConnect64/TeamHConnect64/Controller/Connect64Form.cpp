@@ -110,6 +110,7 @@ namespace Connect64 {
 		int value = safe_cast<int>(this -> numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
 		this->checkForDuplicates();
+		this->numericUpDown->Value++;
 		this->confirmInputButton->Enabled = false;
 		if (this->gameBoard->isSolved()){
 			MessageBox::Show("Yay!", "You did it!");
@@ -130,6 +131,9 @@ namespace Connect64 {
 			{
 				if (!this->startingBoard->Contains(label)){
 					label->ForeColor = Color::Black;
+				}
+				else{
+					label->ForeColor = Color::Gray;
 				}
 			}
 		}
