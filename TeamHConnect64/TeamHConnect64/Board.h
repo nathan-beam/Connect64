@@ -1,6 +1,8 @@
 #pragma once
 using namespace System;
 using namespace cli;
+using namespace System::Drawing;
+
 namespace model{
 	ref class Board
 	{
@@ -22,6 +24,6 @@ namespace model{
 		bool touchingOnLeft(int x, int y);
 		bool touchingOnRight(int x, int y);
 		bool touchingOnBottom(int x, int y);
-
+		Point^ findFirstTile();
 	};
 }

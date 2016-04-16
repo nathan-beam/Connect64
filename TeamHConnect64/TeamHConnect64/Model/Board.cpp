@@ -65,7 +65,11 @@ namespace model{
 	}
 
 	bool Board::isSolved(){
-		return this->touchingNextTile(0, 0);
+		Point^ firstTile = this->findFirstTile();
+		if (firstTile){
+			return this->touchingNextTile(firstTile->X, firstTile->Y);
+		}
+		return false;
 	}
 
 	bool Board::touchingNextTile(int x, int y){
@@ -122,5 +126,16 @@ namespace model{
 		int currVal = this->getTile(x, y);
 		int bottomVal = this->getTile(x, y +1);
 		return bottomVal == currVal + 1;
+	}
+
+	Point^ Board::findFirstTile(){
+		for (int i = 0; i < 8; i++)
+		{
+			for (int j = 0; j < 8; j++){
+				if (this->board[i, j] == 1){
+					return gcnew Point(i,j);
+				}
+			}
+		}
 	}
 }
