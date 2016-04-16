@@ -86,6 +86,9 @@ namespace Connect64 {
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->puzzleNumberLabel = (gcnew System::Windows::Forms::Label());
+		this->puzzleChoiceBox = (gcnew System::Windows::Forms::ComboBox());
+		this->selectPuzzlelbl = (gcnew System::Windows::Forms::Label());
+		this->loadPuzzleBtn = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1->SuspendLayout();
 		this->tableLayoutPanel->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
@@ -99,7 +102,7 @@ namespace Connect64 {
 		});
 		this->menuStrip1->Location = System::Drawing::Point(0, 0);
 		this->menuStrip1->Name = L"menuStrip1";
-		this->menuStrip1->Size = System::Drawing::Size(451, 24);
+		this->menuStrip1->Size = System::Drawing::Size(607, 24);
 		this->menuStrip1->TabIndex = 2;
 		this->menuStrip1->Text = L"menuStrip1";
 		// 
@@ -141,7 +144,6 @@ namespace Connect64 {
 		// 
 		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
 		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
-		this->choosePuzzleToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::choosePuzzleToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
 		// 
@@ -232,7 +234,7 @@ namespace Connect64 {
 		this->tableLayoutPanel->Controls->Add(this->label3, 2, 0);
 		this->tableLayoutPanel->Controls->Add(this->label2, 1, 0);
 		this->tableLayoutPanel->Controls->Add(this->label1, 0, 0);
-		this->tableLayoutPanel->Location = System::Drawing::Point(11, 34);
+		this->tableLayoutPanel->Location = System::Drawing::Point(25, 34);
 		this->tableLayoutPanel->Margin = System::Windows::Forms::Padding(25);
 		this->tableLayoutPanel->Name = L"tableLayoutPanel";
 		this->tableLayoutPanel->RowCount = 8;
@@ -1022,7 +1024,7 @@ namespace Connect64 {
 		this->numericUpDown->Anchor = System::Windows::Forms::AnchorStyles::None;
 		this->numericUpDown->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->numericUpDown->Location = System::Drawing::Point(388, 462);
+		this->numericUpDown->Location = System::Drawing::Point(399, 462);
 		this->numericUpDown->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 64, 0, 0, 0 });
 		this->numericUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		this->numericUpDown->Name = L"numericUpDown";
@@ -1035,7 +1037,7 @@ namespace Connect64 {
 		// confirmInputButton
 		// 
 		this->confirmInputButton->Enabled = false;
-		this->confirmInputButton->Location = System::Drawing::Point(188, 471);
+		this->confirmInputButton->Location = System::Drawing::Point(202, 471);
 		this->confirmInputButton->Name = L"confirmInputButton";
 		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
 		this->confirmInputButton->TabIndex = 1;
@@ -1047,16 +1049,44 @@ namespace Connect64 {
 		this->puzzleNumberLabel->AutoSize = true;
 		this->puzzleNumberLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
 			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-		this->puzzleNumberLabel->Location = System::Drawing::Point(11, 471);
+		this->puzzleNumberLabel->Location = System::Drawing::Point(463, 98);
 		this->puzzleNumberLabel->Name = L"puzzleNumberLabel";
 		this->puzzleNumberLabel->Size = System::Drawing::Size(0, 18);
 		this->puzzleNumberLabel->TabIndex = 6;
+		// 
+		// puzzleChoiceBox
+		// 
+		this->puzzleChoiceBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+		this->puzzleChoiceBox->FormattingEnabled = true;
+		this->puzzleChoiceBox->Location = System::Drawing::Point(496, 204);
+		this->puzzleChoiceBox->Name = L"puzzleChoiceBox";
+		this->puzzleChoiceBox->Size = System::Drawing::Size(56, 21);
+		this->puzzleChoiceBox->TabIndex = 7;
+		// 
+		// selectPuzzlelbl
+		// 
+		this->selectPuzzlelbl->AutoSize = true;
+		this->selectPuzzlelbl->Location = System::Drawing::Point(466, 175);
+		this->selectPuzzlelbl->Name = L"selectPuzzlelbl";
+		this->selectPuzzlelbl->Size = System::Drawing::Size(0, 13);
+		this->selectPuzzlelbl->TabIndex = 8;
+		// 
+		// loadPuzzleBtn
+		// 
+		this->loadPuzzleBtn->Location = System::Drawing::Point(487, 242);
+		this->loadPuzzleBtn->Name = L"loadPuzzleBtn";
+		this->loadPuzzleBtn->Size = System::Drawing::Size(75, 23);
+		this->loadPuzzleBtn->TabIndex = 9;
+		this->loadPuzzleBtn->UseVisualStyleBackColor = true;
 		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		this->ClientSize = System::Drawing::Size(451, 506);
+		this->ClientSize = System::Drawing::Size(607, 506);
+		this->Controls->Add(this->loadPuzzleBtn);
+		this->Controls->Add(this->selectPuzzlelbl);
+		this->Controls->Add(this->puzzleChoiceBox);
 		this->Controls->Add(this->puzzleNumberLabel);
 		this->Controls->Add(this->confirmInputButton);
 		this->Controls->Add(this->numericUpDown);

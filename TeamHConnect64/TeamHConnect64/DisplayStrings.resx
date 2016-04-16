@@ -135,6 +135,9 @@
   <data name="LoadMenuItemText" xml:space="preserve">
     <value>&amp;Load</value>
   </data>
+  <data name="LoadPuzzleButtonText" xml:space="preserve">
+    <value>Load Puzzle</value>
+  </data>
   <data name="NumberChoiceLabelText" xml:space="preserve">
     <value>Select the number to add from the drop down:</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="SaveMenuItemText" xml:space="preserve">
     <value>&amp;Save</value>
+  </data>
+  <data name="SelectPuzzleLabelText" xml:space="preserve">
+    <value>Select the puzzle to load:</value>
   </data>
   <data name="SettingsMenuItemText" xml:space="preserve">
     <value>&amp;Settings</value>

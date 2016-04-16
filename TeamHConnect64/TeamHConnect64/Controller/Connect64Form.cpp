@@ -1,4 +1,7 @@
 #include "Connect64Form.h"
+#using<system.dll>
+using namespace System;
+using namespace System::IO;
 
 namespace Connect64 {
 
@@ -15,8 +18,14 @@ namespace Connect64 {
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
+		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
+		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile("");
+		this->fileIO->ReadFile("GameBoards/1.txt");
+		this->gamePuzzlesPath = "GameBoards/";
+		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
+		this->puzzleCount = directory->GetFiles()->Length;
+		this->setPuzzleChooser();
 		this->setBoard();
 	}
 
@@ -151,13 +160,7 @@ namespace Connect64 {
 			this->confirmInputButton->PerformClick();
 		}
 	}
-
-	void Connect64Form::choosePuzzleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		OpenFileDialog^ openFile = gcnew OpenFileDialog;
-		openFile->ShowDialog();
-	}
-
+	
 	void Connect64Form::increaseUpDown(){
 		int upDownValue = Convert::ToInt32(this->numericUpDown->Value);
 		if (upDownValue != 64){
@@ -165,6 +168,14 @@ namespace Connect64 {
 				this->numericUpDown->Value++;
 				upDownValue = Convert::ToInt32(this->numericUpDown->Value);
 			} while (this->gameBoard->contains(upDownValue));
+		}
+	}
+
+	void Connect64Form::setPuzzleChooser()
+	{
+		for (int i = 0; i < this->puzzleCount; i++)
+		{
+			this->puzzleChoiceBox->Items->Add(i + 1);
 		}
 	}
 }

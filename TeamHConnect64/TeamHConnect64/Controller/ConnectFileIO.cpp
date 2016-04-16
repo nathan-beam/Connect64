@@ -20,7 +20,7 @@ namespace Controller{
 			while ((str = din->ReadLine()) != nullptr)
 			{
 				count++;
-				Console::WriteLine("line {0}: {1}", count, str);
+				System:Diagnostics::Debug::Write(str + "\n");
 			}
 		}
 		catch (Exception^ e)

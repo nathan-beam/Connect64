@@ -38,6 +38,8 @@ namespace Connect64 {
 	 System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel;
 			 Board^ gameBoard;
 			 ConnectFileIO^ fileIO;
+			 int puzzleCount;
+			 String^ gamePuzzlesPath;
 
 	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
@@ -115,6 +117,10 @@ namespace Connect64 {
 		 Label^ editLabel;
 		 List<Label^>^ startingBoard;
 	 System::Windows::Forms::Label^  puzzleNumberLabel;
+	private: System::Windows::Forms::ComboBox^  puzzleChoiceBox;
+	private: System::Windows::Forms::Label^  selectPuzzlelbl;
+	private: System::Windows::Forms::Button^  loadPuzzleBtn;
+
 
 
 		
@@ -125,6 +131,7 @@ namespace Connect64 {
 
 		void setBoard();
 		void showBoard();
+		void setPuzzleChooser();
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -141,7 +148,6 @@ namespace Connect64 {
 		 void increaseUpDown();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
- System::Void Connect64Form::choosePuzzleToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 
