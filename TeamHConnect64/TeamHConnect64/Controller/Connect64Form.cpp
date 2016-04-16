@@ -135,16 +135,17 @@ namespace Connect64 {
 		int x = this->tableLayoutPanel->GetColumn(this->numericUpDown);
 		int y = this->tableLayoutPanel->GetRow(this->numericUpDown);
 		this->numericUpDown->Visible = false;
-		this->editLabel->Text = this->numericUpDown->Value +"";
+		int value = safe_cast<int>(this->numericUpDown->Value);
+		this->gameBoard->setTile(x, y, value);
 		this->tableLayoutPanel->Controls->Remove(this->numericUpDown);
 		this->tableLayoutPanel->Controls->Add(this->editLabel);
-		int value = safe_cast<int>(this -> numericUpDown->Value);
-		this->gameBoard->setTile(x, y, value);
 		this->checkForDuplicates();
 		this->increaseUpDown();
+		this->showBoard();
 		this->confirmInputButton->Enabled = false;
 		if (this->gameBoard->isSolved()){
 			MessageBox::Show("Yay!", "You did it!");
+			this->tableLayoutPanel->Enabled = false;
 		}
 	}
 
@@ -172,6 +173,7 @@ namespace Connect64 {
 
 	void Connect64Form::resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
 		this->confirmInputButton_Click(sender, e);
+		this->gameBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
 		this->setBoard();
 	}
 
