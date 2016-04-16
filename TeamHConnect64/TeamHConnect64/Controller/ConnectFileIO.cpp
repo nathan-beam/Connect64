@@ -6,7 +6,7 @@ using namespace System::IO;
 namespace Controller{
 	ConnectFileIO::ConnectFileIO()
 	{
-		
+		this->values = gcnew array<int, 2>(8, 8);
 	}
 
 	void ConnectFileIO::ReadFile(String^ fileName)
