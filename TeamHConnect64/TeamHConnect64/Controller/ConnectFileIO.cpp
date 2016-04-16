@@ -6,9 +6,7 @@ using namespace System::IO;
 namespace Controller{
 	ConnectFileIO::ConnectFileIO()
 	{
-		this->xValues = gcnew array<int>(64);
-		this->yValues = gcnew array<int>(64);
-		this->tileValues = gcnew array<int>(64);
+		
 	}
 
 	void ConnectFileIO::ReadFile(String^ fileName)
@@ -28,9 +26,7 @@ namespace Controller{
 					int x = Int32::Parse(values[0]);
 					int y = Int32::Parse(values[1]);;
 					int value = Int32::Parse(values[2]);;
-					this->xValues[count] = x;
-					this->yValues[count] = y;
-					this->tileValues[count] = value;
+					this->values[x, y] = value;
 				} else
 				{
 					array<String^>^ values;
@@ -50,19 +46,14 @@ namespace Controller{
 
 	}
 
-	array<int>^ ConnectFileIO::GetXValues()
+	array<int, 2>^ ConnectFileIO::GetValues()
 	{
-		return this->xValues;
+		return this->values;
 	}
 
-	array<int>^ ConnectFileIO::GetYValues()
+	int ConnectFileIO::GetPuzzleNumber()
 	{
-		return this->yValues;
-	}
-
-	array<int>^ ConnectFileIO::GetTileValues()
-	{
-		return this->tileValues;
+		return this->puzzleNumber;
 	}
 
 }
