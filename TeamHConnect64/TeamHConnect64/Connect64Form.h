@@ -132,6 +132,7 @@ namespace Connect64 {
 		void setBoard();
 		void showBoard();
 		void setPuzzleChooser();
+		void setDisplayText();
 
 #pragma region Windows Form Designer generated code
 		/// <summary>

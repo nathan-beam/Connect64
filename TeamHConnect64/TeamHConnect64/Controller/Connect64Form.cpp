@@ -10,15 +10,7 @@ namespace Connect64 {
 		InitializeComponent();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
-		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
-		this->gameToolStripMenuItem->Text = this->resourceManager->GetString("GameMenuItemText");
-		this->settingsToolStripMenuItem->Text = this->resourceManager->GetString("SettingsMenuItemText");
-		this->saveToolStripMenuItem->Text = this->resourceManager->GetString("SaveMenuItemText");
-		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
-		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
-		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
-		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
-		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
+		this->setDisplayText();
 		this->fileIO = gcnew ConnectFileIO();
 		this->puzzleExtension = ".puz";
 		this->gamePuzzlesPath = "GameBoards/";
@@ -26,6 +18,8 @@ namespace Connect64 {
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();
 		this->setBoard();
+		delete this->fileIO;
+
 	}
 
 	/// <summary>
@@ -181,6 +175,21 @@ namespace Connect64 {
 
 	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
 	{
+		this->fileIO = gcnew ConnectFileIO();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + puzzleExtension);
+		delete this->fileIO;
+	}
+
+	void Connect64Form::setDisplayText()
+	{
+		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
+		this->gameToolStripMenuItem->Text = this->resourceManager->GetString("GameMenuItemText");
+		this->settingsToolStripMenuItem->Text = this->resourceManager->GetString("SettingsMenuItemText");
+		this->saveToolStripMenuItem->Text = this->resourceManager->GetString("SaveMenuItemText");
+		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
+		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
+		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
+		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
+		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
 	}
 }
