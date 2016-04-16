@@ -19,8 +19,16 @@ namespace Controller{
 			int count = 0;
 			while ((str = din->ReadLine()) != nullptr)
 			{
+				if (count != 0)
+				{
+					array<String^>^ values;
+					values = str->Split(',');
+					int x = Int32::Parse(values[0]);
+					int y = Int32::Parse(values[1]);;
+					int value = Int32::Parse(values[2]);;
+					System:Diagnostics::Debug::Write(x + " " + y + " " + value + "\n");
+				}
 				count++;
-				System:Diagnostics::Debug::Write(str + "\n");
 			}
 		}
 		catch (Exception^ e)
