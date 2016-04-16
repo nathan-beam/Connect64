@@ -21,7 +21,6 @@ namespace Connect64 {
 		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
 		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile("GameBoards/1.txt");
 		this->gamePuzzlesPath = "GameBoards/";
 		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
 		this->puzzleCount = directory->GetFiles()->Length;
@@ -177,5 +176,11 @@ namespace Connect64 {
 		{
 			this->puzzleChoiceBox->Items->Add(i + 1);
 		}
+		this->puzzleChoiceBox->SelectedIndex = 0;
+	}
+
+	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + ".txt");
 	}
 }

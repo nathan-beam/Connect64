@@ -1078,6 +1078,7 @@ namespace Connect64 {
 		this->loadPuzzleBtn->Size = System::Drawing::Size(75, 23);
 		this->loadPuzzleBtn->TabIndex = 9;
 		this->loadPuzzleBtn->UseVisualStyleBackColor = true;
+		this->loadPuzzleBtn->Click += gcnew System::EventHandler(this, &Connect64Form::loadPuzzleBtn_Click);
 		// 
 		// Connect64Form
 		// 
