@@ -7,7 +7,14 @@ namespace Controller{
 	public:
 		ConnectFileIO();
 		void ReadFile(String^ fileName);
+		array<int>^ GetXValues();
+		array<int>^ GetYValues();
+		array<int>^ GetTileValues();
 	private:
 		String^ fileName;
+		int puzzleNumber;
+		array<int>^ xValues;
+		array<int>^ yValues;
+		array<int>^ tileValues;
 	};
 }

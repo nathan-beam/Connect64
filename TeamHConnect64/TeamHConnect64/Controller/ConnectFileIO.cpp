@@ -6,13 +6,15 @@ using namespace System::IO;
 namespace Controller{
 	ConnectFileIO::ConnectFileIO()
 	{
+		this->xValues = gcnew array<int>(64);
+		this->yValues = gcnew array<int>(64);
+		this->tileValues = gcnew array<int>(64);
 	}
 
 	void ConnectFileIO::ReadFile(String^ fileName)
 	{
 		try
 		{
-			Console::WriteLine("trying to open file {0}...", fileName);
 			StreamReader^ din = File::OpenText(fileName);
 
 			String^ str;
@@ -26,7 +28,14 @@ namespace Controller{
 					int x = Int32::Parse(values[0]);
 					int y = Int32::Parse(values[1]);;
 					int value = Int32::Parse(values[2]);;
-					System:Diagnostics::Debug::Write(x + " " + y + " " + value + "\n");
+					this->xValues[count] = x;
+					this->yValues[count] = y;
+					this->tileValues[count] = value;
+				} else
+				{
+					array<String^>^ values;
+					values = str->Split(',');
+					this->puzzleNumber = Int32::Parse(values[0]);
 				}
 				count++;
 			}
@@ -39,6 +48,21 @@ namespace Controller{
 				Console::WriteLine("problem reading file '{0}'", fileName);
 		}
 
+	}
+
+	array<int>^ ConnectFileIO::GetXValues()
+	{
+		return this->xValues;
+	}
+
+	array<int>^ ConnectFileIO::GetYValues()
+	{
+		return this->yValues;
+	}
+
+	array<int>^ ConnectFileIO::GetTileValues()
+	{
+		return this->tileValues;
 	}
 
 }
