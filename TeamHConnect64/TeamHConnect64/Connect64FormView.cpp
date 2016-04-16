@@ -16,7 +16,6 @@ namespace Connect64 {
 		this->loadToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->gameToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-		this->choosePuzzleToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->tableLayoutPanel = (gcnew System::Windows::Forms::TableLayoutPanel());
 		this->label64 = (gcnew System::Windows::Forms::Label());
@@ -127,9 +126,8 @@ namespace Connect64 {
 		// 
 		// gameToolStripMenuItem
 		// 
-		this->gameToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-			this->resetToolStripMenuItem,
-				this->choosePuzzleToolStripMenuItem
+		this->gameToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {
+			this->resetToolStripMenuItem
 		});
 		this->gameToolStripMenuItem->Name = L"gameToolStripMenuItem";
 		this->gameToolStripMenuItem->Size = System::Drawing::Size(12, 20);
@@ -139,11 +137,6 @@ namespace Connect64 {
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
 		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
-		// 
-		// choosePuzzleToolStripMenuItem
-		// 
-		this->choosePuzzleToolStripMenuItem->Name = L"choosePuzzleToolStripMenuItem";
-		this->choosePuzzleToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		// 
 		// settingsToolStripMenuItem
 		// 

@@ -45,7 +45,6 @@ namespace Connect64 {
 	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  resetToolStripMenuItem;
-	 System::Windows::Forms::ToolStripMenuItem^  choosePuzzleToolStripMenuItem;
 
 
 	 System::Windows::Forms::Label^  label1;

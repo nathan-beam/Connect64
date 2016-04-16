@@ -16,7 +16,6 @@ namespace Connect64 {
 		this->saveToolStripMenuItem->Text = this->resourceManager->GetString("SaveMenuItemText");
 		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
-		this->choosePuzzleToolStripMenuItem->Text = this->resourceManager->GetString("ChoosePuzzleMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
 		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
 		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
