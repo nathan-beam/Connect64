@@ -94,11 +94,15 @@ namespace Connect64 {
 		if (this->numericUpDown->Visible){
 			this->confirmInputButton_Click(sender, e);
 		}
+
 		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));		
 		Object^ control = this->tableLayoutPanel->GetControlFromPosition(selectedCell->X, selectedCell->Y);
 		if (control->GetType() == Label::typeid){
 			Label^ label = safe_cast<Label^>(control);
-			if ((!this->numericUpDown->Visible && !this->isDefault(label))){
+			if (e->Button == System::Windows::Forms::MouseButtons::Right){
+				this->clearCell(label);
+			}
+			else if ((!this->numericUpDown->Visible && !this->isDefault(label))){
 				int x = this->tableLayoutPanel->GetColumn(label);
 				int y = this->tableLayoutPanel->GetRow(label);
 				this->tableLayoutPanel->Controls->Remove(label);
@@ -119,16 +123,15 @@ namespace Connect64 {
 		if (e->Button == System::Windows::Forms::MouseButtons::Right){
 			this->clearCell(label);
 		}
-		if (!this->numericUpDown->Visible && !this->isDefault(label)){
-			int x = this->tableLayoutPanel->GetColumn(label);
-			int y = this->tableLayoutPanel->GetRow(label);
-			this->tableLayoutPanel->Controls->Remove(label);
-			this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
-			this->editLabel = label;
-			this->numericUpDown->Visible = true;
-			this->confirmInputButton->Enabled = true;
-
-		}
+		else if(!this->numericUpDown->Visible && !this->isDefault(label)){
+				int x = this->tableLayoutPanel->GetColumn(label);
+				int y = this->tableLayoutPanel->GetRow(label);
+				this->tableLayoutPanel->Controls->Remove(label);
+				this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
+				this->editLabel = label;
+				this->numericUpDown->Visible = true;
+				this->confirmInputButton->Enabled = true;
+			}
 	}
 
 	void Connect64Form::confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e){
@@ -197,8 +200,10 @@ namespace Connect64 {
 
 	void Connect64Form::clearCell(Label^ labelToClear){
 		if (!this->isDefault(labelToClear)){
-			int x = this->tableLayoutPanel->GetColumn(this->numericUpDown);
-			int y = this->tableLayoutPanel->GetRow(this->numericUpDown);
+			int x = this->tableLayoutPanel->GetColumn(labelToClear);
+			int y = this->tableLayoutPanel->GetRow(labelToClear);
+			this->gameBoard->setTile(x, y, 0);
+			this->showBoard();
 		}
 	}
 
