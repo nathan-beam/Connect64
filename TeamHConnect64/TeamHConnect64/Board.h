@@ -6,6 +6,7 @@ namespace model{
 	{
 	public:
 		Board(int puzzleNumber);
+		Board(Board^ copyBoard);
 		int getTile(int x, int y);
 		void setTile(int x, int y, int num);
 		bool contains(int value);

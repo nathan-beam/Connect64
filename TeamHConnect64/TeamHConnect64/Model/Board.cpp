@@ -8,6 +8,17 @@ namespace model{
 		this->puzzleNumber = puzzleNumber;
 	}
 
+	Board::Board(Board^ copyBoard){
+		this->board = gcnew array<int, 2>(8, 8);
+		this->puzzleNumber = copyBoard->getPuzzleNumber();
+		for (int x = 0; x < 8; x++)
+		{
+			for (int y = 0; y < 8; y++){
+				this->board[x, y] = copyBoard->getTile(x, y);
+			}
+		}
+	}
+
 	int Board::getTile(int x, int y){
 		if (x > 7 || x < 0 || y > 7 || y < 0)
 		{

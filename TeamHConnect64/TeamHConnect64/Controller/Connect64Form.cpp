@@ -17,7 +17,7 @@ namespace Connect64 {
 		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();
-		this->setBoard();
+		this->createLabels();
 		delete this->fileIO;
 
 	}
@@ -32,9 +32,29 @@ namespace Connect64 {
 			delete components;
 		}
 	}
+
+	void Connect64Form::createLabels(){
+		this->labels = gcnew List<Label^>();
+		for (int x = 0; x < 8; x++)
+		{
+			for (int y = 0; y < 8; y++)
+			{
+				Label^ label = gcnew Label();
+				label->Anchor = System::Windows::Forms::AnchorStyles::None;
+				label->AutoSize = true;
+				label->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+				label->Location = System::Drawing::Point(398, 382);
+				label->Size = System::Drawing::Size(0, 31);
+				label->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Connect64Form::label_Click);
+				this->labels->Add(label);
+				this->tableLayoutPanel->Controls->Add(label, x, y);
+			}
+
+		}
+	}
+
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
-		this->gameBoard = gcnew Board(1);
 		this->gameBoard->setTile(0, 0, 1);
 		this->gameBoard->setTile(7, 0, 8);
 		this->gameBoard->setTile(7, 7, 15);
@@ -47,11 +67,11 @@ namespace Connect64 {
 		this->gameBoard->setTile(5, 3, 49);
 		this->gameBoard->setTile(5, 5, 61);
 		this->gameBoard->setTile(2, 5, 58);
+		this->startingBoard = gcnew Board(gameBoard);
 		this->showBoard();
 	}
 
 	void Connect64Form::showBoard(){
-		this->startingBoard = gcnew List<Label^>();
 		for each (Object^ control in this->tableLayoutPanel->Controls){
 			Label^ label = safe_cast<Label^>(control);
 			int x = this->tableLayoutPanel->GetColumn(label);
@@ -62,20 +82,23 @@ namespace Connect64 {
 			}
 			else{
 				label->Text = num + "";
-				this->startingBoard->Add(label);
-				label->ForeColor = Color::Gray;
 			}
 		}
+		this->checkForDuplicates();
 		this->puzzleNumberLabel->Text = this->resourceManager->GetString("PuzzleNumberLabelText") + this->gameBoard->getPuzzleNumber();
+		this->tableLayoutPanel->Enabled = true;
 
 	}
 
 	void Connect64Form::tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e){
+		if (this->numericUpDown->Visible){
+			this->confirmInputButton_Click(sender, e);
+		}
 		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));		
 		Object^ control = this->tableLayoutPanel->GetControlFromPosition(selectedCell->X, selectedCell->Y);
 		if (control->GetType() == Label::typeid){
 			Label^ label = safe_cast<Label^>(control);
-			if ((!this->numericUpDown->Visible && !this->startingBoard->Contains(label))){
+			if ((!this->numericUpDown->Visible && !this->isDefault(label))){
 				int x = this->tableLayoutPanel->GetColumn(label);
 				int y = this->tableLayoutPanel->GetRow(label);
 				this->tableLayoutPanel->Controls->Remove(label);
@@ -88,9 +111,15 @@ namespace Connect64 {
 		}
 	}
 
-	void Connect64Form::label_Click(System::Object^  sender, System::EventArgs^  e){
+	void Connect64Form::label_Click(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e){
 		Label^ label = safe_cast<Label^>(sender);
-		if (!this->numericUpDown->Visible && !this->startingBoard->Contains(label)){
+		if (this->numericUpDown->Visible){
+			this->confirmInputButton_Click(sender, e);
+		}
+		if (e->Button == System::Windows::Forms::MouseButtons::Right){
+			this->clearCell(label);
+		}
+		if (!this->numericUpDown->Visible && !this->isDefault(label)){
 			int x = this->tableLayoutPanel->GetColumn(label);
 			int y = this->tableLayoutPanel->GetRow(label);
 			this->tableLayoutPanel->Controls->Remove(label);
@@ -131,7 +160,7 @@ namespace Connect64 {
 			}
 			else
 			{
-				if (!this->startingBoard->Contains(label)){
+				if (!this->isDefault(label)){
 					label->ForeColor = Color::Black;
 				}
 				else{
@@ -156,11 +185,18 @@ namespace Connect64 {
 	
 	void Connect64Form::increaseUpDown(){
 		int upDownValue = Convert::ToInt32(this->numericUpDown->Value);
-		if (upDownValue != 64){
+		if (upDownValue  != 64){
 			do{
 				this->numericUpDown->Value++;
 				upDownValue = Convert::ToInt32(this->numericUpDown->Value);
-			} while (this->gameBoard->contains(upDownValue));
+			} while (this->gameBoard->contains(upDownValue) && upDownValue < 64);
+		}
+	}
+
+	void Connect64Form::clearCell(Label^ labelToClear){
+		if (!this->isDefault(labelToClear)){
+			int x = this->tableLayoutPanel->GetColumn(this->numericUpDown);
+			int y = this->tableLayoutPanel->GetRow(this->numericUpDown);
 		}
 	}
 
@@ -176,8 +212,16 @@ namespace Connect64 {
 	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		this->fileIO = gcnew ConnectFileIO();
+		this->gameBoard = gcnew Board(1);
+		this->setBoard();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + puzzleExtension);
 		delete this->fileIO;
+	}
+
+	bool Connect64Form::isDefault(Label^ label){
+		int x = this->tableLayoutPanel->GetColumn(label);
+		int y = this->tableLayoutPanel->GetRow(label);
+		return (startingBoard->getTile(x, y) != 0);
 	}
 
 	void Connect64Form::setDisplayText()
