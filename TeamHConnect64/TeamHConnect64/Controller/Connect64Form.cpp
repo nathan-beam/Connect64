@@ -146,10 +146,7 @@ namespace Connect64 {
 		this->increaseUpDown();
 		this->showBoard();
 		this->confirmInputButton->Enabled = false;
-		if (this->gameBoard->isSolved()){
-			MessageBox::Show("Yay!", "You did it!");
-			this->tableLayoutPanel->Enabled = false;
-		}
+		this->checkWin();
 	}
 
 	void Connect64Form::checkForDuplicates(){
@@ -231,6 +228,15 @@ namespace Connect64 {
 		return (startingBoard->getTile(x, y) != 0);
 	}
 
+	void Connect64Form::checkWin(){
+		if (this->gameBoard->isSolved()){
+			MessageBox::Show("Yay!", "You did it!");
+			this->tableLayoutPanel->Enabled = false;
+		}
+		else if (!this->gameBoard->contains(0)){
+			MessageBox::Show("Not done yet!", "Uh Oh!");
+		}
+	}
 	void Connect64Form::setDisplayText()
 	{
 		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
