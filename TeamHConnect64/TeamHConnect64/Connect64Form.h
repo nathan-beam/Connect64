@@ -40,6 +40,7 @@ namespace Connect64 {
 			 ConnectFileIO^ fileIO;
 			 int puzzleCount;
 			 String^ gamePuzzlesPath;
+			 String^ puzzleExtension;
 
 	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
