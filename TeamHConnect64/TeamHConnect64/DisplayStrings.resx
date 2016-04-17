@@ -141,6 +141,9 @@
   <data name="NumberChoiceLabelText" xml:space="preserve">
     <value>Select the number to add from the drop down:</value>
   </data>
+  <data name="PauseMessageText" xml:space="preserve">
+    <value>   Puzzle hidden while timer paused</value>
+  </data>
   <data name="PuzzleNumberLabelText" xml:space="preserve">
     <value>Puzzle Number: </value>
   </data>

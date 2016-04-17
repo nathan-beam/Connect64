@@ -81,6 +81,7 @@ namespace Connect64 {
 		this->gameBoard->setTile(5, 5, 61);
 		this->gameBoard->setTile(2, 5, 58);
 		this->resetToolStripMenuItem->Enabled = true;
+		this->hideBoard();
 		this->showBoard();
 	}
 
@@ -235,6 +236,7 @@ namespace Connect64 {
 		this->setBoard();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + puzzleExtension);
 		delete this->fileIO;
+		this->timerButton->Enabled = true;
 	}
 
 	bool Connect64Form::isDefault(Label^ label){
@@ -262,10 +264,12 @@ namespace Connect64 {
 	void Connect64Form::timerButton_Click(System::Object^  sender, System::EventArgs^  e){
 		if (this->timer->Enabled){
 			this->stopTimer();
+			this->hideBoard();
 		}
 		else{
 			this->timer->Enabled = true;
 			this->timerButton->Text = this->resourceManager->GetString("TimerButtonStop");
+			this->unhideBoard();
 		}
 	}
 
@@ -274,6 +278,17 @@ namespace Connect64 {
 		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 	}
+
+	void Connect64Form::hideBoard(){
+		this->tableLayoutPanel->Visible = false;
+		this->pauseMessageLabel->Visible = true;
+	}
+
+	void Connect64Form::unhideBoard(){
+		this->tableLayoutPanel->Visible = true;
+		this->pauseMessageLabel->Visible = false;
+	}
+
 	void Connect64Form::setDisplayText()
 	{
 		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
@@ -288,6 +303,7 @@ namespace Connect64 {
 		String^ timeFormat = this->resourceManager->GetString("TimeFormat");
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
+		this->pauseMessageLabel->Text = this->resourceManager->GetString("PauseMessageText");
 
 	}
 }

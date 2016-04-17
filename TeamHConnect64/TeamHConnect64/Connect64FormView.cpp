@@ -28,6 +28,7 @@ namespace Connect64 {
 		this->timer = (gcnew System::Windows::Forms::Timer(this->components));
 		this->timeLabel = (gcnew System::Windows::Forms::Label());
 		this->timerButton = (gcnew System::Windows::Forms::Button());
+		this->pauseMessageLabel = (gcnew System::Windows::Forms::Label());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
@@ -73,7 +74,7 @@ namespace Connect64 {
 		// 
 		this->resetToolStripMenuItem->Enabled = false;
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
@@ -197,6 +198,7 @@ namespace Connect64 {
 		// 
 		// timerButton
 		// 
+		this->timerButton->Enabled = false;
 		this->timerButton->Location = System::Drawing::Point(487, 135);
 		this->timerButton->Name = L"timerButton";
 		this->timerButton->Size = System::Drawing::Size(75, 23);
@@ -204,11 +206,23 @@ namespace Connect64 {
 		this->timerButton->UseVisualStyleBackColor = true;
 		this->timerButton->Click += gcnew System::EventHandler(this, &Connect64Form::timerButton_Click);
 		// 
+		// pauseMessageLabel
+		// 
+		this->pauseMessageLabel->AutoSize = true;
+		this->pauseMessageLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20.25F, System::Drawing::FontStyle::Regular,
+			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+		this->pauseMessageLabel->Location = System::Drawing::Point(12, 232);
+		this->pauseMessageLabel->Name = L"pauseMessageLabel";
+		this->pauseMessageLabel->Size = System::Drawing::Size(0, 31);
+		this->pauseMessageLabel->TabIndex = 13;
+		this->pauseMessageLabel->Visible = false;
+		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(607, 506);
+		this->Controls->Add(this->pauseMessageLabel);
 		this->Controls->Add(this->timerButton);
 		this->Controls->Add(this->timeLabel);
 		this->Controls->Add(this->loadPuzzleBtn);

@@ -60,6 +60,8 @@ namespace Connect64 {
 
 	private: System::Windows::Forms::Label^  timeLabel;
 	private: System::Windows::Forms::Button^  timerButton;
+	private: System::Windows::Forms::Label^  pauseMessageLabel;
+
 
 	private: System::ComponentModel::IContainer^  components;
 
@@ -94,6 +96,8 @@ namespace Connect64 {
 		 bool isDefault(Label^ label);
 		 void checkWin();
 		 void stopTimer();
+		 void hideBoard();
+		 void unhideBoard();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
