@@ -156,4 +156,13 @@
   <data name="SettingsMenuItemText" xml:space="preserve">
     <value>&amp;Settings</value>
   </data>
+  <data name="TimeLabelText" xml:space="preserve">
+    <value>Time: </value>
+  </data>
+  <data name="TimerButtonStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="TimerButtonStop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
 </root>

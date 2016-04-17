@@ -55,6 +55,19 @@ namespace Connect64 {
 
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
+		this->startingBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
+		this->startingBoard->setTile(0, 0, 1);
+		this->startingBoard->setTile(7, 0, 8);
+		this->startingBoard->setTile(7, 7, 15);
+		this->startingBoard->setTile(0, 7, 22);
+		this->startingBoard->setTile(1, 1, 29);
+		this->startingBoard->setTile(6, 1, 44);
+		this->startingBoard->setTile(6, 6, 39);
+		this->startingBoard->setTile(1, 6, 34);
+		this->startingBoard->setTile(2, 3, 56);
+		this->startingBoard->setTile(5, 3, 49);
+		this->startingBoard->setTile(5, 5, 61);
+		this->startingBoard->setTile(2, 5, 58);
 		this->gameBoard->setTile(0, 0, 1);
 		this->gameBoard->setTile(7, 0, 8);
 		this->gameBoard->setTile(7, 7, 15);
@@ -67,7 +80,7 @@ namespace Connect64 {
 		this->gameBoard->setTile(5, 3, 49);
 		this->gameBoard->setTile(5, 5, 61);
 		this->gameBoard->setTile(2, 5, 58);
-		this->startingBoard = gcnew Board(gameBoard);
+		this->resetToolStripMenuItem->Enabled = true;
 		this->showBoard();
 	}
 
@@ -174,6 +187,8 @@ namespace Connect64 {
 	void Connect64Form::resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
 		this->confirmInputButton_Click(sender, e);
 		this->gameBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
+		this->time = 0;
+		this->stopTimer();
 		this->setBoard();
 	}
 
@@ -237,6 +252,28 @@ namespace Connect64 {
 			MessageBox::Show("Not done yet!", "Uh Oh!");
 		}
 	}
+
+	void Connect64Form::timer_Tick(System::Object^  sender, System::EventArgs^  e){
+		this->time += 1;
+		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+
+	}
+
+	void Connect64Form::timerButton_Click(System::Object^  sender, System::EventArgs^  e){
+		if (this->timer->Enabled){
+			this->stopTimer();
+		}
+		else{
+			this->timer->Enabled = true;
+			this->timerButton->Text = this->resourceManager->GetString("TimerButtonStop");
+		}
+	}
+
+	void Connect64Form::stopTimer(){
+		this->timer->Enabled = false;
+		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
+		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+	}
 	void Connect64Form::setDisplayText()
 	{
 		this->fileToolStripMenuItem->Text = this->resourceManager->GetString("FileMenuItemText");
@@ -248,5 +285,9 @@ namespace Connect64 {
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
 		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
 		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
+		String^ timeFormat = this->resourceManager->GetString("TimeFormat");
+		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
+
 	}
 }

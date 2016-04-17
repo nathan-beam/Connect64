@@ -10,6 +10,7 @@ namespace Connect64 {
 	/// </summary>
 	void Connect64Form::InitializeComponent(void)
 	{
+		this->components = (gcnew System::ComponentModel::Container());
 		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 		this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -24,6 +25,9 @@ namespace Connect64 {
 		this->puzzleChoiceBox = (gcnew System::Windows::Forms::ComboBox());
 		this->selectPuzzlelbl = (gcnew System::Windows::Forms::Label());
 		this->loadPuzzleBtn = (gcnew System::Windows::Forms::Button());
+		this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+		this->timeLabel = (gcnew System::Windows::Forms::Label());
+		this->timerButton = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
@@ -67,8 +71,9 @@ namespace Connect64 {
 		// 
 		// resetToolStripMenuItem
 		// 
+		this->resetToolStripMenuItem->Enabled = false;
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
@@ -144,7 +149,7 @@ namespace Connect64 {
 		this->puzzleNumberLabel->AutoSize = true;
 		this->puzzleNumberLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular,
 			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-		this->puzzleNumberLabel->Location = System::Drawing::Point(463, 98);
+		this->puzzleNumberLabel->Location = System::Drawing::Point(466, 58);
 		this->puzzleNumberLabel->Name = L"puzzleNumberLabel";
 		this->puzzleNumberLabel->Size = System::Drawing::Size(0, 18);
 		this->puzzleNumberLabel->TabIndex = 6;
@@ -175,11 +180,37 @@ namespace Connect64 {
 		this->loadPuzzleBtn->UseVisualStyleBackColor = true;
 		this->loadPuzzleBtn->Click += gcnew System::EventHandler(this, &Connect64Form::loadPuzzleBtn_Click);
 		// 
+		// timer
+		// 
+		this->timer->Interval = 1000;
+		this->timer->Tick += gcnew System::EventHandler(this, &Connect64Form::timer_Tick);
+		// 
+		// timeLabel
+		// 
+		this->timeLabel->AutoSize = true;
+		this->timeLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			static_cast<System::Byte>(0)));
+		this->timeLabel->Location = System::Drawing::Point(466, 105);
+		this->timeLabel->Name = L"timeLabel";
+		this->timeLabel->Size = System::Drawing::Size(0, 24);
+		this->timeLabel->TabIndex = 11;
+		// 
+		// timerButton
+		// 
+		this->timerButton->Location = System::Drawing::Point(487, 135);
+		this->timerButton->Name = L"timerButton";
+		this->timerButton->Size = System::Drawing::Size(75, 23);
+		this->timerButton->TabIndex = 12;
+		this->timerButton->UseVisualStyleBackColor = true;
+		this->timerButton->Click += gcnew System::EventHandler(this, &Connect64Form::timerButton_Click);
+		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->ClientSize = System::Drawing::Size(607, 506);
+		this->Controls->Add(this->timerButton);
+		this->Controls->Add(this->timeLabel);
 		this->Controls->Add(this->loadPuzzleBtn);
 		this->Controls->Add(this->selectPuzzlelbl);
 		this->Controls->Add(this->puzzleChoiceBox);

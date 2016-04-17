@@ -51,10 +51,17 @@ namespace Connect64 {
 		 Label^ editLabel;
 		 Board^ startingBoard;
 		 List<Label^>^ labels;
+		 int time = 0;
 	 System::Windows::Forms::Label^  puzzleNumberLabel;
 	private: System::Windows::Forms::ComboBox^  puzzleChoiceBox;
 	private: System::Windows::Forms::Label^  selectPuzzlelbl;
 	private: System::Windows::Forms::Button^  loadPuzzleBtn;
+	private: System::Windows::Forms::Timer^  timer;
+
+	private: System::Windows::Forms::Label^  timeLabel;
+	private: System::Windows::Forms::Button^  timerButton;
+
+	private: System::ComponentModel::IContainer^  components;
 
 
 
@@ -62,7 +69,7 @@ namespace Connect64 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 		void setBoard();
 		void showBoard();
@@ -86,10 +93,13 @@ namespace Connect64 {
 		 void clearCell(Label^ labelToClear);
 		 bool isDefault(Label^ label);
 		 void checkWin();
+		 void stopTimer();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void label_Click(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
-};
+	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
+	};
 }
 
