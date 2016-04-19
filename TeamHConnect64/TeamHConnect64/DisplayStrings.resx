@@ -132,6 +132,9 @@
   <data name="GameMenuItemText" xml:space="preserve">
     <value>&amp;Game</value>
   </data>
+  <data name="GamePuzzlesPath" xml:space="preserve">
+    <value>GameBoards/</value>
+  </data>
   <data name="LoadMenuItemText" xml:space="preserve">
     <value>&amp;Load</value>
   </data>
@@ -147,8 +150,14 @@
   <data name="PuzzleNumberLabelText" xml:space="preserve">
     <value>Puzzle Number: </value>
   </data>
+  <data name="PuzzlesExtension" xml:space="preserve">
+    <value>.puz</value>
+  </data>
   <data name="ResetMenuItemText" xml:space="preserve">
     <value>&amp;Reset</value>
+  </data>
+  <data name="SaveFilePath" xml:space="preserve">
+    <value>Save/save.puz</value>
   </data>
   <data name="SaveMenuItemText" xml:space="preserve">
     <value>&amp;Save</value>
