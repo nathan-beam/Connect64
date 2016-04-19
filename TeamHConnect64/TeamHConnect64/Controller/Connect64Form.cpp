@@ -18,7 +18,6 @@ namespace Connect64 {
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();
 		this->createLabels();
-		delete this->fileIO;
 
 	}
 
@@ -216,13 +215,8 @@ namespace Connect64 {
 		this->time = 0;
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 
-		if (this->startingBoard != nullptr)
-		{
-			delete this->startingBoard;
-		}
 		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
 		this->setBoard();
-		delete this->fileIO;
 		this->timerButton->Enabled = true;
 	}
 
