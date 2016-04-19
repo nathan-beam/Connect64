@@ -56,7 +56,7 @@ namespace Connect64 {
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
 
-		this->startingBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
+		this->gameBoard = gcnew Board(this->startingBoard);
 		this->resetToolStripMenuItem->Enabled = true;
 		this->hideBoard();
 		this->showBoard();
@@ -216,11 +216,11 @@ namespace Connect64 {
 		this->time = 0;
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 
-		if (this->gameBoard != nullptr)
+		if (this->startingBoard != nullptr)
 		{
-			delete this->gameBoard;
+			delete this->startingBoard;
 		}
-		this->gameBoard = this->fileIO->GetBoard();
+		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
 		this->setBoard();
 		delete this->fileIO;
 		this->timerButton->Enabled = true;
