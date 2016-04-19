@@ -74,6 +74,7 @@ namespace Connect64 {
 
 
 		void setBoard();
+		void setBoard(Board^ saveBoard);
 		void showBoard();
 		void setPuzzleChooser();
 		void setDisplayText();
@@ -98,12 +99,15 @@ namespace Connect64 {
 		 void stopTimer();
 		 void hideBoard();
 		 void unhideBoard();
+		 void loadPuzzle(int puzzleNumber);
+		 void loadSavedGame();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void label_Click(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
 	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
+			 System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 	};
 }
 

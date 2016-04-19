@@ -12,8 +12,8 @@ namespace Connect64 {
 		this->Text = this->resourceManager->GetString("FormTitleText");
 		this->setDisplayText();
 		this->fileIO = gcnew ConnectFileIO();
-		this->puzzleExtension = ".puz";
-		this->gamePuzzlesPath = "GameBoards/";
+		this->puzzleExtension = this->resourceManager->GetString("PuzzlesExtension");
+		this->gamePuzzlesPath = this->resourceManager->GetString("GamePuzzlesPath");
 		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();
@@ -56,6 +56,13 @@ namespace Connect64 {
 	void Connect64Form::setBoard(){
 
 		this->gameBoard = gcnew Board(this->startingBoard);
+		this->resetToolStripMenuItem->Enabled = true;
+		this->hideBoard();
+		this->showBoard();
+	}
+
+	void Connect64Form::setBoard(Board^ saveBoard){
+		this->gameBoard = gcnew Board(saveBoard);
 		this->resetToolStripMenuItem->Enabled = true;
 		this->hideBoard();
 		this->showBoard();
@@ -207,15 +214,12 @@ namespace Connect64 {
 
 	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + puzzleExtension);
-
 		// Reset Timer
 		this->stopTimer();
 		this->time = 0;
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 
-		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
+		this->loadPuzzle(this->puzzleChoiceBox->SelectedIndex + 1);
 		this->setBoard();
 		this->timerButton->Enabled = true;
 	}
@@ -287,4 +291,29 @@ namespace Connect64 {
 		this->pauseMessageLabel->Text = this->resourceManager->GetString("PauseMessageText");
 
 	}
+
+	void Connect64Form::loadPuzzle(int puzzleNumber)
+	{
+		this->fileIO = gcnew ConnectFileIO();
+		this->fileIO->ReadFile(this->gamePuzzlesPath + puzzleNumber + puzzleExtension);
+		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
+	}
+
+	void Connect64Form::loadSavedGame()
+	{
+		this->fileIO = gcnew ConnectFileIO();
+		this->fileIO->ReadFile(this->resourceManager->GetString("SaveFilePath"));
+		this->loadPuzzle(this->fileIO->GetPuzzleNumber());
+
+		this->fileIO = gcnew ConnectFileIO();
+		this->fileIO->ReadFile(this->resourceManager->GetString("SaveFilePath"));
+		this->setBoard(this->fileIO->GetBoard());
+		this->timerButton->Enabled = true;
+	}
+
+	void Connect64Form::loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->loadSavedGame();
+	}
+
 }
