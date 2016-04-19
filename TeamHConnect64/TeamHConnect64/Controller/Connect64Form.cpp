@@ -55,31 +55,8 @@ namespace Connect64 {
 
 	//Placeholder for now - Just going for functionality
 	void Connect64Form::setBoard(){
+
 		this->startingBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
-		this->startingBoard->setTile(0, 0, 1);
-		this->startingBoard->setTile(7, 0, 8);
-		this->startingBoard->setTile(7, 7, 15);
-		this->startingBoard->setTile(0, 7, 22);
-		this->startingBoard->setTile(1, 1, 29);
-		this->startingBoard->setTile(6, 1, 44);
-		this->startingBoard->setTile(6, 6, 39);
-		this->startingBoard->setTile(1, 6, 34);
-		this->startingBoard->setTile(2, 3, 56);
-		this->startingBoard->setTile(5, 3, 49);
-		this->startingBoard->setTile(5, 5, 61);
-		this->startingBoard->setTile(2, 5, 58);
-		this->gameBoard->setTile(0, 0, 1);
-		this->gameBoard->setTile(7, 0, 8);
-		this->gameBoard->setTile(7, 7, 15);
-		this->gameBoard->setTile(0, 7, 22);
-		this->gameBoard->setTile(1, 1, 29);
-		this->gameBoard->setTile(6, 1, 44);
-		this->gameBoard->setTile(6, 6, 39);
-		this->gameBoard->setTile(1, 6, 34);
-		this->gameBoard->setTile(2, 3, 56);
-		this->gameBoard->setTile(5, 3, 49);
-		this->gameBoard->setTile(5, 5, 61);
-		this->gameBoard->setTile(2, 5, 58);
 		this->resetToolStripMenuItem->Enabled = true;
 		this->hideBoard();
 		this->showBoard();
@@ -232,9 +209,19 @@ namespace Connect64 {
 	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		this->fileIO = gcnew ConnectFileIO();
-		this->gameBoard = gcnew Board(1);
-		this->setBoard();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + (this->puzzleChoiceBox->SelectedIndex + 1) + puzzleExtension);
+
+		// Reset Timer
+		this->stopTimer();
+		this->time = 0;
+		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+
+		if (this->gameBoard != nullptr)
+		{
+			delete this->gameBoard;
+		}
+		this->gameBoard = this->fileIO->GetBoard();
+		this->setBoard();
 		delete this->fileIO;
 		this->timerButton->Enabled = true;
 	}

@@ -6,7 +6,7 @@ using namespace System::IO;
 namespace Controller{
 	ConnectFileIO::ConnectFileIO()
 	{
-		this->values = gcnew array<int, 2>(8, 8);
+		
 	}
 
 	void ConnectFileIO::ReadFile(String^ fileName)
@@ -26,12 +26,13 @@ namespace Controller{
 					int x = Int32::Parse(values[0]);
 					int y = Int32::Parse(values[1]);;
 					int value = Int32::Parse(values[2]);;
-					this->values[x, y] = value;
+					this->board->setTile(x, y, value);
 				} else
 				{
 					array<String^>^ values;
 					values = str->Split(',');
 					this->puzzleNumber = Int32::Parse(values[0]);
+					this->board = gcnew Board(this->puzzleNumber);
 				}
 				count++;
 			}
@@ -46,9 +47,9 @@ namespace Controller{
 
 	}
 
-	array<int, 2>^ ConnectFileIO::GetValues()
+	Board^ ConnectFileIO::GetBoard()
 	{
-		return this->values;
+		return this->board;
 	}
 
 	int ConnectFileIO::GetPuzzleNumber()
