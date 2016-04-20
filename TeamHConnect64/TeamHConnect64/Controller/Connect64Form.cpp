@@ -172,6 +172,7 @@ namespace Connect64 {
 		this->confirmInputButton_Click(sender, e);
 		this->gameBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
 		this->time = 0;
+		this->numericUpDown->Value = 1;
 		this->stopTimer();
 		this->setBoard();
 	}
@@ -234,6 +235,7 @@ namespace Connect64 {
 		if (this->gameBoard->isSolved()){
 			MessageBox::Show("Yay!", "You did it!");
 			this->tableLayoutPanel->Enabled = false;
+			this->stopTimer();
 		}
 		else if (!this->gameBoard->contains(0)){
 			MessageBox::Show("Not done yet!", "Uh Oh!");
