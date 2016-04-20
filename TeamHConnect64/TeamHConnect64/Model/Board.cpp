@@ -48,6 +48,9 @@ namespace model{
 	}
 
 	bool Board::isDuplicate(int value){
+		if (value == 0){
+			return false;
+		}
 		int valueCount = 0;
 		for (int i = 0; i < 8; i++)
 		{

@@ -15,6 +15,7 @@ namespace Connect64 {
 	using namespace System::Drawing;
 	using namespace System::Resources; 
 	using namespace System::Collections::Generic;
+	using namespace System::Media;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -29,6 +30,8 @@ namespace Connect64 {
 		~Connect64Form();
 
 		 ResourceManager^ resourceManager;
+		 ResourceManager^ soundResourceManager;
+
 
 	private:
 	 System::Windows::Forms::MenuStrip^  menuStrip1;
@@ -101,6 +104,8 @@ namespace Connect64 {
 		 void unhideBoard();
 		 void loadPuzzle(int puzzleNumber);
 		 void loadSavedGame();
+		 void playSuccessSound();
+		 void playErrorSound();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);

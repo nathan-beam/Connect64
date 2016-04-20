@@ -93,12 +93,18 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ConnectFileIO.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Connect64Form.resx">
       <DependentUpon>Connect64Form.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayStrings.resx" />
+    <EmbeddedResource Include="sounds.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\..\Downloads\error.wav" />
+    <Media Include="..\..\..\..\..\Downloads\success.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

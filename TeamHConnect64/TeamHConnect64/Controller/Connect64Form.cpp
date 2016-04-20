@@ -9,6 +9,7 @@ namespace Connect64 {
 	{
 		InitializeComponent();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
+		this->soundResourceManager = gcnew ResourceManager("TeamHConnect64.sounds", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
 		this->setDisplayText();
 		this->fileIO = gcnew ConnectFileIO();
@@ -154,6 +155,7 @@ namespace Connect64 {
 			int y = this->tableLayoutPanel->GetRow(label);
 			int value = this->gameBoard->getTile(x, y);
 			if (this->gameBoard->isDuplicate(value)){
+				this->playErrorSound();
 				label->ForeColor = Color::Red;
 			}
 			else
@@ -233,11 +235,13 @@ namespace Connect64 {
 
 	void Connect64Form::checkWin(){
 		if (this->gameBoard->isSolved()){
+			this->playSuccessSound();
 			MessageBox::Show("Yay!", "You did it!");
 			this->tableLayoutPanel->Enabled = false;
 			this->stopTimer();
 		}
 		else if (!this->gameBoard->contains(0)){
+			this->playErrorSound();
 			MessageBox::Show("Not done yet!", "Uh Oh!");
 		}
 	}
@@ -299,6 +303,18 @@ namespace Connect64 {
 		this->fileIO = gcnew ConnectFileIO();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + puzzleNumber + puzzleExtension);
 		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
+	}
+
+	void Connect64Form::playSuccessSound(){
+		Stream^ sound = this->soundResourceManager->GetStream("success");
+		SoundPlayer^ audio = gcnew SoundPlayer(sound);
+		audio->Play();
+	}
+
+	void Connect64Form::playErrorSound(){
+		Stream^ sound = this->soundResourceManager->GetStream("error");
+		SoundPlayer^ audio = gcnew SoundPlayer(sound);
+		audio->Play();
 	}
 
 	void Connect64Form::loadSavedGame()

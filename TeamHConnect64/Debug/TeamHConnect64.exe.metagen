@@ -1,5 +1,6 @@
   TeamHConnect64.Connect64Form.resources - Embedded, ContainedInManifestFile, 
   TeamHConnect64.DisplayStrings.resources - Embedded, ContainedInManifestFile, 
+  TeamHConnect64.sounds.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly TeamHConnect64, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
