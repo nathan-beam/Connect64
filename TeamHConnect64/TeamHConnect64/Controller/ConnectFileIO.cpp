@@ -118,6 +118,6 @@ namespace controller{
 
 	List<HighScore^>^ ConnectFileIO::GetScoreboard()
 	{
-		this->scoreboard;
+		return this->scoreboard;
 	}
 }

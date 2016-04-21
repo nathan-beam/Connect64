@@ -1,9 +1,8 @@
 #pragma once
-using namespace System;
-using namespace cli;
-#include "ScoreBoard.h"
 #include "Board.h"
+#include "HighScore.h"
 using namespace model;
+using namespace System::Collections::Generic;
 namespace controller{
 	ref class ConnectFileIO
 	{

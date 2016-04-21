@@ -13,9 +13,9 @@ namespace view{
 		auto scoreBoard = this->scores->getScoreBoard();
 		for each (auto score in scoreBoard)
 		{
-			String^ name = score->getName();
-			String^ time = score->getTime() + "";
-			String^ puzzleNum = score->getPuzzleNum() + "";
+			String^ name = score->GetName();
+			String^ time = score->GetTime() + "";
+			String^ puzzleNum = score->GetPuzzleNum() + "";
 			this->ScoreBoardGridView->Rows->Add(puzzleNum, name, time);
 
 		}

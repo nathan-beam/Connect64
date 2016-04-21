@@ -8,7 +8,7 @@ using namespace controller;
 
 
 namespace view {
-
+	using namespace System::IO;
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;

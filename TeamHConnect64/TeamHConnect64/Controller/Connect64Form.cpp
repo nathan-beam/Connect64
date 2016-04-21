@@ -1,7 +1,4 @@
 #include "Connect64Form.h"
-#using<system.dll>
-using namespace System;
-using namespace System::IO;
 
 namespace view
 {

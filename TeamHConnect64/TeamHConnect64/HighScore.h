@@ -1,6 +1,7 @@
 #pragma once
+using namespace System;
+
 namespace model {
-	using namespace System;
 
 	public ref class HighScore
 	{

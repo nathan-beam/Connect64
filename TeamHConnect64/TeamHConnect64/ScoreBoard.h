@@ -1,9 +1,9 @@
 #pragma once
+#include "HighScore.h"
 #include "ConnectFileIO.h"
 using namespace controller;
-
-#include "HighScore.h"
 namespace model{ 
+
 	using namespace System::Collections::Generic;
 	using namespace System::Resources;
 
