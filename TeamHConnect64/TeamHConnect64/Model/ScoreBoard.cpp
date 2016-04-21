@@ -11,16 +11,24 @@ namespace model{
 
 	void ScoreBoard::addScore(String^ name,  int time,  int puzzleNum){
 		HighScore^ newScore = gcnew HighScore(name, time, puzzleNum);
-		for (int i = 0; i < this->LEADERBOARD_SIZE; i++)
+		if (this->scoreboard->Count == 0)
 		{
-			HighScore^ compareScore = this->scoreboard[i];
-			if (compareScore->GetTime() > newScore->GetTime()){
-				this->scoreboard->Insert(i, newScore);
-				if (this->scoreboard->Count > LEADERBOARD_SIZE){
-					this->scoreboard->RemoveAt(this->LEADERBOARD_SIZE);
+			this->scoreboard->Insert(0, newScore);
+
+		} else
+		{
+			for (int i = 0; i < this->LEADERBOARD_SIZE; i++)
+			{
+				HighScore^ compareScore = this->scoreboard[i];
+				if (compareScore->GetTime() > newScore->GetTime()){
+					this->scoreboard->Insert(i, newScore);
+					if (this->scoreboard->Count > LEADERBOARD_SIZE){
+						this->scoreboard->RemoveAt(this->LEADERBOARD_SIZE);
+					}
+					break;
 				}
-				break;
 			}
+			
 		}
 	}
 	 List<HighScore^>^ ScoreBoard::getScoreBoard(){
@@ -28,8 +36,15 @@ namespace model{
 	}
 
 	 bool ScoreBoard::isHighScore(int score){
-		 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->GetTime();
-		 return lowestScore > score;
+		 if (this->scoreboard->Count != 0)
+		 {
+			 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->GetTime();
+			 return lowestScore > score;
+			 
+		 } else
+		 {
+			 return true;
+		 }
 	 }
 
 	 void ScoreBoard::reset(){
