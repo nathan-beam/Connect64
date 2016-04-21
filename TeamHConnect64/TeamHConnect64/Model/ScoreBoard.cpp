@@ -5,8 +5,8 @@ namespace model{
 	ScoreBoard::ScoreBoard()
 	{
 		this->scoreboard = gcnew List<HighScore^>();
-		this->LoadScores();
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
+		this->LoadScores();
 	}
 
 	void ScoreBoard::addScore(String^ name,  int time,  int puzzleNum){
