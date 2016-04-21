@@ -140,5 +140,6 @@ namespace model{
 				}
 			}
 		}
+		return nullptr;
 	}
 }

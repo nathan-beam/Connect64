@@ -117,82 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ChoosePuzzleMenuItemText" xml:space="preserve">
-    <value>&amp;Choose Puzzle</value>
-  </data>
-  <data name="ConfirmInputButtonText" xml:space="preserve">
-    <value>Confirm Input</value>
-  </data>
-  <data name="FileMenuItemText" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="FormTitleText" xml:space="preserve">
-    <value>Connect 64 by Nathan Beam and Matt Maginniss</value>
-  </data>
-  <data name="GameMenuItemText" xml:space="preserve">
-    <value>&amp;Game</value>
-  </data>
-  <data name="GamePuzzlesPath" xml:space="preserve">
-    <value>GameBoards/</value>
-  </data>
-  <data name="HighScoreButtonText" xml:space="preserve">
-    <value>High Scores</value>
-  </data>
-  <data name="LoadMenuItemText" xml:space="preserve">
-    <value>&amp;Load</value>
-  </data>
-  <data name="LoadPuzzleButtonText" xml:space="preserve">
-    <value>Load Puzzle</value>
-  </data>
-  <data name="NameHeader" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="NumberChoiceLabelText" xml:space="preserve">
-    <value>Select the number to add from the drop down:</value>
-  </data>
-  <data name="PauseMessageText" xml:space="preserve">
-    <value>   Puzzle hidden while timer paused</value>
-  </data>
-  <data name="PuzzleHeader" xml:space="preserve">
-    <value>Puzzle #</value>
-  </data>
-  <data name="PuzzleNumberLabelText" xml:space="preserve">
-    <value>Puzzle Number: </value>
-  </data>
-  <data name="PuzzlesExtension" xml:space="preserve">
-    <value>.puz</value>
-  </data>
-  <data name="ResetMenuItemText" xml:space="preserve">
-    <value>&amp;Reset</value>
-  </data>
-  <data name="SaveFilePath" xml:space="preserve">
-    <value>Save/save.puz</value>
-  </data>
-  <data name="SaveMenuItemText" xml:space="preserve">
-    <value>&amp;Save</value>
-  </data>
-  <data name="scoreBoardButtonText" xml:space="preserve">
-    <value>Highscores</value>
-  </data>
-  <data name="scoreBoardFormText" xml:space="preserve">
-    <value>Top 10 Fastest Times!</value>
-  </data>
-  <data name="SelectPuzzleLabelText" xml:space="preserve">
-    <value>Select the puzzle to load:</value>
-  </data>
-  <data name="SettingsMenuItemText" xml:space="preserve">
-    <value>&amp;Settings</value>
-  </data>
-  <data name="TimeHeader" xml:space="preserve">
-    <value>Time</value>
-  </data>
-  <data name="TimeLabelText" xml:space="preserve">
-    <value>Time: </value>
-  </data>
-  <data name="TimerButtonStart" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="TimerButtonStop" xml:space="preserve">
-    <value>Stop</value>
-  </data>
+  <metadata name="puzzleNumColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="timeColumm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

@@ -8,7 +8,7 @@ namespace model{
 		this->loadScores();
 	}
 
-	void ScoreBoard::addScore(const String^ name, const int time, const int puzzleNum){
+	void ScoreBoard::addScore(String^ name,  int time,  int puzzleNum){
 		HighScore^ newScore = gcnew HighScore(name, time, puzzleNum);
 		for (int i = 0; i < this->LEADERBOARD_SIZE; i++)
 		{
@@ -20,22 +20,22 @@ namespace model{
 			}
 		}
 	}
-	const List<HighScore^>^ ScoreBoard::getScoreBoard(){
+	 List<HighScore^>^ ScoreBoard::getScoreBoard(){
 		return this->scoreboard;
 	}
 
 	void ScoreBoard::loadScores(){
 		//TODO
 		this->scoreboard->Add(gcnew HighScore("Bob", 100, 1));
-		this->scoreboard->Add(gcnew HighScore("Sue", 200, 1));
-		this->scoreboard->Add(gcnew HighScore("Alice", 300, 1));
-		this->scoreboard->Add(gcnew HighScore("Matt", 400, 1));
-		this->scoreboard->Add(gcnew HighScore("Duane", 500, 1));
-		this->scoreboard->Add(gcnew HighScore("Pete", 600, 1));
-		this->scoreboard->Add(gcnew HighScore("James", 700, 1));
-		this->scoreboard->Add(gcnew HighScore("Sally", 800, 1));
-		this->scoreboard->Add(gcnew HighScore("Jeff", 900, 1));
-		this->scoreboard->Add(gcnew HighScore("Nathan", 1000, 1));
+		this->scoreboard->Add(gcnew HighScore("Sue", 200, 2));
+		this->scoreboard->Add(gcnew HighScore("Alice", 300, 3));
+		this->scoreboard->Add(gcnew HighScore("Matt", 400, 4));
+		this->scoreboard->Add(gcnew HighScore("Duane", 500, 5));
+		this->scoreboard->Add(gcnew HighScore("Pete", 600, 6));
+		this->scoreboard->Add(gcnew HighScore("James", 700, 7));
+		this->scoreboard->Add(gcnew HighScore("Sally", 800, 8));
+		this->scoreboard->Add(gcnew HighScore("Jeff", 900, 9));
+		this->scoreboard->Add(gcnew HighScore("Nathan", 1000, 10));
 
 	}
 	void ScoreBoard::saveScores(){

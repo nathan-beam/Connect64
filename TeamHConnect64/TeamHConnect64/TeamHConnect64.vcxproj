@@ -80,6 +80,8 @@
     <ClCompile Include="Model\Board.cpp" />
     <ClCompile Include="Model\HighScore.cpp" />
     <ClCompile Include="Model\ScoreBoard.cpp" />
+    <ClCompile Include="ScoreBoardForm.cpp" />
+    <ClCompile Include="View\ScoreBoardFormView.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -98,12 +100,18 @@
     <ClInclude Include="HighScore.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScoreBoard.h" />
+    <ClInclude Include="ScoreBoardForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Connect64Form.resx">
       <DependentUpon>Connect64Form.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayStrings.resx" />
+    <EmbeddedResource Include="ScoreBoardForm.resx">
+      <DependentUpon>ScoreBoardForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sounds.resx" />
   </ItemGroup>
   <ItemGroup>

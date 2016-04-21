@@ -1,4 +1,5 @@
 #pragma once
+#include "ScoreBoardForm.h"
 #include "Board.h"
 using namespace model;
 #include "ConnectFileIO.h"
@@ -49,7 +50,7 @@ namespace Connect64 {
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  resetToolStripMenuItem;
 	 System::Windows::Forms::NumericUpDown^  numericUpDown;
-	 System::Windows::Forms::Button^  confirmInputButton;
+
 
 		 Label^ editLabel;
 		 Board^ startingBoard;
@@ -64,6 +65,8 @@ namespace Connect64 {
 	private: System::Windows::Forms::Label^  timeLabel;
 	private: System::Windows::Forms::Button^  timerButton;
 	private: System::Windows::Forms::Label^  pauseMessageLabel;
+	private: System::Windows::Forms::Button^  confirmInputButton;
+	private: System::Windows::Forms::Button^  scoreBoardButton;
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -115,6 +118,7 @@ namespace Connect64 {
 	private: System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
 			 System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 			 System::Void saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+	private: System::Void scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e);
 	};
 }
 

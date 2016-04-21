@@ -1,14 +1,14 @@
 #include "..\HighScore.h"
 
 namespace model {
-	HighScore::HighScore(const String^ name, const int time, const int puzzleNum)
+	HighScore::HighScore(String^ name,  int time,  int puzzleNum)
 	{
 		this->name = name;
 		this->time = time;
 		this->puzzleNum = puzzleNum;
 	}
 
-	const String^ HighScore::getName(){
+	String^ HighScore::getName(){
 		return this->name;
 	}
 	int HighScore::getTime(){
@@ -17,4 +17,5 @@ namespace model {
 	int HighScore::getPuzzleNum(){
 		return this->puzzleNum;
 	}
+
 }

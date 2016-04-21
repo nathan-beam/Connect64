@@ -1,5 +1,6 @@
   TeamHConnect64.Connect64Form.resources - Embedded, ContainedInManifestFile, 
   TeamHConnect64.DisplayStrings.resources - Embedded, ContainedInManifestFile, 
+  TeamHConnect64.ScoreBoardForm.resources - Embedded, ContainedInManifestFile, 
   TeamHConnect64.sounds.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly TeamHConnect64, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
@@ -16,6 +17,20 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class model.HighScore: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, Int32, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    getName(): PrivateScope, Public, HideBySig
+    getTime(): PrivateScope, Public, HideBySig
+    getPuzzleNum(): PrivateScope, Public, HideBySig
+Class model.ScoreBoard: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    addScore(String, Int32 IsConst, Int32 IsConst): PrivateScope, Public, HideBySig
+    getScoreBoard(): PrivateScope, Public, HideBySig
+Class Connect64.ScoreBoardForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Connect64.Connect64Form: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

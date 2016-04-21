@@ -93,7 +93,7 @@ namespace Connect64 {
 			this->confirmInputButton_Click(sender, e);
 		}
 
-		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));		
+		auto selectedCell = new Point(e->X / (tableLayoutPanel->Width / tableLayoutPanel->ColumnCount), e->Y / (tableLayoutPanel->Height / tableLayoutPanel->RowCount));
 		Object^ control = this->tableLayoutPanel->GetControlFromPosition(selectedCell->X, selectedCell->Y);
 		if (control->GetType() == Label::typeid){
 			Label^ label = safe_cast<Label^>(control);
@@ -104,7 +104,7 @@ namespace Connect64 {
 				int x = this->tableLayoutPanel->GetColumn(label);
 				int y = this->tableLayoutPanel->GetRow(label);
 				this->tableLayoutPanel->Controls->Remove(label);
-				this->tableLayoutPanel->Controls->Add(this->numericUpDown,x,y);
+				this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
 				this->editLabel = label;
 				this->numericUpDown->Visible = true;
 				this->confirmInputButton->Enabled = true;
@@ -121,15 +121,15 @@ namespace Connect64 {
 		if (e->Button == System::Windows::Forms::MouseButtons::Right){
 			this->clearCell(label);
 		}
-		else if(!this->numericUpDown->Visible && !this->isDefault(label)){
-				int x = this->tableLayoutPanel->GetColumn(label);
-				int y = this->tableLayoutPanel->GetRow(label);
-				this->tableLayoutPanel->Controls->Remove(label);
-				this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
-				this->editLabel = label;
-				this->numericUpDown->Visible = true;
-				this->confirmInputButton->Enabled = true;
-			}
+		else if (!this->numericUpDown->Visible && !this->isDefault(label)){
+			int x = this->tableLayoutPanel->GetColumn(label);
+			int y = this->tableLayoutPanel->GetRow(label);
+			this->tableLayoutPanel->Controls->Remove(label);
+			this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
+			this->editLabel = label;
+			this->numericUpDown->Visible = true;
+			this->confirmInputButton->Enabled = true;
+		}
 	}
 
 	void Connect64Form::confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e){
@@ -186,10 +186,10 @@ namespace Connect64 {
 			this->confirmInputButton->PerformClick();
 		}
 	}
-	
+
 	void Connect64Form::increaseUpDown(){
 		int upDownValue = Convert::ToInt32(this->numericUpDown->Value);
-		if (upDownValue  != 64){
+		if (upDownValue != 64){
 			do{
 				this->numericUpDown->Value++;
 				upDownValue = Convert::ToInt32(this->numericUpDown->Value);
@@ -289,6 +289,7 @@ namespace Connect64 {
 		this->loadToolStripMenuItem->Text = this->resourceManager->GetString("LoadMenuItemText");
 		this->resetToolStripMenuItem->Text = this->resourceManager->GetString("ResetMenuItemText");
 		this->confirmInputButton->Text = this->resourceManager->GetString("ConfirmInputButtonText");
+		this->scoreBoardButton->Text = this->resourceManager->GetString("scoreBoardButtonText");
 		this->selectPuzzlelbl->Text = this->resourceManager->GetString("SelectPuzzleLabelText");
 		this->loadPuzzleBtn->Text = this->resourceManager->GetString("LoadPuzzleButtonText");
 		String^ timeFormat = this->resourceManager->GetString("TimeFormat");
@@ -343,5 +344,10 @@ namespace Connect64 {
 	void Connect64Form::saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
 		this->saveBoard();
+	}
+
+	void Connect64Form::scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e){
+		ScoreBoardForm^ scoreboard = gcnew ScoreBoardForm();
+		scoreboard->ShowDialog();
 	}
 }

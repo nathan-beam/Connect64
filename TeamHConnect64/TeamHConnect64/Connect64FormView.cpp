@@ -20,7 +20,6 @@ namespace Connect64 {
 		this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->tableLayoutPanel = (gcnew System::Windows::Forms::TableLayoutPanel());
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
-		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->puzzleNumberLabel = (gcnew System::Windows::Forms::Label());
 		this->puzzleChoiceBox = (gcnew System::Windows::Forms::ComboBox());
 		this->selectPuzzlelbl = (gcnew System::Windows::Forms::Label());
@@ -29,6 +28,8 @@ namespace Connect64 {
 		this->timeLabel = (gcnew System::Windows::Forms::Label());
 		this->timerButton = (gcnew System::Windows::Forms::Button());
 		this->pauseMessageLabel = (gcnew System::Windows::Forms::Label());
+		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
+		this->scoreBoardButton = (gcnew System::Windows::Forms::Button());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
@@ -127,7 +128,7 @@ namespace Connect64 {
 		this->numericUpDown->Anchor = System::Windows::Forms::AnchorStyles::None;
 		this->numericUpDown->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->numericUpDown->Location = System::Drawing::Point(399, 462);
+		this->numericUpDown->Location = System::Drawing::Point(452, 379);
 		this->numericUpDown->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 64, 0, 0, 0 });
 		this->numericUpDown->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		this->numericUpDown->Name = L"numericUpDown";
@@ -136,16 +137,6 @@ namespace Connect64 {
 		this->numericUpDown->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		this->numericUpDown->Visible = false;
 		this->numericUpDown->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Connect64Form::numericUpDown_KeyDown);
-		// 
-		// confirmInputButton
-		// 
-		this->confirmInputButton->Enabled = false;
-		this->confirmInputButton->Location = System::Drawing::Point(202, 471);
-		this->confirmInputButton->Name = L"confirmInputButton";
-		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
-		this->confirmInputButton->TabIndex = 1;
-		this->confirmInputButton->UseVisualStyleBackColor = true;
-		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
 		// 
 		// puzzleNumberLabel
 		// 
@@ -161,15 +152,15 @@ namespace Connect64 {
 		// 
 		this->puzzleChoiceBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 		this->puzzleChoiceBox->FormattingEnabled = true;
-		this->puzzleChoiceBox->Location = System::Drawing::Point(496, 204);
+		this->puzzleChoiceBox->Location = System::Drawing::Point(487, 214);
 		this->puzzleChoiceBox->Name = L"puzzleChoiceBox";
-		this->puzzleChoiceBox->Size = System::Drawing::Size(56, 21);
+		this->puzzleChoiceBox->Size = System::Drawing::Size(75, 21);
 		this->puzzleChoiceBox->TabIndex = 7;
 		// 
 		// selectPuzzlelbl
 		// 
 		this->selectPuzzlelbl->AutoSize = true;
-		this->selectPuzzlelbl->Location = System::Drawing::Point(466, 175);
+		this->selectPuzzlelbl->Location = System::Drawing::Point(466, 191);
 		this->selectPuzzlelbl->Name = L"selectPuzzlelbl";
 		this->selectPuzzlelbl->Size = System::Drawing::Size(0, 13);
 		this->selectPuzzlelbl->TabIndex = 8;
@@ -201,7 +192,7 @@ namespace Connect64 {
 		// timerButton
 		// 
 		this->timerButton->Enabled = false;
-		this->timerButton->Location = System::Drawing::Point(487, 135);
+		this->timerButton->Location = System::Drawing::Point(487, 136);
 		this->timerButton->Name = L"timerButton";
 		this->timerButton->Size = System::Drawing::Size(75, 23);
 		this->timerButton->TabIndex = 12;
@@ -219,11 +210,31 @@ namespace Connect64 {
 		this->pauseMessageLabel->TabIndex = 13;
 		this->pauseMessageLabel->Visible = false;
 		// 
+		// confirmInputButton
+		// 
+		this->confirmInputButton->Enabled = false;
+		this->confirmInputButton->Location = System::Drawing::Point(487, 165);
+		this->confirmInputButton->Name = L"confirmInputButton";
+		this->confirmInputButton->Size = System::Drawing::Size(75, 23);
+		this->confirmInputButton->TabIndex = 1;
+		this->confirmInputButton->UseVisualStyleBackColor = true;
+		this->confirmInputButton->Click += gcnew System::EventHandler(this, &Connect64Form::confirmInputButton_Click);
+		// 
+		// scoreBoardButton
+		// 
+		this->scoreBoardButton->Location = System::Drawing::Point(487, 307);
+		this->scoreBoardButton->Name = L"scoreBoardButton";
+		this->scoreBoardButton->Size = System::Drawing::Size(75, 23);
+		this->scoreBoardButton->TabIndex = 14;
+		this->scoreBoardButton->UseVisualStyleBackColor = true;
+		this->scoreBoardButton->Click += gcnew System::EventHandler(this, &Connect64Form::scoreBoardButton_Click);
+		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		this->ClientSize = System::Drawing::Size(607, 506);
+		this->ClientSize = System::Drawing::Size(607, 475);
+		this->Controls->Add(this->scoreBoardButton);
 		this->Controls->Add(this->pauseMessageLabel);
 		this->Controls->Add(this->timerButton);
 		this->Controls->Add(this->timeLabel);
