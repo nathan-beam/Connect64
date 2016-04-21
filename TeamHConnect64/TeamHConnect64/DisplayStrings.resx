@@ -226,4 +226,7 @@ Enter your name:</value>
   <data name="SoundMenuItemText" xml:space="preserve">
     <value>Sound Enabled</value>
   </data>
+  <data name="ScoreboardFilePath" xml:space="preserve">
+    <value>Save/scoreboard.txt</value>
+  </data>
 </root>

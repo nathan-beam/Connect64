@@ -8,13 +8,13 @@ namespace model {
 		this->puzzleNum = puzzleNum;
 	}
 
-	String^ HighScore::getName(){
+	String^ HighScore::GetName(){
 		return this->name;
 	}
-	int HighScore::getTime(){
+	int HighScore::GetTime(){
 		return this->time;
 	}
-	int HighScore::getPuzzleNum(){
+	int HighScore::GetPuzzleNum(){
 		return this->puzzleNum;
 	}
 

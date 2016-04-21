@@ -6,9 +6,9 @@ namespace model {
 	{
 	public:
 		HighScore(String^ name, const int time, const int puzzleNum); 
-		String^ getName();
-		int getTime();
-		int getPuzzleNum();
+		String^ GetName();
+		int GetTime();
+		int GetPuzzleNum();
  
 	private:
 		String^ name;

@@ -357,6 +357,7 @@ namespace view
 			if (inputForm->DialogResult == System::Windows::Forms::DialogResult::OK){
 				this->scoreBoard->addScore(inputForm->getName(), this->time, this->gameBoard->getPuzzleNumber());
 			}
+			this->scoreBoard->SaveScores();
 		}
 	}
 

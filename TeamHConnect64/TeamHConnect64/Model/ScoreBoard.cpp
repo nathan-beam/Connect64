@@ -5,7 +5,8 @@ namespace model{
 	ScoreBoard::ScoreBoard()
 	{
 		this->scoreboard = gcnew List<HighScore^>();
-		this->loadScores();
+		this->LoadScores();
+		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
 	}
 
 	void ScoreBoard::addScore(String^ name,  int time,  int puzzleNum){
@@ -13,7 +14,7 @@ namespace model{
 		for (int i = 0; i < this->LEADERBOARD_SIZE; i++)
 		{
 			HighScore^ compareScore = this->scoreboard[i];
-			if (compareScore->getTime() > newScore->getTime()){
+			if (compareScore->GetTime() > newScore->GetTime()){
 				this->scoreboard->Insert(i, newScore);
 				if (this->scoreboard->Count > LEADERBOARD_SIZE){
 					this->scoreboard->RemoveAt(this->LEADERBOARD_SIZE);
@@ -27,28 +28,24 @@ namespace model{
 	}
 
 	 bool ScoreBoard::isHighScore(int score){
-		 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->getTime();
+		 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->GetTime();
 		 return lowestScore > score;
 	 }
 
 	 void ScoreBoard::reset(){
 		 this->scoreboard = gcnew List<HighScore^>();
 	 }
-	void ScoreBoard::loadScores(){
-		//TODO
-		this->scoreboard->Add(gcnew HighScore("Bob", 100, 1));
-		this->scoreboard->Add(gcnew HighScore("Sue", 200, 2));
-		this->scoreboard->Add(gcnew HighScore("Alice", 300, 3));
-		this->scoreboard->Add(gcnew HighScore("Matt", 400, 4));
-		this->scoreboard->Add(gcnew HighScore("Duane", 500, 5));
-		this->scoreboard->Add(gcnew HighScore("Pete", 600, 6));
-		this->scoreboard->Add(gcnew HighScore("James", 700, 7));
-		this->scoreboard->Add(gcnew HighScore("Sally", 800, 8));
-		this->scoreboard->Add(gcnew HighScore("Jeff", 900, 9));
-		this->scoreboard->Add(gcnew HighScore("Nathan", 1000, 10));
-
+	void ScoreBoard::LoadScores(){
+		ConnectFileIO^ fileIO = gcnew ConnectFileIO();
+		fileIO->LoadScoreboard(this->resourceManager->GetString("ScoreboardFilePath"));
+		if (fileIO->GetScoreboard() != nullptr)
+		{
+			this->scoreboard = fileIO->GetScoreboard();
+		}
 	}
-	void ScoreBoard::saveScores(){
-		//TODO
+
+	void ScoreBoard::SaveScores(){
+		ConnectFileIO^ fileIO = gcnew ConnectFileIO();
+		fileIO->SaveScoreboard(this->resourceManager->GetString("ScoreboardFilePath"), this->scoreboard);
 	}
 }

@@ -4,7 +4,6 @@
 #include "Board.h"
 using namespace model;
 #include "ConnectFileIO.h"
-
 using namespace controller;
 
 

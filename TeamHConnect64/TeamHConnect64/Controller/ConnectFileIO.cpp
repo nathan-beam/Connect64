@@ -11,42 +11,33 @@ namespace controller{
 
 	void ConnectFileIO::ReadFile(String^ fileName)
 	{
-		try
+		StreamReader^ din = File::OpenText(fileName);
+
+		String^ str;
+		int count = 0;
+
+		str = din->ReadLine();
+		array<String^>^ values;
+		values = str->Split(',');
+		this->puzzleNumber = Int32::Parse(values[0]);
+		this->board = gcnew Board(this->puzzleNumber);
+
+		str = din->ReadLine();
+		values = str->Split(',');
+		this->timerCount = Int32::Parse(values[0]);
+
+		while ((str = din->ReadLine()) != nullptr)
 		{
-			StreamReader^ din = File::OpenText(fileName);
-
-			String^ str;
-			int count = 0;
-
-			str = din->ReadLine();
 			array<String^>^ values;
 			values = str->Split(',');
-			this->puzzleNumber = Int32::Parse(values[0]);
-			this->board = gcnew Board(this->puzzleNumber);
+			int x = Int32::Parse(values[0]);
+			int y = Int32::Parse(values[1]);;
+			int value = Int32::Parse(values[2]);;
+			this->board->setTile(x, y, value);
 
-			str = din->ReadLine();
-			values = str->Split(',');
-			this->timerCount = Int32::Parse(values[0]);
-
-			while ((str = din->ReadLine()) != nullptr)
-			{
-				array<String^>^ values;
-				values = str->Split(',');
-				int x = Int32::Parse(values[0]);
-				int y = Int32::Parse(values[1]);;
-				int value = Int32::Parse(values[2]);;
-				this->board->setTile(x, y, value);
-
-			}
-			din->Close();
 		}
-		catch (Exception^ e)
-		{
-			if (dynamic_cast<FileNotFoundException^>(e))
-				Console::WriteLine("file '{0}' not found", fileName);
-			else
-				Console::WriteLine("problem reading file '{0}'", fileName);
-		}
+		din->Close();
+		
 
 	}
 
@@ -80,9 +71,7 @@ namespace controller{
 				}
 			}
 		}
-
 		sw->Close();
-
 	}
 
 	int ConnectFileIO::GetTimerCount()
@@ -90,4 +79,45 @@ namespace controller{
 		return this->timerCount;
 	}
 
+	void ConnectFileIO::SaveScoreboard(String^ fileName, List<HighScore^>^ scores)
+	{
+		this->scoreboard = scores;
+		StreamWriter^ sw = gcnew StreamWriter(fileName, false);
+
+		for (int index = 0; index < this->scoreboard->Count; index++)
+		{
+			HighScore^ score = this->scoreboard[index];
+			sw->WriteLine(score->GetName() + "," + score->GetTime() + "," + score->GetPuzzleNum() + ",");
+		}
+		sw->Close();
+	}
+
+	void ConnectFileIO::LoadScoreboard(String^ fileName)
+	{	
+		try
+		{
+			StreamReader^ din = File::OpenText(fileName);
+			String^ str;
+			this->scoreboard = gcnew List<HighScore^>();
+
+			while ((str = din->ReadLine()) != nullptr)
+			{
+				array<String^>^ values;
+				values = str->Split(',');
+				String^ name = values[0];
+				int time = Int32::Parse(values[1]);;
+				int puzzleNumber = Int32::Parse(values[2]);;
+				this->scoreboard->Add(gcnew HighScore(name, time, puzzleNumber));
+			}
+			din->Close();
+		}
+		catch (Exception^ e) {
+			this->scoreboard = nullptr;
+		}
+	}
+
+	List<HighScore^>^ ConnectFileIO::GetScoreboard()
+	{
+		this->scoreboard;
+	}
 }
