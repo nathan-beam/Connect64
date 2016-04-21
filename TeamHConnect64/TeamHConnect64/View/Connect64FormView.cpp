@@ -33,6 +33,7 @@ namespace view {
 		this->pauseMessageLabel = (gcnew System::Windows::Forms::Label());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->scoreBoardButton = (gcnew System::Windows::Forms::Button());
+		this->resetHighScoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
@@ -72,7 +73,10 @@ namespace view {
 		// 
 		// gameToolStripMenuItem
 		// 
-		this->gameToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->resetToolStripMenuItem });
+		this->gameToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->resetToolStripMenuItem,
+				this->resetHighScoresToolStripMenuItem
+		});
 		this->gameToolStripMenuItem->Name = L"gameToolStripMenuItem";
 		this->gameToolStripMenuItem->Size = System::Drawing::Size(12, 20);
 		// 
@@ -80,7 +84,7 @@ namespace view {
 		// 
 		this->resetToolStripMenuItem->Enabled = false;
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
@@ -255,6 +259,12 @@ namespace view {
 		this->scoreBoardButton->TabIndex = 14;
 		this->scoreBoardButton->UseVisualStyleBackColor = true;
 		this->scoreBoardButton->Click += gcnew System::EventHandler(this, &Connect64Form::scoreBoardButton_Click);
+		// 
+		// resetHighScoresToolStripMenuItem
+		// 
+		this->resetHighScoresToolStripMenuItem->Name = L"resetHighScoresToolStripMenuItem";
+		this->resetHighScoresToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetHighScoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetHighScoresToolStripMenuItem_Click);
 		// 
 		// Connect64Form
 		// 

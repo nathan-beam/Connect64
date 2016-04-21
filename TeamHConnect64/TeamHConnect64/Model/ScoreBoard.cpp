@@ -15,7 +15,9 @@ namespace model{
 			HighScore^ compareScore = this->scoreboard[i];
 			if (compareScore->getTime() > newScore->getTime()){
 				this->scoreboard->Insert(i, newScore);
-				this->scoreboard->RemoveAt(this->LEADERBOARD_SIZE);
+				if (this->scoreboard->Count > LEADERBOARD_SIZE){
+					this->scoreboard->RemoveAt(this->LEADERBOARD_SIZE);
+				}
 				break;
 			}
 		}
@@ -25,10 +27,13 @@ namespace model{
 	}
 
 	 bool ScoreBoard::isHighScore(int score){
-		 int lowestScore = this->scoreboard[LEADERBOARD_SIZE - 1]->getTime();
+		 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->getTime();
 		 return lowestScore > score;
 	 }
 
+	 void ScoreBoard::reset(){
+		 this->scoreboard = gcnew List<HighScore^>();
+	 }
 	void ScoreBoard::loadScores(){
 		//TODO
 		this->scoreboard->Add(gcnew HighScore("Bob", 100, 1));

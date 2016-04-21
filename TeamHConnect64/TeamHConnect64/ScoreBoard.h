@@ -11,7 +11,7 @@ namespace model{
 		void addScore(String^ name, const int time, const int puzzleNum);
 		 List<HighScore^>^ getScoreBoard();
 		 bool isHighScore(int score);
-
+		 void reset();
 
 	private:
 		List<HighScore^>^ scoreboard;

@@ -303,6 +303,7 @@ namespace view
 		this->soundToolStripMenuItem->Text = this->resourceManager->GetString("SoundMenuItemText");
 		this->labelColorToolStripMenuItem->Text = this->resourceManager->GetString("LabelColorMenuItemText");
 		this->cellColorToolStripMenuItem->Text = this->resourceManager->GetString("CellColorMenuItemText");
+		this->resetHighScoresToolStripMenuItem->Text = this->resourceManager->GetString("ResetHighScoresText");
 
 
 	}
@@ -407,6 +408,17 @@ namespace view
 			return MyDialog->Color;
 		}
 		return currColor;
+	}
+	void Connect64Form::resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
+		auto text = this->resourceManager->GetString("ConfirmResetText");
+		auto title  = this->resourceManager->GetString("ConfirmResetTitle");
+
+		auto confirmResult = MessageBox::Show(text,
+			title,MessageBoxButtons::YesNo);
+		if (confirmResult == System::Windows::Forms::DialogResult::Yes)
+		{
+			this->scoreBoard->reset();
+		}
 	}
 
 }

@@ -211,8 +211,17 @@ Enter your name:</value>
   <data name="CellColorMenuItemText" xml:space="preserve">
     <value>Background Color</value>
   </data>
+  <data name="ConfirmResetText" xml:space="preserve">
+    <value>Really reset your high scores?</value>
+  </data>
+  <data name="ConfirmResetTitle" xml:space="preserve">
+    <value>Confirm Reset</value>
+  </data>
   <data name="LabelColorMenuItemText" xml:space="preserve">
     <value>Number Color</value>
+  </data>
+  <data name="ResetHighScoresText" xml:space="preserve">
+    <value>Reset High Scores</value>
   </data>
   <data name="SoundMenuItemText" xml:space="preserve">
     <value>Sound Enabled</value>

@@ -77,6 +77,7 @@ namespace view {
 	private: System::Windows::Forms::ToolStripMenuItem^  soundToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  labelColorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^  cellColorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  resetHighScoresToolStripMenuItem;
 
 
 
@@ -137,6 +138,7 @@ namespace view {
 	private: System::Void soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 private: System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 };
 }
 
