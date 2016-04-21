@@ -208,4 +208,13 @@ Enter your name:</value>
   <data name="InputDialogTitle" xml:space="preserve">
     <value>New High Score!</value>
   </data>
+  <data name="CellColorMenuItemText" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="LabelColorMenuItemText" xml:space="preserve">
+    <value>Number Color</value>
+  </data>
+  <data name="SoundMenuItemText" xml:space="preserve">
+    <value>Sound Enabled</value>
+  </data>
 </root>

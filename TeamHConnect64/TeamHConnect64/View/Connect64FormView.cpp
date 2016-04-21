@@ -18,6 +18,9 @@ namespace view {
 		this->gameToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->soundToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->labelColorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->cellColorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->tableLayoutPanel = (gcnew System::Windows::Forms::TableLayoutPanel());
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 		this->puzzleNumberLabel = (gcnew System::Windows::Forms::Label());
@@ -82,8 +85,32 @@ namespace view {
 		// 
 		// settingsToolStripMenuItem
 		// 
+		this->settingsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->soundToolStripMenuItem,
+				this->labelColorToolStripMenuItem, this->cellColorToolStripMenuItem
+		});
 		this->settingsToolStripMenuItem->Name = L"settingsToolStripMenuItem";
 		this->settingsToolStripMenuItem->Size = System::Drawing::Size(12, 20);
+		// 
+		// soundToolStripMenuItem
+		// 
+		this->soundToolStripMenuItem->Checked = true;
+		this->soundToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
+		this->soundToolStripMenuItem->Name = L"soundToolStripMenuItem";
+		this->soundToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->soundToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::soundToolStripMenuItem_Click);
+		// 
+		// labelColorToolStripMenuItem
+		// 
+		this->labelColorToolStripMenuItem->Name = L"labelColorToolStripMenuItem";
+		this->labelColorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->labelColorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::labelColorToolStripMenuItem_Click);
+		// 
+		// cellColorToolStripMenuItem
+		// 
+		this->cellColorToolStripMenuItem->Name = L"cellColorToolStripMenuItem";
+		this->cellColorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->cellColorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::cellColorToolStripMenuItem_Click);
 		// 
 		// tableLayoutPanel
 		// 

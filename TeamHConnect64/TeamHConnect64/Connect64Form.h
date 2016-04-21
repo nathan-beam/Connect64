@@ -48,6 +48,7 @@ namespace view {
 			 String^ gamePuzzlesPath;
 			 String^ puzzleExtension;
 			 ScoreBoard^ scoreBoard;
+			 
 
 	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
@@ -59,6 +60,9 @@ namespace view {
 		 Board^ startingBoard;
 		 List<Label^>^ labels;
 		 int time = 0;
+		 bool soundEnabled;
+		 Color^ labelColor;
+		 Color^ cellColor;
 	 System::Windows::Forms::Label^  puzzleNumberLabel;
 	private: System::Windows::Forms::ComboBox^  puzzleChoiceBox;
 	private: System::Windows::Forms::Label^  selectPuzzlelbl;
@@ -70,6 +74,10 @@ namespace view {
 	private: System::Windows::Forms::Label^  pauseMessageLabel;
 	private: System::Windows::Forms::Button^  confirmInputButton;
 	private: System::Windows::Forms::Button^  scoreBoardButton;
+	private: System::Windows::Forms::ToolStripMenuItem^  soundToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  labelColorToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^  cellColorToolStripMenuItem;
+
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -87,6 +95,9 @@ namespace view {
 		void showBoard();
 		void setPuzzleChooser();
 		void setDisplayText();
+		void loadSettings();
+		Color^ getColorFromUser(Color^ currColor);
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -123,6 +134,9 @@ namespace view {
 			 System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 			 System::Void saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e);
-	};
+	private: System::Void soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+private: System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+};
 }
 

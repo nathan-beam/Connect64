@@ -13,6 +13,7 @@ namespace view
 		this->soundResourceManager = gcnew ResourceManager("TeamHConnect64.sounds", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
 		this->setDisplayText();
+		this->loadSettings();
 		this->fileIO = gcnew ConnectFileIO();
 		this->scoreBoard = gcnew ScoreBoard();
 		this->puzzleExtension = this->resourceManager->GetString("PuzzlesExtension");
@@ -163,7 +164,8 @@ namespace view
 			else
 			{
 				if (!this->isDefault(label)){
-					label->ForeColor = Color::Black;
+					auto color = this->labelColor;
+					label->ForeColor = *color;
 				}
 				else{
 					label->ForeColor = Color::Gray;
@@ -298,6 +300,10 @@ namespace view
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
 		this->pauseMessageLabel->Text = this->resourceManager->GetString("PauseMessageText");
+		this->soundToolStripMenuItem->Text = this->resourceManager->GetString("SoundMenuItemText");
+		this->labelColorToolStripMenuItem->Text = this->resourceManager->GetString("LabelColorMenuItemText");
+		this->cellColorToolStripMenuItem->Text = this->resourceManager->GetString("CellColorMenuItemText");
+
 
 	}
 
@@ -309,15 +315,19 @@ namespace view
 	}
 
 	void Connect64Form::playSuccessSound(){
-		Stream^ sound = this->soundResourceManager->GetStream("success");
-		SoundPlayer^ audio = gcnew SoundPlayer(sound);
-		audio->Play();
+		if (this->soundEnabled){
+			Stream^ sound = this->soundResourceManager->GetStream("success");
+			SoundPlayer^ audio = gcnew SoundPlayer(sound);
+			audio->Play();
+		}
 	}
 
 	void Connect64Form::playErrorSound(){
-		Stream^ sound = this->soundResourceManager->GetStream("error");
-		SoundPlayer^ audio = gcnew SoundPlayer(sound);
-		audio->Play();
+		if (this->soundEnabled){
+			Stream^ sound = this->soundResourceManager->GetStream("error");
+			SoundPlayer^ audio = gcnew SoundPlayer(sound);
+			audio->Play();
+		}
 	}
 
 	void Connect64Form::loadSavedGame()
@@ -362,4 +372,41 @@ namespace view
 		ScoreBoardForm^ scoreboard = gcnew ScoreBoardForm(this->scoreBoard);
 		scoreboard->ShowDialog();
 	}
+
+	void Connect64Form::loadSettings(){
+		this->soundEnabled = true;
+		this->soundToolStripMenuItem->Checked = this->soundEnabled;
+		this->labelColor = Color::Blue;
+		this->cellColor = Color::Green;
+		this->tableLayoutPanel->BackColor = *this->cellColor;
+
+	}
+
+	void Connect64Form::soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
+		this->soundToolStripMenuItem->Checked = (!this->soundToolStripMenuItem->Checked);
+		this->soundEnabled = this->soundToolStripMenuItem->Checked;
+
+	}
+
+	void Connect64Form::labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->labelColor = this->getColorFromUser(this->labelColor);
+		if (this->gameBoard){
+			this->checkForDuplicates();
+		}
+	}
+	void Connect64Form::cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->cellColor = this->getColorFromUser(this->cellColor);
+		this->tableLayoutPanel->BackColor = *this->cellColor;
+	}
+
+	Color^ Connect64Form::getColorFromUser(Color^ currColor){
+		ColorDialog^ MyDialog = gcnew ColorDialog();
+		MyDialog->ShowHelp = true;
+		MyDialog->Color = Color::Black;
+		if (MyDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK){
+			return MyDialog->Color;
+		}
+		return currColor;
+	}
+
 }
