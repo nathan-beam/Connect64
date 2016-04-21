@@ -24,6 +24,11 @@ namespace model{
 		return this->scoreboard;
 	}
 
+	 bool ScoreBoard::isHighScore(int score){
+		 int lowestScore = this->scoreboard[LEADERBOARD_SIZE - 1]->getTime();
+		 return lowestScore > score;
+	 }
+
 	void ScoreBoard::loadScores(){
 		//TODO
 		this->scoreboard->Add(gcnew HighScore("Bob", 100, 1));

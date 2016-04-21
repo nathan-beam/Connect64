@@ -13,6 +13,7 @@ namespace Connect64 {
 		this->Text = this->resourceManager->GetString("FormTitleText");
 		this->setDisplayText();
 		this->fileIO = gcnew ConnectFileIO();
+		this->scoreBoard = gcnew ScoreBoard();
 		this->puzzleExtension = this->resourceManager->GetString("PuzzlesExtension");
 		this->gamePuzzlesPath = this->resourceManager->GetString("GamePuzzlesPath");
 		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
@@ -217,7 +218,6 @@ namespace Connect64 {
 
 	void Connect64Form::loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		// Reset Timer
 		this->stopTimer();
 		this->time = 0;
 		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
@@ -239,6 +239,7 @@ namespace Connect64 {
 			MessageBox::Show("Yay!", "You did it!");
 			this->tableLayoutPanel->Enabled = false;
 			this->stopTimer();
+			this->checkIfHighScore();
 		}
 		else if (!this->gameBoard->contains(0)){
 			this->playErrorSound();
@@ -329,6 +330,12 @@ namespace Connect64 {
 		this->setBoard(this->fileIO->GetBoard());
 		this->timerButton->Enabled = true;
 	}
+	void Connect64Form::checkIfHighScore(){
+		if (this->scoreBoard->isHighScore(this->time)){
+			this->scoreBoard->addScore("Nate", this->time, this->gameBoard->getPuzzleNumber());
+		}
+	}
+
 
 	void Connect64Form::loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -347,7 +354,7 @@ namespace Connect64 {
 	}
 
 	void Connect64Form::scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e){
-		ScoreBoardForm^ scoreboard = gcnew ScoreBoardForm();
+		ScoreBoardForm^ scoreboard = gcnew ScoreBoardForm(this->scoreBoard);
 		scoreboard->ShowDialog();
 	}
 }

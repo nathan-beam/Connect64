@@ -10,6 +10,8 @@ namespace model{
 		ScoreBoard();
 		void addScore(String^ name, const int time, const int puzzleNum);
 		 List<HighScore^>^ getScoreBoard();
+		 bool isHighScore(int score);
+
 
 	private:
 		List<HighScore^>^ scoreboard;

@@ -45,6 +45,7 @@ namespace Connect64 {
 			 int puzzleCount;
 			 String^ gamePuzzlesPath;
 			 String^ puzzleExtension;
+			 ScoreBoard^ scoreBoard;
 
 	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
 	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
@@ -110,6 +111,7 @@ namespace Connect64 {
 		 void playSuccessSound();
 		 void playErrorSound();
 		 void saveBoard();
+		 void checkIfHighScore();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
