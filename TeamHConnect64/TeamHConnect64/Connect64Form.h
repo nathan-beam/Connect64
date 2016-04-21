@@ -96,6 +96,7 @@ namespace view {
 		void showBoard();
 		void setPuzzleChooser();
 		void setDisplayText();
+		void setTimerLabel();
 		void loadSettings();
 		Color^ getColorFromUser(Color^ currColor);
 

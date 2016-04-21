@@ -11,10 +11,12 @@ namespace controller{
 		void ReadFile(String^ fileName);
 		Board^ GetBoard();
 		int GetPuzzleNumber();
-		void SaveFile(String^ fileName, Board^ board);
+		void SavePuzzle(String^ fileName, Board^ board, int timeCount);
+		int GetTimerCount();
 	private:
 		String^ fileName;
 		int puzzleNumber;
 		Board^ board;
+		int timerCount;
 	};
 }

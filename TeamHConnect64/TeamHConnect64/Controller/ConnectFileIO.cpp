@@ -6,7 +6,7 @@ using namespace System::IO;
 namespace controller{
 	ConnectFileIO::ConnectFileIO()
 	{
-		
+
 	}
 
 	void ConnectFileIO::ReadFile(String^ fileName)
@@ -17,24 +17,26 @@ namespace controller{
 
 			String^ str;
 			int count = 0;
+
+			str = din->ReadLine();
+			array<String^>^ values;
+			values = str->Split(',');
+			this->puzzleNumber = Int32::Parse(values[0]);
+			this->board = gcnew Board(this->puzzleNumber);
+
+			str = din->ReadLine();
+			values = str->Split(',');
+			this->timerCount = Int32::Parse(values[0]);
+
 			while ((str = din->ReadLine()) != nullptr)
 			{
-				if (count != 0)
-				{
-					array<String^>^ values;
-					values = str->Split(',');
-					int x = Int32::Parse(values[0]);
-					int y = Int32::Parse(values[1]);;
-					int value = Int32::Parse(values[2]);;
-					this->board->setTile(x, y, value);
-				} else
-				{
-					array<String^>^ values;
-					values = str->Split(',');
-					this->puzzleNumber = Int32::Parse(values[0]);
-					this->board = gcnew Board(this->puzzleNumber);
-				}
-				count++;
+				array<String^>^ values;
+				values = str->Split(',');
+				int x = Int32::Parse(values[0]);
+				int y = Int32::Parse(values[1]);;
+				int value = Int32::Parse(values[2]);;
+				this->board->setTile(x, y, value);
+
 			}
 			din->Close();
 		}
@@ -58,13 +60,16 @@ namespace controller{
 		return this->puzzleNumber;
 	}
 
-	void ConnectFileIO::SaveFile(String^ fileName, Board^ board)
+	void ConnectFileIO::SavePuzzle(String^ fileName, Board^ board, int timerCount)
 	{
 		this->fileName = fileName;
 		this->board = board;
+		this->timerCount = timerCount;
 		StreamWriter^ sw = gcnew StreamWriter(this->fileName, false);
 
 		sw->WriteLine(this->board->getPuzzleNumber());
+		sw->WriteLine(this->timerCount);
+
 		for (int x = 0; x < 8; x++)
 		{
 			for (int y = 0; y < 8; y++){
@@ -78,6 +83,11 @@ namespace controller{
 
 		sw->Close();
 
+	}
+
+	int ConnectFileIO::GetTimerCount()
+	{
+		return this->timerCount;
 	}
 
 }

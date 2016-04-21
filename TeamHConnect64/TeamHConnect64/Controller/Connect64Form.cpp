@@ -252,8 +252,13 @@ namespace view
 
 	void Connect64Form::timer_Tick(System::Object^  sender, System::EventArgs^  e){
 		this->time += 1;
-		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+		this->setTimerLabel();
 
+	}
+
+	void Connect64Form::setTimerLabel()
+	{
+		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
 	}
 
 	void Connect64Form::timerButton_Click(System::Object^  sender, System::EventArgs^  e){
@@ -340,6 +345,9 @@ namespace view
 		this->fileIO = gcnew ConnectFileIO();
 		this->fileIO->ReadFile(this->resourceManager->GetString("SaveFilePath"));
 		this->setBoard(this->fileIO->GetBoard());
+		this->time = this->fileIO->GetTimerCount();
+
+		this->setTimerLabel();
 		this->timerButton->Enabled = true;
 	}
 	void Connect64Form::checkIfHighScore(){
@@ -361,7 +369,7 @@ namespace view
 	void Connect64Form::saveBoard()
 	{
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->SaveFile(this->resourceManager->GetString("SaveFilePath"), this->gameBoard);
+		this->fileIO->SavePuzzle(this->resourceManager->GetString("SaveFilePath"), this->gameBoard, this->time);
 	}
 
 	void Connect64Form::saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
