@@ -78,6 +78,8 @@
     <ClCompile Include="Controller\Connect64Form.cpp" />
     <ClCompile Include="Controller\ConnectFileIO.cpp" />
     <ClCompile Include="Model\Board.cpp" />
+    <ClCompile Include="Model\HighScore.cpp" />
+    <ClCompile Include="Model\ScoreBoard.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +95,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ConnectFileIO.h" />
+    <ClInclude Include="HighScore.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="ScoreBoard.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Connect64Form.resx">
