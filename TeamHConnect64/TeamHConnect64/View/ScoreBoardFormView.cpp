@@ -1,6 +1,6 @@
 #include "ScoreBoardForm.h"
 
-namespace Connect64{
+namespace view{
 	ScoreBoardForm::~ScoreBoardForm()
 	{
 		if (components)

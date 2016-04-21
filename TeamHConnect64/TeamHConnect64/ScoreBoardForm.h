@@ -1,7 +1,7 @@
 #pragma once
 #include "ScoreBoard.h"
 using namespace model;
-namespace Connect64 {
+namespace view {
 
 	using namespace System;
 	using namespace System::ComponentModel;

@@ -1,12 +1,14 @@
 #pragma once
 #include "ScoreBoardForm.h"
+#include "NameInputForm.h"
 #include "Board.h"
 using namespace model;
 #include "ConnectFileIO.h"
-using namespace Controller;
+
+using namespace controller;
 
 
-namespace Connect64 {
+namespace view {
 
 	using namespace System;
 	using namespace System::ComponentModel;

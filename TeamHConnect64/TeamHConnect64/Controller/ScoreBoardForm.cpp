@@ -1,5 +1,5 @@
 #include "ScoreBoardForm.h"
-namespace Connect64{
+namespace view{
 
 	ScoreBoardForm::ScoreBoardForm(ScoreBoard^ scoreboard)
 	{

@@ -3,7 +3,7 @@
 using namespace System;
 using namespace System::IO;
 
-namespace Controller{
+namespace controller{
 	ConnectFileIO::ConnectFileIO()
 	{
 		

@@ -1,6 +1,6 @@
 #include "Connect64Form.h"
 
-using namespace Connect64;
+using namespace view;
 
 [STAThreadAttribute]
 int main(array<System::String ^> ^args)

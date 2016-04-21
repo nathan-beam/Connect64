@@ -3,7 +3,8 @@
 using namespace System;
 using namespace System::IO;
 
-namespace Connect64 {
+namespace view
+{
 
 	Connect64Form::Connect64Form(void)
 	{
@@ -332,7 +333,11 @@ namespace Connect64 {
 	}
 	void Connect64Form::checkIfHighScore(){
 		if (this->scoreBoard->isHighScore(this->time)){
-			this->scoreBoard->addScore("Nate", this->time, this->gameBoard->getPuzzleNumber());
+			NameInputForm^ inputForm = gcnew NameInputForm();
+			inputForm->ShowDialog();
+			if (inputForm->DialogResult == System::Windows::Forms::DialogResult::OK){
+				this->scoreBoard->addScore(inputForm->getName(), this->time, this->gameBoard->getPuzzleNumber());
+			}
 		}
 	}
 

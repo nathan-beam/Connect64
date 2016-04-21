@@ -3,7 +3,7 @@ using namespace System;
 using namespace cli;
 #include "Board.h"
 using namespace model;
-namespace Controller{
+namespace controller{
 	ref class ConnectFileIO
 	{
 	public:

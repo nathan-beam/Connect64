@@ -22,13 +22,19 @@
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{334b9936-214b-4b64-a65c-1fde553236d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{c8fd44f8-8fad-40e5-ae06-e639b95ec333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{b8888824-0224-4a79-9ba0-7c69162d166f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{96d9825f-c5c1-45ec-ad61-45de30c75eb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinCLI.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Connect64FormView.cpp">
-      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="Controller\Connect64Form.cpp">
       <Filter>Source Files\Controller</Filter>
@@ -45,10 +51,19 @@
     <ClCompile Include="Model\ScoreBoard.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="ScoreBoardForm.cpp">
+    <ClCompile Include="View\ScoreBoardFormView.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller\ScoreBoardForm.cpp">
       <Filter>Source Files\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="View\ScoreBoardFormView.cpp">
+    <ClCompile Include="View\NameInputFormView.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller\NameInputForm.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="View\Connect64FormView.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,27 +77,36 @@
     <EmbeddedResource Include="sounds.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="NameInputForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScoreBoardForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Connect64Form.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Board.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectFileIO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HighScore.h">
+    <ClInclude Include="ScoreBoardForm.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectFileIO.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScore.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="ScoreBoard.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="ScoreBoardForm.h">
+    <ClInclude Include="NameInputForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

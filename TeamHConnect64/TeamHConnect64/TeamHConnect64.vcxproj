@@ -74,13 +74,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Connect64FormView.cpp" />
     <ClCompile Include="Controller\Connect64Form.cpp" />
     <ClCompile Include="Controller\ConnectFileIO.cpp" />
+    <ClCompile Include="Controller\NameInputForm.cpp" />
+    <ClCompile Include="Controller\ScoreBoardForm.cpp" />
     <ClCompile Include="Model\Board.cpp" />
     <ClCompile Include="Model\HighScore.cpp" />
     <ClCompile Include="Model\ScoreBoard.cpp" />
-    <ClCompile Include="ScoreBoardForm.cpp" />
+    <ClCompile Include="View\Connect64FormView.cpp" />
+    <ClCompile Include="View\NameInputFormView.cpp" />
     <ClCompile Include="View\ScoreBoardFormView.cpp" />
     <ClCompile Include="WinCLI.cpp" />
   </ItemGroup>
@@ -98,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="ConnectFileIO.h" />
     <ClInclude Include="HighScore.h" />
+    <ClInclude Include="NameInputForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="ScoreBoardForm.h">
@@ -109,6 +114,9 @@
       <DependentUpon>Connect64Form.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayStrings.resx" />
+    <EmbeddedResource Include="NameInputForm.resx">
+      <DependentUpon>NameInputForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScoreBoardForm.resx">
       <DependentUpon>ScoreBoardForm.h</DependentUpon>
     </EmbeddedResource>
