@@ -58,6 +58,7 @@ namespace Connect64 {
 		// 
 		this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
 		this->saveToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::saveToolStripMenuItem_Click);
 		// 
 		// loadToolStripMenuItem
 		// 

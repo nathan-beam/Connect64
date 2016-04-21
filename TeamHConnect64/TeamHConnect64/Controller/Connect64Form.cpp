@@ -334,4 +334,14 @@ namespace Connect64 {
 		this->loadSavedGame();
 	}
 
+	void Connect64Form::saveBoard()
+	{
+		this->fileIO = gcnew ConnectFileIO();
+		this->fileIO->SaveFile(this->resourceManager->GetString("SaveFilePath"), this->gameBoard);
+	}
+
+	void Connect64Form::saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->saveBoard();
+	}
 }

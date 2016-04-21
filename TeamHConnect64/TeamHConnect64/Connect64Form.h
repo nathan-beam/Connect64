@@ -106,6 +106,7 @@ namespace Connect64 {
 		 void loadSavedGame();
 		 void playSuccessSound();
 		 void playErrorSound();
+		 void saveBoard();
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
@@ -113,6 +114,7 @@ namespace Connect64 {
 	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e);
 	private: System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
 			 System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+			 System::Void saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 	};
 }
 

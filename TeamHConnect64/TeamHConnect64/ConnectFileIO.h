@@ -11,6 +11,7 @@ namespace Controller{
 		void ReadFile(String^ fileName);
 		Board^ GetBoard();
 		int GetPuzzleNumber();
+		void SaveFile(String^ fileName, Board^ board);
 	private:
 		String^ fileName;
 		int puzzleNumber;

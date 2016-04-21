@@ -36,6 +36,7 @@ namespace Controller{
 				}
 				count++;
 			}
+			din->Close();
 		}
 		catch (Exception^ e)
 		{
@@ -55,6 +56,28 @@ namespace Controller{
 	int ConnectFileIO::GetPuzzleNumber()
 	{
 		return this->puzzleNumber;
+	}
+
+	void ConnectFileIO::SaveFile(String^ fileName, Board^ board)
+	{
+		this->fileName = fileName;
+		this->board = board;
+		StreamWriter^ sw = gcnew StreamWriter(this->fileName, false);
+
+		sw->WriteLine(this->board->getPuzzleNumber());
+		for (int x = 0; x < 8; x++)
+		{
+			for (int y = 0; y < 8; y++){
+				int value = this->board->getTile(x, y);
+				if (value != 0)
+				{
+					sw->WriteLine(x + "," + y + "," + value + ",");
+				}
+			}
+		}
+
+		sw->Close();
+
 	}
 
 }
