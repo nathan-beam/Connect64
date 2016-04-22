@@ -4,12 +4,8 @@ using namespace System;
 using namespace System::IO;
 
 namespace controller{
-	ConnectFileIO::ConnectFileIO()
-	{
 
-	}
-
-	void ConnectFileIO::ReadFile(String^ fileName)
+	void ConnectFileIO::LoadSavedPuzzle(String^ fileName)
 	{
 		StreamReader^ din = File::OpenText(fileName);
 

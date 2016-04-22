@@ -314,7 +314,7 @@ namespace view
 	void Connect64Form::loadPuzzle(int puzzleNumber)
 	{
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile(this->gamePuzzlesPath + puzzleNumber + puzzleExtension);
+		this->fileIO->LoadSavedPuzzle(this->gamePuzzlesPath + puzzleNumber + puzzleExtension);
 		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
 		this->saveToolStripMenuItem->Enabled = true;
 	}
@@ -338,11 +338,11 @@ namespace view
 	void Connect64Form::loadSavedGame()
 	{
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile(this->resourceManager->GetString("SaveFilePath"));
+		this->fileIO->LoadSavedPuzzle(this->resourceManager->GetString("SaveFilePath"));
 		this->loadPuzzle(this->fileIO->GetPuzzleNumber());
 
 		this->fileIO = gcnew ConnectFileIO();
-		this->fileIO->ReadFile(this->resourceManager->GetString("SaveFilePath"));
+		this->fileIO->LoadSavedPuzzle(this->resourceManager->GetString("SaveFilePath"));
 		this->setBoard(this->fileIO->GetBoard());
 		this->time = this->fileIO->GetTimerCount();
 
