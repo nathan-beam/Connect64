@@ -9,11 +9,15 @@ namespace controller{
 	public:
 		
 		/*
-			
+			Method to load the saved puzzle
+			@param fileName the file to load the puzzle from.
 		*/
 		void LoadSavedPuzzle(String^ fileName);
 
-
+		/*
+			Method to get the board that is stored.
+			@return the stored board.
+		*/
 		Board^ GetBoard();
 
 		/*
