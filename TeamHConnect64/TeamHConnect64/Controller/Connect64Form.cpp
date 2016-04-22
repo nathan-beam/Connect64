@@ -450,4 +450,9 @@ namespace view
 		String^ website = this->resourceManager->GetString("PuzzlePackWebsite");
 		System::Diagnostics::Process::Start(website);
 	}
+
+	void Connect64Form::Connect64Form_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e)
+	{
+		this->saveBoard();
+	}
 }

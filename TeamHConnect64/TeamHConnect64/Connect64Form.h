@@ -130,6 +130,7 @@ namespace view {
 		System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 		System::Void resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 		System::Void extremePuzzlesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void Connect64Form_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e);
 };
 }
 

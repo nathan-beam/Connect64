@@ -22,6 +22,7 @@ namespace view {
 		this->soundToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->labelColorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->cellColorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->extremePuzzlesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->tableLayoutPanel = (gcnew System::Windows::Forms::TableLayoutPanel());
 		this->numericUpDown = (gcnew System::Windows::Forms::NumericUpDown());
 		this->puzzleNumberLabel = (gcnew System::Windows::Forms::Label());
@@ -34,7 +35,6 @@ namespace view {
 		this->pauseMessageLabel = (gcnew System::Windows::Forms::Label());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->scoreBoardButton = (gcnew System::Windows::Forms::Button());
-		this->extremePuzzlesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
@@ -108,20 +108,26 @@ namespace view {
 		this->soundToolStripMenuItem->Checked = true;
 		this->soundToolStripMenuItem->CheckState = System::Windows::Forms::CheckState::Checked;
 		this->soundToolStripMenuItem->Name = L"soundToolStripMenuItem";
-		this->soundToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->soundToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->soundToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::soundToolStripMenuItem_Click);
 		// 
 		// labelColorToolStripMenuItem
 		// 
 		this->labelColorToolStripMenuItem->Name = L"labelColorToolStripMenuItem";
-		this->labelColorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->labelColorToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->labelColorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::labelColorToolStripMenuItem_Click);
 		// 
 		// cellColorToolStripMenuItem
 		// 
 		this->cellColorToolStripMenuItem->Name = L"cellColorToolStripMenuItem";
-		this->cellColorToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->cellColorToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->cellColorToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::cellColorToolStripMenuItem_Click);
+		// 
+		// extremePuzzlesToolStripMenuItem
+		// 
+		this->extremePuzzlesToolStripMenuItem->Name = L"extremePuzzlesToolStripMenuItem";
+		this->extremePuzzlesToolStripMenuItem->Size = System::Drawing::Size(12, 20);
+		this->extremePuzzlesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::extremePuzzlesToolStripMenuItem_Click);
 		// 
 		// tableLayoutPanel
 		// 
@@ -267,12 +273,6 @@ namespace view {
 		this->scoreBoardButton->UseVisualStyleBackColor = true;
 		this->scoreBoardButton->Click += gcnew System::EventHandler(this, &Connect64Form::scoreBoardButton_Click);
 		// 
-		// extremePuzzlesToolStripMenuItem
-		// 
-		this->extremePuzzlesToolStripMenuItem->Name = L"extremePuzzlesToolStripMenuItem";
-		this->extremePuzzlesToolStripMenuItem->Size = System::Drawing::Size(12, 20);
-		this->extremePuzzlesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::extremePuzzlesToolStripMenuItem_Click);
-		// 
 		// Connect64Form
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -293,6 +293,7 @@ namespace view {
 		this->MainMenuStrip = this->menuStrip1;
 		this->Margin = System::Windows::Forms::Padding(2);
 		this->Name = L"Connect64Form";
+		this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Connect64Form::Connect64Form_FormClosing);
 		this->menuStrip1->ResumeLayout(false);
 		this->menuStrip1->PerformLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->EndInit();
