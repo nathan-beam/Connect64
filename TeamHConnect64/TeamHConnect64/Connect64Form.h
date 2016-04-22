@@ -126,6 +126,8 @@ namespace view {
 		 void playErrorSound();
 		 void saveBoard();
 		 void checkIfHighScore();
+		 void updateTile(Label^ update);
+		 void checkErroredValueEntered(int value);
  System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
  System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
  System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);

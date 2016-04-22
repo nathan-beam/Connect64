@@ -27,6 +27,10 @@ namespace model{
 					}
 					break;
 				}
+				else if (i + 1 == this->scoreboard->Count && i!=9){
+					this->scoreboard->Insert(i+1, newScore);
+					break;
+				}
 			}
 			
 		}
@@ -36,19 +40,21 @@ namespace model{
 	}
 
 	 bool ScoreBoard::isHighScore(int score){
+		 if (this->scoreboard->Count < 10)
+		 {
+			 return true;
+		 }
 		 if (this->scoreboard->Count != 0)
 		 {
 			 int lowestScore = this->scoreboard[this->scoreboard->Count - 1]->GetTime();
 			 return lowestScore > score;
 			 
-		 } else
-		 {
-			 return true;
 		 }
 	 }
 
 	 void ScoreBoard::reset(){
 		 this->scoreboard = gcnew List<HighScore^>();
+		 this->SaveScores();
 	 }
 	void ScoreBoard::LoadScores(){
 		ConnectFileIO^ fileIO = gcnew ConnectFileIO();

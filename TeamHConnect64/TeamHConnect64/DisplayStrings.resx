@@ -229,4 +229,16 @@ Enter your name:</value>
   <data name="ScoreboardFilePath" xml:space="preserve">
     <value>Save/scoreboard.txt</value>
   </data>
+  <data name="CongratsDescText" xml:space="preserve">
+    <value>Puzzle Complete!</value>
+  </data>
+  <data name="CongratsTitleText" xml:space="preserve">
+    <value>Congrats!</value>
+  </data>
+  <data name="UnsolvedDescText" xml:space="preserve">
+    <value>Not quite done!</value>
+  </data>
+  <data name="UnsolvedTitleText" xml:space="preserve">
+    <value>Uh-oh!</value>
+  </data>
 </root>

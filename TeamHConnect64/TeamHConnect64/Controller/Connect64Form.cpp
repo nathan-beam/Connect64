@@ -102,14 +102,8 @@ namespace view
 				this->clearCell(label);
 			}
 			else if ((!this->numericUpDown->Visible && !this->isDefault(label))){
-				int x = this->tableLayoutPanel->GetColumn(label);
-				int y = this->tableLayoutPanel->GetRow(label);
-				this->tableLayoutPanel->Controls->Remove(label);
-				this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
-				this->editLabel = label;
-				this->numericUpDown->Visible = true;
-				this->confirmInputButton->Enabled = true;
-
+				Label^ label = safe_cast<Label^>(control);
+				this->updateTile(label);
 			}
 		}
 	}
@@ -123,13 +117,7 @@ namespace view
 			this->clearCell(label);
 		}
 		else if (!this->numericUpDown->Visible && !this->isDefault(label)){
-			int x = this->tableLayoutPanel->GetColumn(label);
-			int y = this->tableLayoutPanel->GetRow(label);
-			this->tableLayoutPanel->Controls->Remove(label);
-			this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
-			this->editLabel = label;
-			this->numericUpDown->Visible = true;
-			this->confirmInputButton->Enabled = true;
+			this->updateTile(label);
 		}
 	}
 
@@ -139,6 +127,7 @@ namespace view
 		this->numericUpDown->Visible = false;
 		int value = safe_cast<int>(this->numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
+		this->checkErroredValueEntered(value);
 		this->tableLayoutPanel->Controls->Remove(this->numericUpDown);
 		this->tableLayoutPanel->Controls->Add(this->editLabel);
 		this->checkForDuplicates();
@@ -156,7 +145,6 @@ namespace view
 			int y = this->tableLayoutPanel->GetRow(label);
 			int value = this->gameBoard->getTile(x, y);
 			if (this->gameBoard->isDuplicate(value)){
-				this->playErrorSound();
 				label->ForeColor = Color::Red;
 			}
 			else
@@ -173,7 +161,8 @@ namespace view
 	}
 
 	void Connect64Form::resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
-		this->confirmInputButton_Click(sender, e);
+		this->tableLayoutPanel->Controls->Remove(this->numericUpDown);
+		this->tableLayoutPanel->Controls->Add(this->editLabel);
 		this->gameBoard = gcnew Board(this->gameBoard->getPuzzleNumber());
 		this->time = 0;
 		this->numericUpDown->Value = 1;
@@ -185,17 +174,15 @@ namespace view
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
-			this->confirmInputButton->PerformClick();
+			this->confirmInputButton_Click(sender, e);
 		}
 	}
 
 	void Connect64Form::increaseUpDown(){
 		int upDownValue = Convert::ToInt32(this->numericUpDown->Value);
-		if (upDownValue != 64){
-			do{
-				this->numericUpDown->Value++;
-				upDownValue = Convert::ToInt32(this->numericUpDown->Value);
-			} while (this->gameBoard->contains(upDownValue) && upDownValue < 64);
+		while (this->gameBoard->contains(upDownValue) && upDownValue < 64){
+			this->numericUpDown->Value++;
+			upDownValue = Convert::ToInt32(this->numericUpDown->Value);
 		}
 	}
 
@@ -237,14 +224,18 @@ namespace view
 	void Connect64Form::checkWin(){
 		if (this->gameBoard->isSolved()){
 			this->playSuccessSound();
-			MessageBox::Show("Yay!", "You did it!");
+			String^ title = this->resourceManager->GetString("CongratsTitleText");
+			String^ desc = this->resourceManager->GetString("CongratsDescText");
+			MessageBox::Show(desc, title);
 			this->tableLayoutPanel->Enabled = false;
 			this->stopTimer();
 			this->checkIfHighScore();
 		}
 		else if (!this->gameBoard->contains(0)){
 			this->playErrorSound();
-			MessageBox::Show("Not done yet!", "Uh Oh!");
+			String^ title = this->resourceManager->GetString("UnsolvedTitleText");
+			String^ desc = this->resourceManager->GetString("UnsolvedDescText");
+			MessageBox::Show(desc, title);
 		}
 	}
 
@@ -307,8 +298,6 @@ namespace view
 		this->labelColorToolStripMenuItem->Text = this->resourceManager->GetString("LabelColorMenuItemText");
 		this->cellColorToolStripMenuItem->Text = this->resourceManager->GetString("CellColorMenuItemText");
 		this->resetHighScoresToolStripMenuItem->Text = this->resourceManager->GetString("ResetHighScoresText");
-
-
 	}
 
 	void Connect64Form::loadPuzzle(int puzzleNumber)
@@ -428,5 +417,19 @@ namespace view
 			this->scoreBoard->reset();
 		}
 	}
+	void Connect64Form::updateTile(Label^ label){
+		int x = this->tableLayoutPanel->GetColumn(label);
+		int y = this->tableLayoutPanel->GetRow(label);
+		this->tableLayoutPanel->Controls->Remove(label);
+		this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
+		this->editLabel = label;
+		this->numericUpDown->Visible = true;
+		this->confirmInputButton->Enabled = true;
+	}
 
+	void Connect64Form::checkErroredValueEntered(int value){
+		if (this->gameBoard->isDuplicate(value)){
+			playErrorSound();
+		}
+	}
 }
