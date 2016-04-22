@@ -298,6 +298,7 @@ namespace view
 		this->labelColorToolStripMenuItem->Text = this->resourceManager->GetString("LabelColorMenuItemText");
 		this->cellColorToolStripMenuItem->Text = this->resourceManager->GetString("CellColorMenuItemText");
 		this->resetHighScoresToolStripMenuItem->Text = this->resourceManager->GetString("ResetHighScoresText");
+		this->extremePuzzlesToolStripMenuItem->Text = this->resourceManager->GetString("GetExtremePuzzlesText");
 	}
 
 	void Connect64Form::loadPuzzle(int puzzleNumber)
@@ -409,6 +410,7 @@ namespace view
 	}
 
 	Color^ Connect64Form::getColorFromUser(Color^ currColor){
+		this->confirmInputButton->PerformClick();
 		ColorDialog^ MyDialog = gcnew ColorDialog();
 		MyDialog->ShowHelp = true;
 		MyDialog->Color = Color::Black;
@@ -442,5 +444,10 @@ namespace view
 		if (this->gameBoard->isDuplicate(value)){
 			playErrorSound();
 		}
+	}
+
+	void Connect64Form::extremePuzzlesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
+		String^ website = this->resourceManager->GetString("PuzzlePackWebsite");
+		System::Diagnostics::Process::Start(website);
 	}
 }

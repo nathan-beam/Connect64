@@ -49,7 +49,8 @@ namespace view {
 		int puzzleCount;
 		String^ gamePuzzlesPath;
 		String^ puzzleExtension;
-		ScoreBoard^ scoreBoard;
+	private: System::Windows::Forms::ToolStripMenuItem^  extremePuzzlesToolStripMenuItem;
+			 ScoreBoard^ scoreBoard;
 
 
 
@@ -128,7 +129,7 @@ namespace view {
 		System::Void labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 		System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 		System::Void resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-
-	};
+		System::Void extremePuzzlesToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+};
 }
 

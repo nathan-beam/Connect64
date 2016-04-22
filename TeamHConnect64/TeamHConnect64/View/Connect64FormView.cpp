@@ -17,6 +17,7 @@ namespace view {
 		this->loadToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->gameToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->resetToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->resetHighScoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->soundToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->labelColorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -33,16 +34,16 @@ namespace view {
 		this->pauseMessageLabel = (gcnew System::Windows::Forms::Label());
 		this->confirmInputButton = (gcnew System::Windows::Forms::Button());
 		this->scoreBoardButton = (gcnew System::Windows::Forms::Button());
-		this->resetHighScoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+		this->extremePuzzlesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->menuStrip1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown))->BeginInit();
 		this->SuspendLayout();
 		// 
 		// menuStrip1
 		// 
-		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 			this->fileToolStripMenuItem,
-				this->gameToolStripMenuItem, this->settingsToolStripMenuItem
+				this->gameToolStripMenuItem, this->settingsToolStripMenuItem, this->extremePuzzlesToolStripMenuItem
 		});
 		this->menuStrip1->Location = System::Drawing::Point(0, 0);
 		this->menuStrip1->Name = L"menuStrip1";
@@ -84,8 +85,14 @@ namespace view {
 		// 
 		this->resetToolStripMenuItem->Enabled = false;
 		this->resetToolStripMenuItem->Name = L"resetToolStripMenuItem";
-		this->resetToolStripMenuItem->Size = System::Drawing::Size(152, 22);
+		this->resetToolStripMenuItem->Size = System::Drawing::Size(67, 22);
 		this->resetToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetToolStripMenuItem_Click);
+		// 
+		// resetHighScoresToolStripMenuItem
+		// 
+		this->resetHighScoresToolStripMenuItem->Name = L"resetHighScoresToolStripMenuItem";
+		this->resetHighScoresToolStripMenuItem->Size = System::Drawing::Size(67, 22);
+		this->resetHighScoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetHighScoresToolStripMenuItem_Click);
 		// 
 		// settingsToolStripMenuItem
 		// 
@@ -260,11 +267,11 @@ namespace view {
 		this->scoreBoardButton->UseVisualStyleBackColor = true;
 		this->scoreBoardButton->Click += gcnew System::EventHandler(this, &Connect64Form::scoreBoardButton_Click);
 		// 
-		// resetHighScoresToolStripMenuItem
+		// extremePuzzlesToolStripMenuItem
 		// 
-		this->resetHighScoresToolStripMenuItem->Name = L"resetHighScoresToolStripMenuItem";
-		this->resetHighScoresToolStripMenuItem->Size = System::Drawing::Size(152, 22);
-		this->resetHighScoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::resetHighScoresToolStripMenuItem_Click);
+		this->extremePuzzlesToolStripMenuItem->Name = L"extremePuzzlesToolStripMenuItem";
+		this->extremePuzzlesToolStripMenuItem->Size = System::Drawing::Size(12, 20);
+		this->extremePuzzlesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Connect64Form::extremePuzzlesToolStripMenuItem_Click);
 		// 
 		// Connect64Form
 		// 

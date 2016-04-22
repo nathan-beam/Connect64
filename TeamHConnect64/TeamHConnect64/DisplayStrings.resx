@@ -244,4 +244,10 @@ Enter your name:</value>
   <data name="SettingsFilePath" xml:space="preserve">
     <value>Save/settings.txt</value>
   </data>
+  <data name="GetExtremePuzzlesText" xml:space="preserve">
+    <value>Download Extreme Puzzle Pack!</value>
+  </data>
+  <data name="PuzzlePackWebsite" xml:space="preserve">
+    <value>www.MatthewMaginniss.com/Connect64Puzzles/</value>
+  </data>
 </root>
