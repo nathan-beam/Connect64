@@ -13,8 +13,7 @@ namespace controller{
 		int count = 0;
 
 		str = din->ReadLine();
-		array<String^>^ values;
-		values = str->Split(',');
+		array<String^>^ values = this->pullValuesFromLine(str);
 		this->puzzleNumber = Int32::Parse(values[0]);
 		this->board = gcnew Board(this->puzzleNumber);
 
@@ -24,8 +23,7 @@ namespace controller{
 
 		while ((str = din->ReadLine()) != nullptr)
 		{
-			array<String^>^ values;
-			values = str->Split(',');
+			array<String^>^ values = this->pullValuesFromLine(str);
 			int x = Int32::Parse(values[0]);
 			int y = Int32::Parse(values[1]);;
 			int value = Int32::Parse(values[2]);;
@@ -98,8 +96,7 @@ namespace controller{
 
 			while ((str = din->ReadLine()) != nullptr)
 			{
-				array<String^>^ values;
-				values = str->Split(',');
+				array<String^>^ values = this->pullValuesFromLine(str);
 				String^ name = values[0];
 				int time = Int32::Parse(values[1]);
 				int puzzleNumber = Int32::Parse(values[2]);
@@ -109,6 +106,13 @@ namespace controller{
 		}
 		catch (Exception^ e) {
 			this->scoreboard = nullptr;
+
+			if (dynamic_cast<FileNotFoundException^>(e)) {
+				Console::WriteLine("File '{0}' not found", fileName);
+			} 
+			else {
+				Console::WriteLine("Problem reading file '{0}'", fileName);
+			}
 		}
 	}
 
@@ -122,10 +126,9 @@ namespace controller{
 		StreamReader^ din = File::OpenText(fileName);
 		String^ str;
 		str = din->ReadLine();
-		array<String^>^ values;
-		values = str->Split(',');
-		int soundEnableBit = Int32::Parse(values[0]);
+		array<String^>^ values = this->pullValuesFromLine(str);
 
+		int soundEnableBit = Int32::Parse(values[0]);
 		this->soundEnabled = Convert::ToBoolean(soundEnableBit);
 		this->textColor = ColorTranslator::FromHtml(values[1]);
 		this->backgroundColor = ColorTranslator::FromHtml(values[2]);
@@ -159,5 +162,9 @@ namespace controller{
 		return this->backgroundColor;
 	}
 
+	array<String^>^ ConnectFileIO::pullValuesFromLine(String^ line)
+	{
+		return line->Split(',');
+	}
 
 }

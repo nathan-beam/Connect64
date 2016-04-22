@@ -98,5 +98,6 @@ namespace controller{
 		bool soundEnabled;
 		Color^ textColor;
 		Color^ backgroundColor;
+		array<String^>^ pullValuesFromLine(String^ line);
 	};
 }
