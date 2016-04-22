@@ -9,23 +9,35 @@ namespace view {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Resources;
-	/// <summary>
-	/// Summary for NameInputForm
-	/// </summary>
+	/*
+		Form for inputting a name after a high schore is acheived
+		@authors Beam
+		@version Spring 2016
+	*/
 	public ref class NameInputForm : public System::Windows::Forms::Form
 	{
 	public:
-		NameInputForm(void);
+		/*
+			Constructor to initialize the form
+			@precondition none
+			@postcondition the object is initialized
+		*/
+		NameInputForm();
+
+		/*
+			Getter for name entered by user
+			@return the name supplied by user, or anonymous if name not supplied
+			@precondition none
+			@postcondition none
+
+		*/
 		String^ getName();
-		
+
 
 	protected:
 		~NameInputForm();
-		
-	private: System::Windows::Forms::Label^  instructionLabel;
-	private: System::Windows::Forms::TextBox^  inputBox;
 
-	private: System::Windows::Forms::Button^  okButton;
+	private:
 
 	private:
 		ResourceManager^ resourceManager;
@@ -35,8 +47,11 @@ namespace view {
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void);
+		System::Windows::Forms::Label^  instructionLabel;
+		System::Windows::Forms::TextBox^  inputBox;
+		System::Void okButton_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Windows::Forms::Button^  okButton;
 #pragma endregion
 
-	private: System::Void okButton_Click(System::Object^  sender, System::EventArgs^  e); 
 	};
 }

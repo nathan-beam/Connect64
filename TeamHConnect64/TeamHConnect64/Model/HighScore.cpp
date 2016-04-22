@@ -3,6 +3,9 @@
 namespace model {
 	HighScore::HighScore(String^ name,  int time,  int puzzleNum)
 	{
+		if (name == nullptr){
+			throw gcnew ArgumentException("Name was null!");
+		}
 		this->name = name;
 		this->time = time;
 		this->puzzleNum = puzzleNum;

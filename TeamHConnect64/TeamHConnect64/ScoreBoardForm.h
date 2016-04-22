@@ -2,7 +2,6 @@
 #include "ScoreBoard.h"
 using namespace model;
 namespace view {
-
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -11,40 +10,37 @@ namespace view {
 	using namespace System::Drawing;
 	using namespace System::Resources;
 
-	/// <summary>
-	/// Summary for ScoreBoardForm
-	/// </summary>
+	/*
+		Form to display the leaderboard for the top times
+		@authors Beam
+		@version Spring 2016
+	*/
 	public ref class ScoreBoardForm : public System::Windows::Forms::Form
 	{
 	public:
+		/*
+			Constructor to initialize the class
+			@param board the scoreboard to display
+			@precondition board != null
+			@postcondition the object is initialized
+		*/
 		ScoreBoardForm(ScoreBoard^ board);
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~ScoreBoardForm();
-		
-	private: System::Windows::Forms::DataGridView^  ScoreBoardGridView;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  puzzleNumColumn;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  nameColumn;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  timeColumm;
-			 ScoreBoard^ scores;
-			 ResourceManager^ resourceManager;
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		ScoreBoard^ scores;
+		ResourceManager^ resourceManager;
 		void populateScoreBoard();
 		void setText();
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void);
+		System::Windows::Forms::DataGridView^  ScoreBoardGridView;
+		System::Windows::Forms::DataGridViewTextBoxColumn^  puzzleNumColumn;
+		System::Windows::Forms::DataGridViewTextBoxColumn^  nameColumn;
+		System::Windows::Forms::DataGridViewTextBoxColumn^  timeColumm;
+		System::ComponentModel::Container ^components;
 #pragma endregion
 	};
 }

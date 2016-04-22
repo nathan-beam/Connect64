@@ -17,7 +17,6 @@ namespace view{
 			String^ time = score->GetTime() + "";
 			String^ puzzleNum = score->GetPuzzleNum() + "";
 			this->ScoreBoardGridView->Rows->Add(puzzleNum, name, time);
-
 		}
 	}
 
@@ -28,8 +27,6 @@ namespace view{
 			this->nameColumn->HeaderText = this->resourceManager->GetString("NameHeader");
 			this->timeColumm->HeaderText = this->resourceManager->GetString("TimeHeader");
 
-
-		
-	}
+		}
 }
 
