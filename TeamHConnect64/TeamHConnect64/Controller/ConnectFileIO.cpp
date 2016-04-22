@@ -143,14 +143,7 @@ namespace controller{
 	void ConnectFileIO::SaveSettings(String^ fileName, bool soundEnabled, Color^ textColor, Color^ backgroundColor)
 	{
 		StreamWriter^ sw = gcnew StreamWriter(fileName, false);
-		int soundEnableBit;
-		if (soundEnabled)
-		{
-			soundEnableBit = 1;
-		} else
-		{
-			soundEnableBit = 0;
-		}
+		int soundEnableBit = Convert::ToInt32(soundEnabled);
 		String^ textHex = ColorTranslator::ToHtml(Color::FromArgb(textColor->ToArgb()));
 		String^ backgroundHex = ColorTranslator::ToHtml(Color::FromArgb(backgroundColor->ToArgb()));
 
