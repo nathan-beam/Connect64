@@ -4,18 +4,27 @@ using namespace cli;
 using namespace System::Drawing;
 
 namespace model{
+	/*
+		Class to represent a square grid of numbers for the connect64 game
+		@authors Beam
+		@version Spring 2016
+	*/
 	ref class Board
 	{
 	public:
 		/*
 			Constuctor for a new board object with a specified puzzle number.
 			@param puzzleNumber the number of the puzzle board
+
 		*/
 		Board(int puzzleNumber);
 
 		/*
 			Copy constructor for a board object.
 			@param copyBoard the board object to copy
+			@precondition board to copy is not null
+			@postcondition a deep copy of the board is returned
+
 		*/
 		Board(Board^ copyBoard);
 
@@ -63,6 +72,7 @@ namespace model{
 		bool isSolved();
 
 	private:
+		int BOARD_SIZE = 8;
 		array<int, 2>^ board;
 		int puzzleNumber;
 		bool touchingNextTile(int x, int y);

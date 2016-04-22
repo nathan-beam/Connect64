@@ -22,9 +22,6 @@
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{334b9936-214b-4b64-a65c-1fde553236d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\View">
-      <UniqueIdentifier>{c8fd44f8-8fad-40e5-ae06-e639b95ec333}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Model">
       <UniqueIdentifier>{b8888824-0224-4a79-9ba0-7c69162d166f}</UniqueIdentifier>
     </Filter>

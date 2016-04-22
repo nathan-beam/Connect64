@@ -2,43 +2,45 @@
 
 namespace model{
 	Board::Board(int puzzleNumber)
-		//TODO: Board size to constants
 	{
 		this->board = gcnew array<int, 2>(8, 8);
 		this->puzzleNumber = puzzleNumber;
 	}
 
 	Board::Board(Board^ copyBoard){
-		this->board = gcnew array<int, 2>(8, 8);
+		if (copyBoard == nullptr){
+			throw gcnew ArgumentException("Board was null!");
+		}
+		this->board = gcnew array<int, 2>(BOARD_SIZE, BOARD_SIZE);
 		this->puzzleNumber = copyBoard->getPuzzleNumber();
-		for (int x = 0; x < 8; x++)
+		for (int x = 0; x < BOARD_SIZE; x++)
 		{
-			for (int y = 0; y < 8; y++){
+			for (int y = 0; y < BOARD_SIZE; y++){
 				this->board[x, y] = copyBoard->getTile(x, y);
 			}
 		}
 	}
 
 	int Board::getTile(int x, int y){
-		if (x > 7 || x < 0 || y > 7 || y < 0)
+		if (x > BOARD_SIZE - 1 || x < 0 || y > BOARD_SIZE-1 || y < 0)
 		{
-			return 0;  //TODO : Error checking
+			return 0;  
 		}
 		return this->board[x, y];
 	}
 
 	void Board::setTile(int x, int y, int num){
-		if (x > 7 || x < 0 || y > 7 || y < 0)
+		if (x > BOARD_SIZE - 1 || x < 0 || y > BOARD_SIZE - 1 || y < 0)
 		{
-			return; //TODO : Error checking
+			return; 
 		}
 		this->board[x, y] = num;
 	}
 
 	bool Board::contains(int value){
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < BOARD_SIZE; i++)
 		{
-			for (int j = 0; j < 8; j++){
+			for (int j = 0; j < BOARD_SIZE; j++){
 				if (this->board[i, j] == value){
 					return true;
 				}
@@ -52,9 +54,9 @@ namespace model{
 			return false;
 		}
 		int valueCount = 0;
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < BOARD_SIZE; i++)
 		{
-			for (int j = 0; j < 8; j++){
+			for (int j = 0; j < BOARD_SIZE; j++){
 				if (this->board[i, j] == value){
 					valueCount++;
 				}
@@ -76,20 +78,20 @@ namespace model{
 	}
 
 	bool Board::touchingNextTile(int x, int y){
-		if (this->getTile(x, y) == 64){ //TODO: Size^2
+		if (this->getTile(x, y) == BOARD_SIZE*BOARD_SIZE){
 			return true;
 		}
 		if (this->touchingOnTop(x, y)){
-			return (this->touchingNextTile(x, y - 1));//SIZE
+			return (this->touchingNextTile(x, y - 1));
 		}
 		if (this->touchingOnLeft(x, y)){
-			return (this->touchingNextTile(x-1, y));//SIZE
+			return (this->touchingNextTile(x-1, y));
 		}
 		if (this->touchingOnRight(x, y)){
-			return (this->touchingNextTile(x+1, y));//SIZE
+			return (this->touchingNextTile(x+1, y));
 		}
 		if (this->touchingOnBottom(x, y)){
-			return (this->touchingNextTile(x, y + 1));//SIZE
+			return (this->touchingNextTile(x, y + 1));
 		}
 
 		return false;
@@ -114,7 +116,7 @@ namespace model{
 	}
 
 	bool Board::touchingOnRight(int x, int y){
-		if (x == 7){ //SIZE
+		if (x == BOARD_SIZE-1){ 
 			return false;
 		}
 		int currVal = this->getTile(x, y);
@@ -123,7 +125,7 @@ namespace model{
 	}
 
 	bool Board::touchingOnBottom(int x, int y){
-		if (y == 7){//SIZE
+		if (y == BOARD_SIZE-1){
 			return false;
 		}
 		int currVal = this->getTile(x, y);

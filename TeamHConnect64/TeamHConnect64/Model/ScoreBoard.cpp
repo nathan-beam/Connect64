@@ -10,6 +10,9 @@ namespace model{
 	}
 
 	void ScoreBoard::addScore(String^ name,  int time,  int puzzleNum){
+		if (name == nullptr){
+			throw gcnew ArgumentException("Name was null!");
+		}
 		HighScore^ newScore = gcnew HighScore(name, time, puzzleNum);
 		if (this->scoreboard->Count == 0)
 		{
