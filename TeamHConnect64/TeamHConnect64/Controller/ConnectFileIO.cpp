@@ -126,14 +126,7 @@ namespace controller{
 		values = str->Split(',');
 		int soundEnableBit = Int32::Parse(values[0]);
 
-		if (soundEnableBit == 0)
-		{
-			this->soundEnabled = false;
-		} else
-		{
-			this->soundEnabled = true;
-		};
-
+		this->soundEnabled = Convert::ToBoolean(soundEnableBit);
 		this->textColor = ColorTranslator::FromHtml(values[1]);
 		this->backgroundColor = ColorTranslator::FromHtml(values[2]);
 
