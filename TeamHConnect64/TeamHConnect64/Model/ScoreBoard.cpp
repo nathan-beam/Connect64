@@ -53,6 +53,7 @@ namespace model{
 			 return lowestScore > score;
 			 
 		 }
+		 return false;
 	 }
 
 	 void ScoreBoard::reset(){
