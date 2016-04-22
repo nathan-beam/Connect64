@@ -8,68 +8,49 @@ using namespace controller;
 
 
 namespace view {
-	using namespace IO;
+	using namespace System::IO;
 	using namespace System;
-	using namespace Windows::Forms::ComponentModel;
-	using namespace Collections;
-	using namespace Windows::Forms;
-	using namespace Data;
-	using namespace Drawing;
-	using namespace Resources;
-	using namespace Collections::Generic;
-	using namespace Media;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+	using namespace System::Resources;
+	using namespace System::Collections::Generic;
+	using namespace System::Media;
 
 	/// <summary>
-	/// Summary for Connect64Form
+	/// Summary for MyForm
 	/// </summary>
-	public ref class Connect64Form : public Form
+	public ref class Connect64Form : public System::Windows::Forms::Form
 	{
 	public:
 		Connect64Form(void);
 
+
 	protected:
 		~Connect64Form();
 
+		
+
+
 	private:
-		Board^ gameBoard;
-		Board^ startingBoard;
-		bool soundEnabled;
-		Button^  confirmInputButton;
-		Button^  loadPuzzleBtn;
-		Button^  scoreBoardButton;
-		Button^  timerButton;
-		Color^ cellColor;
-		Color^ labelColor;
-		ComboBox^  puzzleChoiceBox;
-		ConnectFileIO^ fileIO;
-		IContainer^  components;
-		int puzzleCount;
-		int time = 0;
-		Label^  pauseMessageLabel;
-		Label^  puzzleNumberLabel;
-		Label^  selectPuzzlelbl;
-		Label^  timeLabel;
-		Label^ editLabel;
-		List<Label^>^ labels;
-		MenuStrip^  menuStrip1;
-		NumericUpDown^  numericUpDown;
 		ResourceManager^ resourceManager;
 		ResourceManager^ soundResourceManager;
-		ScoreBoard^ scoreBoard;
+		Label^ editLabel;
+		Board^ startingBoard;
+		List<Label^>^ labels;
+		int time = 0;
+		bool soundEnabled;
+		Color^ labelColor;
+		Color^ cellColor;
+		Board^ gameBoard;
+		ConnectFileIO^ fileIO;
+		int puzzleCount;
 		String^ gamePuzzlesPath;
 		String^ puzzleExtension;
-		TableLayoutPanel^  tableLayoutPanel;
-		Timer^  timer;
-		ToolStripMenuItem^  cellColorToolStripMenuItem;
-		ToolStripMenuItem^  fileToolStripMenuItem;
-		ToolStripMenuItem^  gameToolStripMenuItem;
-		ToolStripMenuItem^  labelColorToolStripMenuItem;
-		ToolStripMenuItem^  loadToolStripMenuItem;
-		ToolStripMenuItem^  resetHighScoresToolStripMenuItem;
-		ToolStripMenuItem^  resetToolStripMenuItem;
-		ToolStripMenuItem^  saveToolStripMenuItem;
-		ToolStripMenuItem^  settingsToolStripMenuItem;
-		ToolStripMenuItem^  soundToolStripMenuItem;
+		ScoreBoard^ scoreBoard;
+
 
 
 		void setBoard();
@@ -79,6 +60,7 @@ namespace view {
 		void setDisplayText();
 		void setTimerLabel();
 		void loadSettings();
+		Color^ getColorFromUser(Color^ currColor);
 		void createLabels();
 		void checkForDuplicates();
 		void increaseUpDown();
@@ -95,23 +77,9 @@ namespace view {
 		void saveBoard();
 		void checkIfHighScore();
 		void updateTile(Label^ update);
-		Color^ getColorFromUser(Color^ currColor);
 		void checkErroredValueEntered(int value);
-		void tableLayoutPanel_MouseDown(Object^  sender, MouseEventArgs^  e);
-		void confirmInputButton_Click(Object^  sender, EventArgs^  e);
-		void resetToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void numericUpDown_KeyDown(Object^  sender, KeyEventArgs^  e);
-		void loadPuzzleBtn_Click(Object^  sender, EventArgs^  e);
-		void label_Click(Object^  sender, MouseEventArgs^  e);
-		void timer_Tick(Object^  sender, EventArgs^  e);
-		void timerButton_Click(Object^  sender, EventArgs^  e);
-		void loadToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void saveToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void scoreBoardButton_Click(Object^  sender, EventArgs^  e);
-		void soundToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void labelColorToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void cellColorToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
-		void resetHighScoresToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -119,6 +87,46 @@ namespace view {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		void InitializeComponent(void);
+
+		System::Windows::Forms::MenuStrip^  menuStrip1;
+		System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  gameToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  settingsToolStripMenuItem;
+		System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel;
+		System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  resetToolStripMenuItem;
+		System::Windows::Forms::NumericUpDown^  numericUpDown;
+		System::Windows::Forms::Label^  puzzleNumberLabel;
+		System::Windows::Forms::ComboBox^  puzzleChoiceBox;
+		System::Windows::Forms::Label^  selectPuzzlelbl;
+		System::Windows::Forms::Button^  loadPuzzleBtn;
+		System::Windows::Forms::Timer^  timer;
+		System::Windows::Forms::Label^  timeLabel;
+		System::Windows::Forms::Button^  timerButton;
+		System::Windows::Forms::Label^  pauseMessageLabel;
+		System::Windows::Forms::Button^  confirmInputButton;
+		System::Windows::Forms::Button^  scoreBoardButton;
+		System::Windows::Forms::ToolStripMenuItem^  soundToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  labelColorToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  cellColorToolStripMenuItem;
+		System::Windows::Forms::ToolStripMenuItem^  resetHighScoresToolStripMenuItem;
+		System::ComponentModel::IContainer^  components;
+		System::Void tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
+		System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
+		System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void label_Click(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
+		System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e);
+		System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
+		System::Void resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
 
 	};
 }
