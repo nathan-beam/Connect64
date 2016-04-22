@@ -19,6 +19,7 @@ namespace view
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();
 		this->createLabels();
+		this->saveToolStripMenuItem->Enabled = false;
 
 	}
 
@@ -220,7 +221,7 @@ namespace view
 	{
 		this->stopTimer();
 		this->time = 0;
-		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+		this->setTimerLabel();
 
 		this->loadPuzzle(this->puzzleChoiceBox->SelectedIndex + 1);
 		this->setBoard();
@@ -273,7 +274,7 @@ namespace view
 	void Connect64Form::stopTimer(){
 		this->timer->Enabled = false;
 		this->timerButton->Text = this->resourceManager->GetString("TimerButtonStart");
-		this->timeLabel->Text = this->resourceManager->GetString("TimeLabelText") + this->time.ToString("0000");
+		this->setTimerLabel();
 	}
 
 	void Connect64Form::hideBoard(){
@@ -315,6 +316,7 @@ namespace view
 		this->fileIO = gcnew ConnectFileIO();
 		this->fileIO->ReadFile(this->gamePuzzlesPath + puzzleNumber + puzzleExtension);
 		this->startingBoard = gcnew Board(this->fileIO->GetBoard());
+		this->saveToolStripMenuItem->Enabled = true;
 	}
 
 	void Connect64Form::playSuccessSound(){
