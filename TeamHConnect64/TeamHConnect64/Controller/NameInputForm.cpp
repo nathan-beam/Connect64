@@ -8,6 +8,7 @@ namespace view{
 
 	void NameInputForm::okButton_Click(System::Object^  sender, System::EventArgs^  e){
 		this->name = this->inputBox->Text->Trim();
+		this->name = this->name->Replace(",", "");
 		 if (this->name->Length == 0){
 			 this->name = this->resourceManager->GetString("DefaultName");
 		 }

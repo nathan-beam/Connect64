@@ -209,7 +209,7 @@ namespace view
 		this->stopTimer();
 		this->time = 0;
 		this->setTimerLabel();
-
+		this->numericUpDown->Value = 1;
 		this->loadPuzzle(this->puzzleChoiceBox->SelectedIndex + 1);
 		this->setBoard();
 		this->timerButton->Enabled = true;
