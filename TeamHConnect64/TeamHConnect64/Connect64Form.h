@@ -8,86 +8,68 @@ using namespace controller;
 
 
 namespace view {
-	using namespace System::IO;
+	using namespace IO;
 	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-	using namespace System::Resources; 
-	using namespace System::Collections::Generic;
-	using namespace System::Media;
+	using namespace Windows::Forms::ComponentModel;
+	using namespace Collections;
+	using namespace Windows::Forms;
+	using namespace Data;
+	using namespace Drawing;
+	using namespace Resources;
+	using namespace Collections::Generic;
+	using namespace Media;
 
 	/// <summary>
-	/// Summary for MyForm
+	/// Summary for Connect64Form
 	/// </summary>
-	public ref class Connect64Form : public System::Windows::Forms::Form
+	public ref class Connect64Form : public Form
 	{
-		public:
+	public:
 		Connect64Form(void);
 
-
-		protected:
+	protected:
 		~Connect64Form();
 
-		 ResourceManager^ resourceManager;
-		 ResourceManager^ soundResourceManager;
-
-
 	private:
-	 System::Windows::Forms::MenuStrip^  menuStrip1;
-	 System::Windows::Forms::ToolStripMenuItem^  fileToolStripMenuItem;
-	 System::Windows::Forms::ToolStripMenuItem^  gameToolStripMenuItem;
-	 System::Windows::Forms::ToolStripMenuItem^  settingsToolStripMenuItem;
-	 System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel;
-			 Board^ gameBoard;
-			 ConnectFileIO^ fileIO;
-			 int puzzleCount;
-			 String^ gamePuzzlesPath;
-			 String^ puzzleExtension;
-			 ScoreBoard^ scoreBoard;
-			 
-
-	 System::Windows::Forms::ToolStripMenuItem^  saveToolStripMenuItem;
-	 System::Windows::Forms::ToolStripMenuItem^  loadToolStripMenuItem;
-	 System::Windows::Forms::ToolStripMenuItem^  resetToolStripMenuItem;
-	 System::Windows::Forms::NumericUpDown^  numericUpDown;
-
-
-		 Label^ editLabel;
-		 Board^ startingBoard;
-		 List<Label^>^ labels;
-		 int time = 0;
-		 bool soundEnabled;
-		 Color^ labelColor;
-		 Color^ cellColor;
-	 System::Windows::Forms::Label^  puzzleNumberLabel;
-	private: System::Windows::Forms::ComboBox^  puzzleChoiceBox;
-	private: System::Windows::Forms::Label^  selectPuzzlelbl;
-	private: System::Windows::Forms::Button^  loadPuzzleBtn;
-	private: System::Windows::Forms::Timer^  timer;
-
-	private: System::Windows::Forms::Label^  timeLabel;
-	private: System::Windows::Forms::Button^  timerButton;
-	private: System::Windows::Forms::Label^  pauseMessageLabel;
-	private: System::Windows::Forms::Button^  confirmInputButton;
-	private: System::Windows::Forms::Button^  scoreBoardButton;
-	private: System::Windows::Forms::ToolStripMenuItem^  soundToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  labelColorToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  cellColorToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  resetHighScoresToolStripMenuItem;
-
-
-
-	private: System::ComponentModel::IContainer^  components;
-
-
-
-		
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		Board^ gameBoard;
+		Board^ startingBoard;
+		bool soundEnabled;
+		Button^  confirmInputButton;
+		Button^  loadPuzzleBtn;
+		Button^  scoreBoardButton;
+		Button^  timerButton;
+		Color^ cellColor;
+		Color^ labelColor;
+		ComboBox^  puzzleChoiceBox;
+		ConnectFileIO^ fileIO;
+		IContainer^  components;
+		int puzzleCount;
+		int time = 0;
+		Label^  pauseMessageLabel;
+		Label^  puzzleNumberLabel;
+		Label^  selectPuzzlelbl;
+		Label^  timeLabel;
+		Label^ editLabel;
+		List<Label^>^ labels;
+		MenuStrip^  menuStrip1;
+		NumericUpDown^  numericUpDown;
+		ResourceManager^ resourceManager;
+		ResourceManager^ soundResourceManager;
+		ScoreBoard^ scoreBoard;
+		String^ gamePuzzlesPath;
+		String^ puzzleExtension;
+		TableLayoutPanel^  tableLayoutPanel;
+		Timer^  timer;
+		ToolStripMenuItem^  cellColorToolStripMenuItem;
+		ToolStripMenuItem^  fileToolStripMenuItem;
+		ToolStripMenuItem^  gameToolStripMenuItem;
+		ToolStripMenuItem^  labelColorToolStripMenuItem;
+		ToolStripMenuItem^  loadToolStripMenuItem;
+		ToolStripMenuItem^  resetHighScoresToolStripMenuItem;
+		ToolStripMenuItem^  resetToolStripMenuItem;
+		ToolStripMenuItem^  saveToolStripMenuItem;
+		ToolStripMenuItem^  settingsToolStripMenuItem;
+		ToolStripMenuItem^  soundToolStripMenuItem;
 
 
 		void setBoard();
@@ -97,8 +79,39 @@ namespace view {
 		void setDisplayText();
 		void setTimerLabel();
 		void loadSettings();
+		void createLabels();
+		void checkForDuplicates();
+		void increaseUpDown();
+		void clearCell(Label^ labelToClear);
+		bool isDefault(Label^ label);
+		void checkWin();
+		void stopTimer();
+		void hideBoard();
+		void unhideBoard();
+		void loadPuzzle(int puzzleNumber);
+		void loadSavedGame();
+		void playSuccessSound();
+		void playErrorSound();
+		void saveBoard();
+		void checkIfHighScore();
+		void updateTile(Label^ update);
 		Color^ getColorFromUser(Color^ currColor);
-
+		void checkErroredValueEntered(int value);
+		void tableLayoutPanel_MouseDown(Object^  sender, MouseEventArgs^  e);
+		void confirmInputButton_Click(Object^  sender, EventArgs^  e);
+		void resetToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void numericUpDown_KeyDown(Object^  sender, KeyEventArgs^  e);
+		void loadPuzzleBtn_Click(Object^  sender, EventArgs^  e);
+		void label_Click(Object^  sender, MouseEventArgs^  e);
+		void timer_Tick(Object^  sender, EventArgs^  e);
+		void timerButton_Click(Object^  sender, EventArgs^  e);
+		void loadToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void saveToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void scoreBoardButton_Click(Object^  sender, EventArgs^  e);
+		void soundToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void labelColorToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void cellColorToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
+		void resetHighScoresToolStripMenuItem_Click(Object^  sender, EventArgs^  e);
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -107,40 +120,6 @@ namespace view {
 		/// </summary>
 		void InitializeComponent(void);
 
- System::Void tableLayoutPanel_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
-
-
- System::Void confirmInputButton_Click(System::Object^  sender, System::EventArgs^  e);
-			void createLabels();
-		 void checkForDuplicates();
-		 void increaseUpDown();
-		 void clearCell(Label^ labelToClear);
-		 bool isDefault(Label^ label);
-		 void checkWin();
-		 void stopTimer();
-		 void hideBoard();
-		 void unhideBoard();
-		 void loadPuzzle(int puzzleNumber);
-		 void loadSavedGame();
-		 void playSuccessSound();
-		 void playErrorSound();
-		 void saveBoard();
-		 void checkIfHighScore();
-		 void updateTile(Label^ update);
-		 void checkErroredValueEntered(int value);
- System::Void resetToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
- System::Void numericUpDown_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e);
- System::Void loadPuzzleBtn_Click(System::Object^  sender, System::EventArgs^  e);
- System::Void label_Click(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e);
-	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e);
-	private: System::Void timerButton_Click(System::Object^  sender, System::EventArgs^  e);
-			 System::Void loadToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-			 System::Void saveToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-	private: System::Void scoreBoardButton_Click(System::Object^  sender, System::EventArgs^  e);
-	private: System::Void soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-private: System::Void resetHighScoresToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e);
-};
+	};
 }
 
