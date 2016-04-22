@@ -9,12 +9,12 @@ namespace view
 		this->resourceManager = gcnew ResourceManager("TeamHConnect64.DisplayStrings", this->GetType()->Assembly);
 		this->soundResourceManager = gcnew ResourceManager("TeamHConnect64.sounds", this->GetType()->Assembly);
 		this->Text = this->resourceManager->GetString("FormTitleText");
+		this->puzzleExtension = this->resourceManager->GetString("PuzzlesExtension");
+		this->gamePuzzlesPath = this->resourceManager->GetString("GamePuzzlesPath");
 		this->setDisplayText();
 		this->loadSettings();
 		this->fileIO = gcnew ConnectFileIO();
 		this->scoreBoard = gcnew ScoreBoard();
-		this->puzzleExtension = this->resourceManager->GetString("PuzzlesExtension");
-		this->gamePuzzlesPath = this->resourceManager->GetString("GamePuzzlesPath");
 		DirectoryInfo^ directory = gcnew DirectoryInfo(gamePuzzlesPath);
 		this->puzzleCount = directory->GetFiles()->Length;
 		this->setPuzzleChooser();

@@ -19,13 +19,21 @@ namespace view {
 	using namespace System::Collections::Generic;
 	using namespace System::Media;
 
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
+	/*
+		Primary form for gameplay and I/O
+		@authors Beam/Maginniss
+		@version Spring 2016
+	*/
 	public ref class Connect64Form : public System::Windows::Forms::Form
 	{
 	public:
-		Connect64Form(void);
+
+		/*
+			Constructor to initialize the form
+			@precondition none
+			@postcondition form is initialized
+		*/
+		Connect64Form();
 
 
 	protected:
