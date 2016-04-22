@@ -9,11 +9,28 @@ namespace view {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Resources;
-
+	/*
+		Form for inputting a name after a high schore is acheived
+		@authors Beam
+		@version Spring 2016
+	*/
 	public ref class NameInputForm : public System::Windows::Forms::Form
 	{
 	public:
-		NameInputForm(void);
+		/*
+			Constructor to initialize the form
+			@precondition none
+			@postcondition the object is initialized
+		*/
+		NameInputForm();
+
+		/*
+			Getter for name entered by user
+			@return the name supplied by user, or anonymous if name not supplied
+			@precondition none
+			@postcondition none
+
+		*/
 		String^ getName();
 
 
