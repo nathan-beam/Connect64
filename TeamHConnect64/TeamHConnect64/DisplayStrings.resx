@@ -241,4 +241,7 @@ Enter your name:</value>
   <data name="UnsolvedTitleText" xml:space="preserve">
     <value>Uh-oh!</value>
   </data>
+  <data name="SettingsFilePath" xml:space="preserve">
+    <value>Save/settings.txt</value>
+  </data>
 </root>

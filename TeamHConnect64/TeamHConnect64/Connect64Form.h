@@ -97,6 +97,7 @@ namespace view {
 		void setDisplayText();
 		void setTimerLabel();
 		void loadSettings();
+		void saveSettings();
 		Color^ getColorFromUser(Color^ currColor);
 
 

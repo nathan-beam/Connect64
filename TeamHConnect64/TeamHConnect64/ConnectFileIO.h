@@ -55,11 +55,48 @@ namespace controller{
 			Method to get the stored count from thet timer.
 		*/
 		int GetTimerCount();
+
+		/*
+			Method to load the stored settings.
+			@param fileName the file to load the settings from
+		*/
+		void LoadSettings(String^ fileName);
+
+		/*
+			Method to save the settings to a file.
+			@param fileName the file to save the settings to
+			@param soundEnabled true or false for if the sound is enabled
+			@param textColor the color of the text in the view
+			@param backgroundColor the color of the background of the form
+		*/
+		void SaveSettings(String^ fileName, bool soundEnabled, Color^ textColor, Color^ backgroundColor);
+
+		/*
+			Method to get the sound setting
+			@return true or false to indicate whether sound is enabled
+		*/
+		bool GetSoundSetting();
+
+		/*
+			Method to get the text color setting
+			@return a color for the text setting
+		*/
+		Color^ GetTextColor();
+
+		/*
+			Method to get the background color setting
+			@return a color for the background setting
+		*/
+		Color^ GetBackgroundColor();
+
 	private:
 		String^ fileName;
 		int puzzleNumber;
 		Board^ board;
 		List<HighScore^>^ scoreboard;
 		int timerCount;
+		bool soundEnabled;
+		Color^ textColor;
+		Color^ backgroundColor;
 	};
 }

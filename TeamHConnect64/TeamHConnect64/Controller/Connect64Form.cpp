@@ -372,18 +372,27 @@ namespace view
 	}
 
 	void Connect64Form::loadSettings(){
-		this->soundEnabled = true;
+		this->fileIO = gcnew ConnectFileIO();
+		String^ settingFileName = this->resourceManager->GetString("SettingsFilePath");
+		this->fileIO->LoadSettings(settingFileName);
+		this->soundEnabled = this->fileIO->GetSoundSetting();
+		this->labelColor = this->fileIO->GetTextColor();
+		this->cellColor = this->fileIO->GetBackgroundColor();
 		this->soundToolStripMenuItem->Checked = this->soundEnabled;
-		this->labelColor = Color::Blue;
-		this->cellColor = Color::Green;
 		this->tableLayoutPanel->BackColor = *this->cellColor;
+	}
 
+	void Connect64Form::saveSettings()
+	{
+		this->fileIO = gcnew ConnectFileIO();
+		String^ settingFileName = this->resourceManager->GetString("SettingsFilePath");
+		this->fileIO->SaveSettings(settingFileName, this->soundEnabled, this->labelColor, this->cellColor);
 	}
 
 	void Connect64Form::soundToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e){
 		this->soundToolStripMenuItem->Checked = (!this->soundToolStripMenuItem->Checked);
 		this->soundEnabled = this->soundToolStripMenuItem->Checked;
-
+		this->saveSettings();
 	}
 
 	void Connect64Form::labelColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -391,10 +400,12 @@ namespace view
 		if (this->gameBoard){
 			this->checkForDuplicates();
 		}
+		this->saveSettings();
 	}
 	void Connect64Form::cellColorToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->cellColor = this->getColorFromUser(this->cellColor);
 		this->tableLayoutPanel->BackColor = *this->cellColor;
+		this->saveSettings();
 	}
 
 	Color^ Connect64Form::getColorFromUser(Color^ currColor){

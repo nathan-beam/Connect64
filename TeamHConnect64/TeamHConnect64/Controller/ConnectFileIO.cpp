@@ -101,8 +101,8 @@ namespace controller{
 				array<String^>^ values;
 				values = str->Split(',');
 				String^ name = values[0];
-				int time = Int32::Parse(values[1]);;
-				int puzzleNumber = Int32::Parse(values[2]);;
+				int time = Int32::Parse(values[1]);
+				int puzzleNumber = Int32::Parse(values[2]);
 				this->scoreboard->Add(gcnew HighScore(name, time, puzzleNumber));
 			}
 			din->Close();
@@ -116,4 +116,62 @@ namespace controller{
 	{
 		return this->scoreboard;
 	}
+
+	void ConnectFileIO::LoadSettings(String^ fileName)
+	{
+		StreamReader^ din = File::OpenText(fileName);
+		String^ str;
+		str = din->ReadLine();
+		array<String^>^ values;
+		values = str->Split(',');
+		int soundEnableBit = Int32::Parse(values[0]);
+
+		if (soundEnableBit == 0)
+		{
+			this->soundEnabled = false;
+		} else
+		{
+			this->soundEnabled = true;
+		};
+
+		this->textColor = ColorTranslator::FromHtml(values[1]);
+		this->backgroundColor = ColorTranslator::FromHtml(values[2]);
+
+	}
+
+	
+	void ConnectFileIO::SaveSettings(String^ fileName, bool soundEnabled, Color^ textColor, Color^ backgroundColor)
+	{
+		StreamWriter^ sw = gcnew StreamWriter(fileName, false);
+		int soundEnableBit;
+		if (soundEnabled)
+		{
+			soundEnableBit = 1;
+		} else
+		{
+			soundEnableBit = 0;
+		}
+		String^ textHex = ColorTranslator::ToHtml(Color::FromArgb(textColor->ToArgb()));
+		String^ backgroundHex = ColorTranslator::ToHtml(Color::FromArgb(backgroundColor->ToArgb()));
+
+		sw->WriteLine(soundEnableBit + "," + textHex + "," + backgroundHex);
+		sw->Close();
+	}
+
+	bool ConnectFileIO::GetSoundSetting()
+	{
+		return this->soundEnabled;
+	}
+
+	Color^ ConnectFileIO::GetTextColor()
+	{
+		return this->textColor;
+	}
+
+	Color^ ConnectFileIO::GetBackgroundColor()
+	{
+		return this->backgroundColor;
+	}
+
+
 }
