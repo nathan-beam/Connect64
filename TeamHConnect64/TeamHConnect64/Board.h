@@ -33,6 +33,9 @@ namespace model{
 			@param x the value of the x-coordinate
 			@param y the value of the y-coordinate
 			@return the value at the x-y location
+			@precondition none
+			@postcondition none
+
 		*/
 		int getTile(int x, int y);
 
@@ -41,6 +44,9 @@ namespace model{
 			@param x the value of the x-coordinate
 			@param y the value of the y-coordinate
 			@param num the value to be set in the x-y location
+			@precondition none 
+			@postcondition the tile at x-y value is set to the specified value
+
 		*/
 		void setTile(int x, int y, int num);
 
@@ -48,6 +54,9 @@ namespace model{
 			Method to see if the board contains a value.
 			@param value the value being checked for
 			@return true or false depending on if the value is in the board
+			@precondition none
+			@postcondition none
+
 		*/
 		bool contains(int value);
 
@@ -56,18 +65,27 @@ namespace model{
 			Method to see if the board contains two of the same values.
 			@param value the value being checked for
 			@return true or false depending on if the value is duplicated in the board
+			@precondition none
+			@postcondition none
+
 		*/
 		bool isDuplicate(int value);
 
 		/*
 			Method to get the puzzle number.
 			@return the puzzle number
+			@precondition none
+			@postcondition none
+
 		*/
 		int getPuzzleNumber();
 
 		/*
 			Method to see if the board/puzzle is fully solved.
 			@return true if the puzzle is solved, false if not
+			@precondition none
+			@postcondition none
+
 		*/
 		bool isSolved();
 
