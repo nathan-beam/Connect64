@@ -125,6 +125,7 @@ namespace view
 		int x = this->tableLayoutPanel->GetColumn(this->numericUpDown);
 		int y = this->tableLayoutPanel->GetRow(this->numericUpDown);
 		this->numericUpDown->Visible = false;
+		this->loadPuzzleBtn->Enabled = true;
 		int value = safe_cast<int>(this->numericUpDown->Value);
 		this->gameBoard->setTile(x, y, value);
 		this->checkErroredValueEntered(value);
@@ -437,6 +438,7 @@ namespace view
 		this->tableLayoutPanel->Controls->Add(this->numericUpDown, x, y);
 		this->editLabel = label;
 		this->numericUpDown->Visible = true;
+		this->loadPuzzleBtn->Enabled = false;
 		this->confirmInputButton->Enabled = true;
 	}
 
